@@ -1,0 +1,15 @@
+@function px2rem( $px ){
+  @return $px*320/$designWidth/20 + rem;
+}
+
+@mixin px2px($px){
+    [data-dpr="1"] & {
+        font-size: ($px / 2) * 1px;
+    }
+    [data-dpr="2"] & {
+        font-size: $px * 1px;
+    }
+    [data-dpr="3"] & {
+        font-size: ($px / 2 * 3) * 1px;
+    }
+}

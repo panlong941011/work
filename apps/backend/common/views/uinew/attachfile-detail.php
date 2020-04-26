@@ -1,0 +1,4 @@
+<div class="input-group">
+    <input type="text" class="form-control" sFieldAs="<?=$field->sFieldAs?>" sDataType="<?=$field->sDataType?>" ondblclick="showDetailUpload(this, '<?=$field->sObjectName?>', '<?=$field->sFieldAs?>', '<?=$field->sLinkField?>')" onchange="$('input[name=\'arrObjectData[<?=$field->sObjectName?>][<?=$field->sFieldAs?>]\']').val('')" placeholder="<?=Yii::t('app', '双击上传附件')?>" value="<?=$data?>" name="arrObjectData[<?=$field->sObjectName?>][<?=$field->sFieldAs?>][]" <? if ($field->bReadOnly) { ?>readonly="readonly"<? } elseif ($field->bDisabled) { ?>disabled="disabled"<? } ?>>
+    <input type="hidden" sFieldAs="<?=$field->sLinkField?>" name="arrObjectData[<?=$field->sObjectName?>][<?=$field->sLinkField?>][]" value="<?=$sLinkFieldValue?>" />
+</div> 

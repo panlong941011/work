@@ -1,0 +1,1 @@
+a:2:{i:0;a:6:{s:6:"unpaid";s:9:"未付款";s:4:"paid";s:9:"已付款";s:9:"delivered";s:9:"已发货";s:7:"success";s:12:"交易成功";s:6:"closed";s:12:"交易关闭";s:9:"exception";s:12:"付款异常";}i:1;N;}

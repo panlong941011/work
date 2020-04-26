@@ -1,0 +1,99 @@
+@import 'px2rem';
+$designWidth : 750;
+
+body,html {
+  background: #eeeeee;
+  height: 100%;
+  width: 100%;
+}
+body{
+  padding-bottom:px2rem(50);
+}
+
+.canvasBox{
+  background: #fff;
+  margin-top: .1rem;
+  padding: .1rem 0;
+}
+.content .con-nav>ul{
+  display: flex;
+  background:#fff;
+  li{
+    flex: 1;
+    padding:.2rem .5rem;
+
+  }
+}
+.content .con-nav>ul>li>a{
+  display:block;
+  text-align:center;
+  height:px2rem(70);
+  line-height:px2rem(70);
+  @include px2px(26);
+}
+.content .con-nav>ul>li.cur>a{
+  color:#f42323;
+  font-weight:600;
+  border-bottom:1px solid #f42323;
+}
+
+.btns{
+  background: #fff;
+  height: px2rem(100);
+  line-height: px2rem(100);
+  display: flex;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  border-top: 1px solid #e5e5e5;
+  a{
+    display: block;
+    flex: 1;
+    color:#fff;
+    background:#f60;
+    @include px2px(28);
+  }
+  a:first-child{
+    border-right:1px solid #eee;
+  }
+
+}
+.tab{
+  margin-top:.1rem;
+  width:100%;
+  background:#fff;
+  padding:.2rem;
+  table{
+    width: 100%;
+    border:0;
+    border-right:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    tr{
+      display:flex;
+    }
+    tr th{
+      background:#f42323;
+      color:#fff;
+      @include px2px(26);
+    }
+  }
+}
+.tab tr th,.tab tr td{
+  flex:1;
+  width:33.33%;
+  text-align:center;
+  border-left:1px solid #ddd;
+  border-top:1px solid #ddd;
+  /*height:.6rem;*/
+  line-height:px2rem(70);
+  @include px2px(24);
+  color:#333;
+}
+.tab-tbody>tr:nth-child(even){
+  background:#eee;
+}
+.tab tr th{
+  line-height:px2rem(35);
+  padding: px2rem(20) 0;
+}

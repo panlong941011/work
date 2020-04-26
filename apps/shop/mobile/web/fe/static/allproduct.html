@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>供应商全部商品</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/car.css">
+    <link rel="stylesheet" href="../css/supplier.css">
+    <script src="../js/hotcss.js"></script>
+    <style>
+        .dropload-noData {
+            background: #eeeeee;
+            text-align: center;
+            font-size: 30px;
+            padding: 50px 0;
+            color: #999;
+        }
+        [v-cloak] {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ad_header" >
+        <a href="javascript:;" class="ad_back">
+            <span class="icon">&#xe885;</span>
+        </a>
+        <h2>全部商品</h2>
+        <span class="ad_more icon">&#xe602;</span>
+    </div>
+
+    <div class="car_selling s-list" id="app" v-cloak>
+        <div class="selling_list">
+            <ul>
+                <li class="sellings" v-for="item in dataList">
+                    <a href="">
+                        <div class="sell_pic" :class='{sellout: item.sellout}'>
+                            <img :src="item.pic" alt="">
+                        </div>
+                        <div class="sell_info">
+                            <h3 class="multiEllipsis" v-text="item.name"></h3>
+                            <span class="sell_price" v-text="'¥'+item.price"></span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="dropload-noData">啊哦~没有更多了</div>
+    </div>
+    <script src="../js/zepto.min.js"></script>
+    <script src="../js/dropload.min.js"></script>
+    <script src="../js/vue.min.js"></script>
+    <script src="http://mockjs.com/dist/mock.js"></script>
+    <script>
+          Mock.mock('www.yongzheng.dev', {
+           products: [{
+                pic: '../images/car/sell.png',
+                name: 'BurtsBees 美国小蜜蜂宝宝Burts洗发水沐浴露二合一 洗发水沐浴露二合一',
+                price: 78.00,
+                sellout: true 
+            },{
+                pic: '../images/car/sell.png',
+                name: 'BurtsBees 美国小蜜蜂宝宝Burts洗发水沐浴露二合一 洗发水沐浴露二合一',
+                price: 78.00,
+                sellout: false 
+            },{
+                pic: '../images/car/sell.png',
+                name: 'BurtsBees 美国小蜜蜂宝宝Burts洗发水沐浴露二合一 洗发水沐浴露二合一',
+                price: 78.00,
+                sellout: false 
+            },{
+                pic: '../images/car/sell.png',
+                name: 'BurtsBees 美国小蜜蜂宝宝Burts洗发水沐浴露二合一 洗发水沐浴露二合一',
+                price: 78.00,
+                sellout: false 
+            },{
+                pic: '../images/car/sell.png',
+                name: 'BurtsBees 美国小蜜蜂宝宝Burts洗发水沐浴露二合一 洗发水沐浴露二合一',
+                price: 78.00,
+                sellout: false 
+            },{
+                pic: '../images/car/sell.png',
+                name: 'BurtsBees 美国小蜜蜂宝宝Burts洗发水沐浴露二合一 洗发水沐浴露二合一',
+                price: 78.00,
+                sellout: true 
+            }],
+            'isMore': true
+        });
+    </script>
+    <script>
+        var dataList = [{
+            pic: '../images/car/sell.png',
+            name: 'BurtsBees 美国小蜜蜂宝宝Burts洗发水沐浴露二合一 洗发水沐浴露二合一',
+            price: 78.00,
+            sellout: true 
+        },{
+            pic: '../images/car/sell.png',
+            name: 'BurtsBees 美国小蜜蜂宝宝Burts洗发水沐浴露二合一 洗发水沐浴露二合一',
+            price: 78.00,
+            sellout: false 
+        },{
+            pic: '../images/car/sell.png',
+            name: 'BurtsBees 美国小蜜蜂宝宝Burts洗发水沐浴露二合一 洗发水沐浴露二合一',
+            price: 78.00,
+            sellout: false 
+        },{
+            pic: '../images/car/sell.png',
+            name: 'BurtsBees 美国小蜜蜂宝宝Burts洗发水沐浴露二合一 洗发水沐浴露二合一',
+            price: 78.00,
+            sellout: false 
+        },{
+            pic: '../images/car/sell.png',
+            name: 'BurtsBees 美国小蜜蜂宝宝Burts洗发水沐浴露二合一 洗发水沐浴露二合一',
+            price: 78.00,
+            sellout: false 
+        },{
+            pic: '../images/car/sell.png',
+            name: 'BurtsBees 美国小蜜蜂宝宝Burts洗发水沐浴露二合一 洗发水沐浴露二合一',
+            price: 78.00,
+            sellout: true 
+        }];
+
+        var supppilerID = 1;
+
+        new Vue({
+            el: '#app',
+            data: {
+                dataList: dataList,
+                isMore: true,
+                page: 1,
+                id: supppilerID,
+            },
+            mounted: function() {
+                var _this = this;
+                $('.car_selling').dropload({
+                    scrollArea: window,
+                    autoLoad: false,
+                    domDown: {
+                        domClass: 'dropload-down',
+                        domRefresh: '<div class="dropload-refresh"></div>',
+                        domLoad: '<div class="dropload-load">加载中...</div>',
+                        domNoData: '<div class="dropload-noData">没有更多商品了~</div>'
+                    },
+                    loadDownFn: function (me) {
+                        _this.page++;
+                        if (!_this.isMore) {
+                            return;
+                        }
+                        $.ajax({
+                            type: 'post', //实际中要改为 get 现在是效果需要
+                            url: 'www.yongzheng.dev',
+                            data: {
+                                index: _this.page
+                            },
+                            dataType: 'json',
+                            success: function (res) {
+                                console.log(res);
+                                if (res) {
+                                    console.log(res.products);
+                                    _this.dataList = _this.dataList.concat(res.products);
+                                    _this.isMore = res.isMore;
+                                } else {
+                                    // 锁定
+                                    me.lock();
+                                    // 无数据
+                                    me.noData();
+                                }
+
+                                me.resetload();
+                            },
+                            error: function (xhr, type) {
+                                me.resetload();
+                            }
+                        });
+                       
+                    }
+                });
+
+            },
+            
+        })
+    </script>
+
+</body>
+
+</html>

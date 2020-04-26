@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.BuyerMapper">
+    <select id="findBuyerByIp" parameterType="group.dny.api.entity.Buyer" resultType="group.dny.api.entity.Buyer">
+        SELECT lID
+        FROM Buyer
+        WHERE sIP = #{sIP};
+    </select>
+
+    <select id="findBuyerByID" parameterType="int" resultType="group.dny.api.entity.Buyer">
+        SELECT lID,sName,sMobile,sIP,fBalance,sConfig
+        FROM Buyer
+        WHERE lID = #{lID};
+    </select>
+
+    <update id="updateBuyerBalanceByID" parameterType="group.dny.api.entity.Order">
+        UPDATE Buyer
+        SET fBalance=
+                #{fBalance}
+        WHERE lID = #{lID}
+    </update>
+
+    <select id="findBuyerByAppID" parameterType="group.dny.api.entity.Buyer" resultType="group.dny.api.entity.Buyer">
+        SELECT lID,sAppID,sAppSec,sIP
+        FROM Buyer
+        WHERE sAppID = #{sAppID}
+          AND sAppSec = #{sAppSec}
+    </select>
+</mapper>

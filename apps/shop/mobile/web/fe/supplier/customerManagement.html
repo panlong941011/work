@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>客户管理</title>
+	
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../../css/settlement.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="customer_management" id="app">
+		<div class="ad_header">
+	        <a href="javascript:;" class="ad_back">
+	            <span class="icon">&#xe885;</span>
+	        </a>
+	        <h2>客户管理</h2>
+	        <a href="" class="ad_more icon more_link">&#xe670;</a>
+	    </div>
+	    <div class="c_m_top">
+			<h3 class="c_m_title">
+				<i class="icon">&#xe723;</i>
+				<span>人数</span>
+			</h3>
+			<div class="c_m_person">
+				<em>5</em>
+			</div>
+			<div class="tag" @click="showCommission" v-text="commissionName">全部</div>
+	    </div>
+	    <div class="customer_empty" v-if="isEmpty">
+			<div class="customer_pic">
+				<img src="../../images/supplier/customerBg.png">
+			</div>
+			<p>你还没有客户哦~</p>
+			<a href="">如何发展客户？</a>
+	    </div>
+	    <div class="customer_main" v-if="!isEmpty">
+		    <div class="customer_condition flex">
+				<div class="registration_time" :class="[ isTime ? 'up' : 'down' ]" @click="filterTime">注册时间</div>
+				<div class="accumulative_consumption" :class="[ isConsumption ? 'up' : 'down']" @click="filterConsumption">累计消费</div>
+		    </div>
+			<ul class="customer_list">
+				<li class="customer_item flex">
+					<div class="customer_logo">
+						<img src="../../images/supplier/buyer.png">
+					</div>
+					<div class="customer_info">
+						<h2>用户昵称</h2>
+						<p>累计消费：¥500.00</p>
+						<p>注册时间：2017-02-21 17：13：15</p>
+					</div>
+				</li>
+				<li class="customer_item flex">
+					<div class="customer_logo">
+						<img src="../../images/supplier/buyer.png">
+					</div>
+					<div class="customer_info">
+						<h2>用户昵称</h2>
+						<p>累计消费：¥500.00</p>
+						<p>注册时间：2017-02-21 17：13：15</p>
+					</div>
+				</li>
+				<li class="customer_item flex">
+					<div class="customer_logo">
+						<img src="../../images/supplier/buyer.png">
+					</div>
+					<div class="customer_info">
+						<h2>用户昵称</h2>
+						<p>累计消费：¥500.00</p>
+						<p>注册时间：2017-02-21 17：13：15</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<commission-part :slectdata="commissionList" v-if="commissionShow" @chose="selectItem" @partopt="closePart"></commission-part>
+	</div>
+</body>
+<!-- <?php $this->beginBlock('foot') ?> -->
+	<script src="../../js/mescroll.min.js"></script>
+	<script src="../js/zepto.min.js"></script>
+	<script src="../js/vue.min.js"></script>
+	<script>
+		var data = {
+			'userNumber': '5',
+			'userList':[
+					{
+						'customerLogo': '../../images/supplier/buyer.png',
+						'customerName': '123',
+						'consumption': '6500',
+						'registerTime': '2017-02-21 17：13：15',
+					},
+					{
+						'customerLogo': '../../images/supplier/buyer.png',
+						'customerName': '123',
+						'consumption': '6500',
+						'registerTime': '2017-02-21 17：13：15'
+					}
+
+				]
+		};
+		//选择组件
+		var commission = Vue.extend({
+			template: '<div class="com_type_wrap" @click="closeCon">'+
+					  '<div class="com_type">'+
+		              '<h2>请选择</h2>' +
+		              '<ul>'+
+		              '<li class="com_type_item" v-for="(item,index) in commissionData" :class="{active: item.isMark}" @click="isChose(item.name,index)">{{item.name}}</li>'+
+		              '</ul>'+
+		              '<div class="com_type_chose" @click="closeCon">关闭</div>'+
+	                  '</div>'+
+			          ' </div>',
+
+		    props: ['slectdata'],//父组件的传值 必须是小写
+            data: function () {
+                return {
+                    commissionData: this.slectdata,
+                }
+            },
+            watch: {
+               
+            },
+            mounted: function () {
+            	console.log(this.commissionData);
+            },
+            methods: {
+               isChose: function(name,val) {
+               		event.stopPropagation();
+               		this.$emit('chose', name);
+               		var len = this.commissionData.length;
+                    for (var i = 0; i < len; i++) {
+                        this.commissionData[i].isMark = false;
+                    }
+               		this.commissionData[val].isMark = true;
+               },
+               closeCon: function() {
+               		this.$emit('partopt',false);
+               }
+            }
+		});
+
+		new Vue({
+			el: '#app',
+			components: {
+                'commission-part': commission
+            },
+			data: {
+				commissionList: [{name:'全部',isMark: false},{name:'普通用户',isMark: false}],
+				commissionShow: false,
+				commissionName: '全部',
+				dataList:'',
+				isTime: true,
+				isConsumption: true,
+				isEmpty: false,
+			},
+			mounted: function() {
+
+				/*_self.mescroll = new MeScroll("mescroll", {
+	                up: {
+	                    auto:false, //初始化不加载
+	                    callback: _self.upCallback, //上拉回调
+	                },
+	                down: {
+	                    use: false,
+	                }
+	            });
+            	document.getElementById("app").style.display="block";*/
+			},
+			methods: {	
+				//显示提成选项
+			   showCommission: function() {
+			   		this.commissionShow = true;
+			   },
+               selectItem: function(val) {
+               		//console.log(val);
+               		this.commissionName = val;
+               },
+               //遮罩操作
+               closePart: function(val) {
+               		this.commissionShow = val;
+               },
+               filterTime: function() {
+               		this.isTime = (this.isTime ? false : true);
+               },
+               filterConsumption: function() {
+               		this.isConsumption = this.isConsumption ? false : true;
+               }
+			}
+
+		})
+	</script>
+<!-- <?php $this->endBlock() ?> -->
+</html>

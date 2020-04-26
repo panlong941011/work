@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>商品已删除</title>
+    <link rel="stylesheet" href="../css/common.css">
+
+    <link rel="stylesheet" href="../css/car.css">
+
+     <link rel="stylesheet" href="../css/LArea.css">
+
+    <script src="../js/hotcss.js"></script>
+</head>
+
+<body>
+
+     <input id="choseArea" class="c_area" type="text" readonly="" name="input_area" value="" placeholder="选择地区" >
+    <div class="car_header">
+        <a href="javascript:;" class="car_back">
+            <span class="icon">&#xe885;</span>
+        </a>
+        <h2>商品已删除</h2>
+
+    </div>
+    <div class="no_commodity del_page">
+        <div class="no_c_pic">
+            <img src="../images/car/delete.png" alt="">
+        </div>
+        <p>啊哦，该宝贝已经被删除了</p>
+    </div>
+    <div class="car_selling">
+        <h2>
+            <span class="icon">&#xe65a;</span>热销推荐
+        </h2>
+        <div class="selling_list">
+            <ul>
+                <li class="sellings">
+                    <a href="">
+                        <div class="sell_pic">
+                            <img src="../images/car/sell.png" alt="">
+                        </div>
+                        <div class="sell_info">
+                            <h3 class="multiEllipsis">Burt'sBees 美国小蜜蜂宝宝Burt's洗发水沐浴露二合一 洗发水沐浴露二合一
+                            </h3>
+                            <span class="sell_price">¥78.00</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="sellings">
+                    <a href="">
+                        <div class="sell_pic">
+                            <img src="../images/car/sell.png" alt="">
+                        </div>
+                        <div class="sell_info">
+                            <h3 class="multiEllipsis">Burt'sBees 美国小蜜蜂宝宝Burt's洗发水沐浴露二合一 洗发水沐浴露二合一
+                            </h3>
+                            <span class="sell_price">¥78.00</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="sellings">
+                    <a href="">
+                        <div class="sell_pic">
+                            <img src="../images/car/sell.png" alt="">
+                        </div>
+                        <div class="sell_info">
+                            <h3 class="multiEllipsis">Burt'sBees 美国小蜜蜂宝宝Burt's洗发水沐浴露二合一 洗发水沐浴露二合一
+                            </h3>
+                            <span class="sell_price">¥78.00</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="sellings">
+                    <a href="">
+                        <div class="sell_pic">
+                            <img src="../images/car/sell.png" alt="">
+                        </div>
+                        <div class="sell_info">
+                            <h3 class="multiEllipsis">Burt'sBees 美国小蜜蜂宝宝Burt's洗发水沐浴露二合一 洗发水沐浴露二合一
+                            </h3>
+                            <span class="sell_price">¥78.00</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+<script src="../js/fastclick.js"></script>
+<script src="../js/zepto.min.js"></script>
+<script src="../js/LArea.js"></script>
+<script src="../js/LAreaCity.js"></script>
+<script src="../js/common.js"></script>
+<script src="http://mockjs.com/dist/mock.js"></script>
+<script>
+    var area = new LArea();
+    area.init({
+        'trigger': '#choseArea',//触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+        'valueTo':'#value1',//选择完毕后id属性输出到该位置
+        'keys':{id:'id',name:'name'},//绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+        'type':1,//数据源类型
+        'data':LAreaData,//数据源
+        'getVal':function(selectedVal){
+
+            var sProvince = selectedVal.province;
+            var sCity = '';
+           // console.log(selectedVal);
+            if (sProvince == "北京市" || sProvince == "上海市" || sProvince == "天津市" || sProvince == "重庆市") {
+                sCity = sProvince;
+            } else {
+                sCity = selectedVal.city;
+            }
+            //setFreight(ProductID, sProvince, sCity);
+            listenerVal();
+        },
+        'cancelChose':function() {
+            listenerVal();
+        }
+    });
+
+</script>
+
+</html>

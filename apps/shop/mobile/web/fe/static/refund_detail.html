@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>退款详情</title>
+	
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/refundDetail.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="refund_detail_wrap">
+		<div class="ad_header">
+	        <a href="javascript:;" class="ad_back">
+	            <span class="icon">&#xe885;</span>
+	        </a>
+	        <h2>退款详情</h2>
+	    </div>
+		<!-- 等待 -->
+	    <div class="refund_detail_status">
+			<div class="refund_wait">
+				<i class="icon">&#xe69b;</i>
+				等待卖家确认退款申请
+			</div>
+			<div class="refund_explain">若卖家 <em>02天23小时59分30秒</em> 内未处理，将自动同意退款</div>
+	    </div>
+		<!-- 拒绝 -->
+	    <div class="refund_detail_status refuse">
+			<div class="refund_wait">
+				<i class="icon">&#xe698;</i>
+				卖家拒绝退款
+			</div>
+			<div class="refund_explain">拒绝原因 <span>其他</span></div>
+			<div class="refund_explain">拒绝说明 <span>满多少包邮的，一起退吧</span></div>
+	    </div>
+		<!-- 同意 -->
+	     <div class="refund_detail_status agree">
+			<div class="refund_wait">
+				<i class="icon">&#xe67d;</i>
+				卖家已同意，请退货
+			</div>
+			<div class="refund_explain flex">
+				<span>退货地址</span> 
+				<p>福建 厦门 思明区 软件园二期望海路16号 福建 厦门 思明区 软件园二期望海路16号</p>
+			</div>
+			<div class="refund_explain flex">
+				<span>收件人</span>   
+				<p>刘晓林   15280217510</p>
+			</div>
+	    </div>
+		<!-- 成功 -->
+		<div class="refund_detail_status success">
+			<div class="refund_wait">
+				<i class="icon">&#xe67d;</i>
+				退款成功
+			</div>
+			<div class="refund_explain">退款金额 <span>¥50.00</span></div>
+			<div class="refund_explain">到账时间 <span>2017-09-20 12:00:00</span></div>
+	    </div>
+		<!-- 关闭 -->
+	    <div class="refund_detail_status close">
+			<div class="refund_wait">
+				<i class="icon">&#xe662;</i>
+				退款关闭
+			</div>
+	    </div>
+		<!-- 退货 -->
+		<div class="refund_detail_status returned">
+			<div class="refund_wait">
+				<i class="icon">&#xe67d;</i>
+				已退货，等待卖家确认收货
+			</div>
+	    </div>
+	    <div class="refund_tip">
+			若您在 <em>02天23小时59分30秒 </em> 内重新修改退货信息，退款申请将自动关闭
+	    </div>
+	    <div class="refund_info">
+			<h3 class="layer_title">
+				<span class="title_word singleEllipsis">退款信息</span>
+			</h3>
+			<div class="list_item flex">
+                <div class="pic"><img src="../images/car/pic1.jpg" alt=""></div>
+                <div class="info">
+                    <h4 class="title multiEllipsis">正品kidstar童星儿童安全座椅3- 12周岁09个月-12岁婴儿汽车..</h4>
+                    <div class="prop">颜色：灰色；尺码：L 如果规格文字 特别长就进行换行</div>
+                </div>
+            </div>
+            <div class="detailed_info">
+				<ul>
+					<li class="flex">
+						<span>退款类型</span>
+						<div>仅退款/退货退款</div>
+					</li>
+					<li class="flex">
+						<span>退款金额</span>
+						<div>¥ 200.00</div>
+					</li>
+					<li class="flex">
+						<span>退款原因</span>
+						<div>多买/买错/不想要了</div>
+					</li>
+					<li class="flex more_list">
+						<span>退款说明</span>
+						<div>多买/买错/不想要了</div>
+					</li>
+					<li class="flex more_list">
+						<span>退款编号</span>
+						<div>100220160818150000</div>
+					</li>
+					<li class="flex more_list">
+						<span>退款时间</span>
+						<div>2016-08-18 15:00:00</div>
+					</li>
+					<li class="flex more_list">
+						<span>退款凭证</span>
+						<div class="refund_pic">
+							<img src="../images/order/refund_pic.png" alt="">
+							<img src="../images/order/refund_pic.png" alt="">
+							<img src="../images/order/refund_pic.png" alt="">
+						</div>
+					</li>
+					<li class="flex more">更多</li>
+				</ul>
+            </div>
+	    </div>
+	</div>
+	<div class="refund_opt flex">
+		<a href="">协商记录</a>
+		<a href="">修改申请</a>
+		<a href="">退款去向</a>
+		<a href="" class="red">撤销申请</a>
+    </div>
+</body>
+<script src="../js/zepto.min.js"></script>
+<script>
+	$(function() {
+		$('.more').on('click',function() {
+			$('.more_list').css('display','flex');
+			$(this).hide();
+		})
+	})
+</script>
+</html>

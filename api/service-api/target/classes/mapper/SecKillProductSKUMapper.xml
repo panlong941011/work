@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.SecKillProductSKUMapper">
+    <select id="getSecKillProductBySecKillID" parameterType="int" resultType="group.dny.api.entity.SecKillProductSKU">
+        SELECT sName,
+               lID,
+               SecKillProductID,
+               SecKillID,
+               ProductSkuID,
+               fPrice,
+               lStock,
+               lSale
+        FROM SecKillProductSKU
+        WHERE SecKillProductID = #{pID}
+          AND sName
+            &lt;&gt;
+              '默认规格'
+    </select>
+</mapper>

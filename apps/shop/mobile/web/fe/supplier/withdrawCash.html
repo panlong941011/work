@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>提现</title>
+	
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../../css/settlement.css">
+    <script src="../js/hotcss.js"></script>
+    <style>
+		body {
+			background: #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="withdraw_cash">
+		<div class="ad_header">
+	        <a href="javascript:;" class="ad_back">
+	            <span class="icon">&#xe885;</span>
+	        </a>
+	        <h2>提现</h2>
+	    </div>
+	    <div class="withdraw_main">
+			<div class="withdraw_bank">
+				<span>到账银行卡</span>
+				<em>中国银行（1528）</em>
+			</div>
+			<div class="withdraw_amount">
+				<span>提现金额</span>
+				<input type="" name="" placeholder="余额¥100.00" class="amount" id="sAmount">
+			</div>
+	    </div>
+	    <div class="withdraw_tip">
+			<p>金额低于 <em>X</em> 元时不可提现</p>
+			<p>预计3日内到账，实际以银行到账时间为准</p>
+	    </div>
+	    <button class="withdraw_btn">提现</button>
+	</div>
+</body>
+<!-- <?php $this->beginBlock('foot') ?> -->
+<script src="../js/zepto.min.js"></script>
+<script>
+    $(function() {
+       var pattren = /^\d+(\.\d+)?$/;
+       $('.withdraw_btn').on('click',function() {
+       		var price = $.trim( $('#sAmount').val() );
+       		if( !pattren.test(price) ) {
+       			console.log("请输入正确的金额");
+       			return;
+       		}
+
+       		//$.post();
+       })
+    })
+</script>
+<!-- <?php $this->endBlock() ?> -->
+</html>

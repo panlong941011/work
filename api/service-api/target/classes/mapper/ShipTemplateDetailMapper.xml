@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.ShipTemplateDetailMapper">
+    <select id="getShipTemplateDetail" parameterType="group.dny.api.entity.ShipTemplateDetail" resultType="group.dny.api.entity.ShipTemplateDetail">
+        SELECT fPostage,fPostageplus,lStart,lPlus
+        FROM ShipTemplateDetail
+        WHERE ShipTemplateID=#{ShipTemplateID}
+        AND sShipMethod= #{sShipMethod}
+        AND sType= #{sType}
+        <if test="sAreaID!=null">
+            AND sAreaID LIKE '%${sAreaID}%'
+        </if>
+    </select>
+</mapper>

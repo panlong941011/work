@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.ProductSKUMapper">
+    <select id="getProducetSkuByPIDAndSku" parameterType="group.dny.api.entity.ProductSKU"
+            resultType="group.dny.api.entity.ProductSKU">
+        SELECT lID,
+               ProductID,
+               sValue,
+               fPrice,
+               fCostPrice,
+               lStock,
+               sCode,
+               fBuyerPrice
+        FROM ProductSKU
+        WHERE ProductID = #{ProductID}
+          AND sValue = #{sValue}
+    </select>
+
+    <update id="updateSKUStockByID" parameterType="group.dny.api.entity.ProductSKU">
+        UPDATE ProductSKU
+        SET lStock=#{lStock}
+        WHERE lID = #{lID}
+    </update>
+
+    <select id="getSkuListByPID" parameterType="int" resultType="group.dny.api.entity.ProductSKU">
+        SELECT lID,
+               ProductID,
+               sValue,
+               fPrice,
+               fCostPrice,
+               lStock,
+               sCode,
+               fBuyerPrice
+        FROM ProductSKU
+        WHERE ProductID = #{pID}
+    </select>
+</mapper>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>首页</title>
+    <link rel="stylesheet" href="css/common.css">
+    <!-- <script>     
+	/*	!function(n) {
+			var e = n.document,
+				t = e.documentElement,
+				i = 750,
+				d = i / 100,
+				o = "orientationchange" in n ? "orientationchange" : "resize",
+				a = function() {
+					var n = t.clientWidth || 375;
+					n > 750 && (n = 750), t.style.fontSize = n / d + "px"
+				};
+			e.addEventListener && (n.addEventListener(o, a, !1), 
+			e.addEventListener("DOMContentLoaded", a, !1))
+		}(window);*/
+
+	</script> -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/home.css">
+    <style>
+       
+    </style>
+    <script src="js/hotcss.js"></script>
+</head>
+
+<body>
+    <div class="index_wrap" id="app1">
+        <header class="flex">
+            <div class="classify_icon">
+                <span class="icon">&#xe68b;</span>
+                <em>分类</em>
+            </div>
+            <div class="top_search flex">
+                <span class="mirror"></span>
+                <span class="word">搜索商品</span>
+            </div>
+        </header>
+        <!-- 轮播图结构 -->
+        <div class="banner_swiper">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="images/home/banner1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/home/banner2.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/home/banner3.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="images/home/banner4.png" alt="">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <nav>
+            <a href="" class="menu_link">
+                <span class="menu_box">
+					<img src="images/home/hot.png" alt="">
+					<span>热门单品</span>
+                </span>
+            </a>
+            <a href="" class="menu_link">
+                <span class="menu_box">
+					<img src="images/home/bottle.png" alt="">
+					<span>奶瓶</span>
+                </span>
+            </a>
+            <a href="" class="menu_link">
+                <span class="menu_box">
+					<img src="images/home/milk.png" alt="">
+					<span>婴幼奶粉</span>
+                </span>
+            </a>
+            <a href="" class="menu_link">
+                <span class="menu_box">
+					<img src="images/home/feed.png" alt="">
+					<span>辅食喂养</span>
+                </span>
+            </a>
+            <a href="" class="menu_link">
+                <span class="menu_box">
+					<img src="images/home/toys.png" alt="">
+					<span>益智玩具</span>
+                </span>
+            </a>
+            <a href="" class="menu_link">
+                <span class="menu_box">
+					<img src="images/home/maternity.png" alt="">
+					<span>孕产用品</span>
+                </span>
+            </a>
+            <a href="" class="menu_link">
+                <span class="menu_box">
+					<img src="images/home/baby_car.png" alt="">
+					<span>婴儿车</span>
+                </span>
+            </a>
+            <a href="" class="menu_link">
+                <span class="menu_box">
+					<img src="images/home/cotton.png" alt="">
+					<span>棉品</span>
+                </span>
+            </a>
+            <a href="" class="menu_link">
+                <span class="menu_box">
+					<img src="images/home/snacks.png" alt="">
+					<span>健康零食</span>
+                </span>
+            </a>
+            <a href="" class="menu_link">
+                <span class="menu_box">
+					<img src="images/home/all.png" alt="">
+					<span>全部</span>
+                </span>
+            </a>
+        </nav>
+        <div class="line"></div>
+        <section class="section_column flex">
+            <div class="section_left">
+                <a href="">
+                    <img src="images/home/show1.png" alt="">
+                </a>
+            </div>
+            <div class="section_right">
+                <a href="" class="section_right_top">
+                    <img src="images/home/show2.png" alt="">
+
+                </a>
+                <a href="" class="section_right_bottom">
+                    <img src="images/home/show3.png" alt="">
+                </a>
+            </div>
+        </section>
+
+        <div v-for="item in dataList">
+            <div v-if="item.type =='grid'">
+                <div class="ad_column">
+                    <div class="line"></div>
+                    <a href="">
+                        <img :src="item.title_img" alt="">
+                    </a>
+                </div>
+                <section class="section_product">
+                    <ul class="flex">
+                        <li v-for="sItem in item.commodity">
+                            <a href="">
+                                <div class="product_pic">
+                                    <img :src="sItem.image" alt="" :x-src="sItem.image">
+                                </div>
+                                <div class="product_content">
+                                    <span class="product_name multiEllipsis" v-text="sItem.title"></span>
+                                    <span class="product_price" v-text="sItem.price"></span>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+
+            <div v-if="item.type=='list'">
+                <div class="ad_column">
+                    <div class="line"></div>
+                    <a href="">
+                        <img :src="item.title_img" alt="">
+                    </a>
+                </div>
+                <div class="commodity_list" v-if="isList">
+                    <div class="line"></div>
+                    <ul>
+                        <li v-for="lItem in item.commodity">
+                            <a href="" class="commodity flex">
+                                <div class="commodity_pic">
+                                    <img :src="lItem.image" :x-src="lItem.image" alt="">
+                                </div>
+                                <div class="commodity_detail">
+                                    <h2 class="multiEllipsis" v-text="lItem.title"></h2>
+                                    <div class="commodity_price">
+                                        <em v-text="lItem.price"></em>
+                                        <del v-text="lItem.market_price"></del>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ad_img" v-if="item.type=='pic'">
+                <div class="line"></div>
+                <div class="brand_column" v-for="(pItem,index) in item.commodity">
+                    <a href="">
+                        <img :src="pItem.image" :x-src="pItem.image" alt="">
+                    </a>
+                    <div class="line" v-if="index !== item.commodity.length-1"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="bottom_tip" v-if="!isMore">没有更多商品了~</div>
+
+    </div>
+
+    <div class="search_wrap" style="display: none;">
+        <div class="search_header flex">
+            <span class="s_close"></span>
+            <div class="search_input flex">
+                <span></span>
+                <input type="text" placeholder="花王纸尿裤" id="keyWord">
+            </div>
+            <div class="search_btn">搜索</div>
+        </div>
+        <div class="search_content">
+            <div class="history_search">
+                <div class="h_s_header flex">
+                    <span class="h_s_name">历史搜索</span>
+                    <span class="h_s_icon"></span>
+                </div>
+                <div class="h_s_content">
+                </div>
+            </div>
+            <div class="hot_search">
+                <div class="hot_header">
+                    <span>热门搜索</span>
+                </div>
+                <div class="hot_content">
+                    <span>奶嘴</span>
+                    <span>玻璃奶瓶</span>
+                    <span>爸爸去哪儿同款安全座椅</span>
+                    <span>即食 辅食</span>
+                    <span>更多</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="backTop"></div>
+
+
+    <div class="mask"></div>
+    <div class="selection_bar">
+        <div class="select_name">确认清空全部历史记录？</div>
+        <div class="select_chose flex">
+            <span class="select_cancel flexOne">取消</span>
+            <span class="select_sure flexOne">确认</span>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="lists"></div>
+    </div>
+    <footer>
+        <div class="bottom_fixed flex">
+            <a href="" class="on">
+                <span class="icon">&#xe617;</span>
+                <p>首页</p>
+            </a>
+            <a href="">
+                <span class="icon">&#xe6b0;</span>
+                <p>分类</p>
+            </a>
+            <a href="">
+                <span class="icon">&#xe652;</span>
+                <p>购物车</p>
+            </a>
+            <a href="">
+                <span class="icon">&#xe64a;</span>
+                <p>我的</p>
+            </a>
+        </div>
+    </footer>
+</body>
+<script src="js/zepto.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script src="js/vue.min.js"></script>
+<script src="js/dropload.min.js?ssss"></script>
+<script>
+    $(function() {
+
+        $('.backTop').on('click', function() {
+            $(window).scrollTop(0);
+        })
+
+        //搜索栏效果
+        $('.top_search').on('click', function() {
+            $('.search_wrap').show();
+            $('.index_wrap').hide();
+            $('footer').hide();
+        })
+
+        $('.s_close').on('click', function() {
+            $('.search_wrap').hide();
+            $('.index_wrap').show();
+            $('footer').show();
+        })
+
+        var local = localStorage.getItem('searchWordArr'),
+            spanHtml = '';
+        if (local) {
+            local = local.split(',');
+            for (var i = 0; i < local.length; i++) { //取缓存里面的值  循环成span标签插入
+                if (i > 4) { //只显示5个
+                    break;
+                }
+                spanHtml += '<span>' + local[i] + '</span>';
+                $('.h_s_content').html(spanHtml);
+            }
+        } else {
+            $('.history_search').hide();
+        }
+
+        $('.search_btn').on('click', function() {
+  //设置缓存
+            var value = $.trim( $('#keyWord').val() );
+            if( value !== '') {
+                var sWords = localStorage.getItem('searchWordArr'), //获取缓存值
+                searchWordArr = [];
+
+                if (!sWords) { //判断没有的话 新建
+                    searchWordArr.unshift(value);
+                    localStorage.setItem("searchWordArr", searchWordArr);
+                } else { //有的话 分割字符串 重新组装
+                    searchWordArr = sWords.split(',');
+                    console.log(searchWordArr);
+                     var isEqual = searchWordArr.every(function(item,index) {
+                        return item !== value;
+                    })
+
+                    if( isEqual ) {
+                        searchWordArr.unshift(value);
+                        localStorage.setItem("searchWordArr", searchWordArr);
+                    }
+                }
+            }
+            
+            //$('.search_wrap').hide();
+            //value 输入的值
+          //  location.href = "https://xw.qq.com/index.htm"; //跳转模拟
+
+        })
+
+        $('.h_s_icon').on('click', function() {
+            $('.mask').show();
+            $('.selection_bar').show();
+        })
+
+        $('.select_cancel').on('click', function() {
+            $('.selection_bar').hide();
+            $('.mask').hide();
+        })
+
+        $('.select_sure').on('click', function() {
+            $('.selection_bar').hide();
+            $('.mask').hide();
+            $('.history_search').hide();
+
+            localStorage.removeItem('searchWordArr');
+        })
+
+
+        //$('body').height( $('.index_wrap').height() );
+    })
+
+    var dataList = [];
+    // var dataList = [{
+    //         "type": "grid",
+    //         "title_img": "images/home/ad1.png",
+    //         "commodity": [{
+    //             "title": "正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3-12周岁09个月-1",
+    //             "price": "¥3299.00",
+    //             "market_price": "¥4299.00",
+    //             "image": "images/home/product4.png"
+    //         }, {
+    //             "title": "正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3-12周岁09个月-1",
+    //             "price": "¥3299.00",
+    //             "market_price": "¥4299.00",
+    //             "image": "images/home/product1.png"
+    //         }, {
+    //             "title": "正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3-12周岁09个月-1",
+    //             "price": "¥3299.00",
+    //             "market_price": "¥4299.00",
+    //             "image": "images/home/product2.png"
+    //         }, {
+    //             "title": "正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3-12周岁09个月-1",
+    //             "price": "¥3299.00",
+    //             "market_price": "¥4299.00",
+    //             "image": "images/home/product3.png"
+    //         }]
+    //     }
+
+    // ];
+
+
+    // new Vue({
+    //     el: '#app1',
+    //     data: {
+    //         page: 0,
+    //         dataList: dataList, //后端返回值
+    //         isType: '',
+    //         isList: true, //显示列表
+    //         isSquare: true, //显示方格
+    //         isImage: true, //显示图片
+    //         isMore: true, //是否更多
+    //     },
+    //     mounted: function() {
+    //         //轮播图
+    //         var mySwiper = new Swiper('.swiper-container', {
+    //                 autoplay: 3000, //可选选项，自动滑动
+    //                 pagination: '.swiper-pagination',
+    //             })
+    //             //下拉效果
+    //         var pullRefresh = new auiPullToRefresh({
+    //             container: document.querySelector('.index_wrap'),
+    //             triggerDistance: 100
+    //         }, function(ret) {
+    //             if (ret.status == "success") {
+    //                 setTimeout(function() {
+    //                     // var wrap = document.querySelector('.main');
+
+    //                     pullRefresh.cancelLoading(); //刷新成功后调用此方法隐藏
+    //                 }, 100)
+    //             }
+    //         });
+
+    //         //滚动事件触发
+    //         var _this = this;
+    //         var index = 0;
+    //         $(window).on('scroll', function() {
+
+    //             //回到顶部
+    //             var scrollTop = $(window).scrollTop(),
+    //                 　　scrollHeight = $(document).height(),
+    //                 　　windowHeight = $(window).height();
+
+    //             if (scrollTop > 600) {
+    //                 $('.backTop').show();
+    //             } else {
+    //                 $('.backTop').hide();
+    //             }
+
+    //             　　
+    //             if ((scrollTop + windowHeight + 200) >= scrollHeight) {
+    //                 if (!_this.isMore) {
+    //                     return;
+    //                 }
+    //                 ++_this.page;
+    //                 index++;　　
+    //                 $.get('data/index' + index + '.json', {
+    //                         item: _this.page
+    //                     },
+    //                     function(res) {
+    //                         //this.dataList = this.dataList.concat(res.data.commodity)
+    //                         _this.dataList = _this.dataList.concat(res.data);
+    //                         console.log(_this.dataList);
+    //                         console.log(res);
+    //                         _this.isType = res.type;
+    //                         _this.isMore = res.isMore;
+
+    //                         switch (_this.isType) { //判断返回的类型
+    //                             case 'grid':
+    //                                 _this.isSquare = true;
+    //                                 break;
+    //                             case 'list':
+    //                                 _this.isList = true;
+    //                                 break;
+    //                             case 'pic':
+    //                                 _this.isImage = true;
+    //                                 break;
+    //                         }
+    //                     }, 'json')　　
+    //             }
+    //             //触发图片加载
+    //             // _this.imgLoad();
+
+    //         });
+
+
+    //     },
+    //     methods: {
+    //         //图片延迟加载
+    //         imgLoad: function() {
+    //             $('.product_pic').each(function() {
+    //                 //前图片已经在可视区域内
+    //                 if (($(this).offset().top + $(this).width() / 2) < $(window).height() + $(window).scrollTop()) {
+    //                     var src = $(this).children('img').attr('x-src');
+    //                     $(this).children('img').attr('src', src);
+    //                 }
+    //             })
+
+    //             $('.commodity_pic').each(function() {
+    //                 //前图片已经在可视区域内
+    //                 if (($(this).offset().top + $(this).width() / 2) < $(window).height() + $(window).scrollTop()) {
+    //                     var src = $(this).children('img').attr('x-src');
+    //                     $(this).children('img').attr('src', src);
+    //                 }
+    //             })
+
+    //             $('.brand_column').each(function() {
+    //                 //前图片已经在可视区域内
+    //                 if (($(this).offset().top) < $(window).height() + $(window).scrollTop()) {
+    //                     var src = $(this).find('img').attr('x-src');
+    //                     $(this).find('img').attr('src', src);
+    //                 }
+    //             })
+
+    //         },
+    //     }
+
+    // })
+</script>
+<script>
+    new Vue({
+        el: '#app1',
+        data: {
+            page: 0,
+            dataList: dataList, //后端返回值
+            isType: '',
+            isList: true, //显示列表
+            isSquare: true, //显示方格
+            isImage: true, //显示图片
+            isMore: true, //是否更多
+        },
+        mounted: function() {
+            var _self = this;
+            $('.index_wrap').dropload({
+                scrollArea: window,
+                domDown:{
+                    domClass : 'dropload-down',
+                    domRefresh : '<div class="dropload-refresh"></div>',
+                    domLoad : '<div class="dropload-load">加载中...</div>',
+                    domNoData : '<div class="dropload-noData">没有更多商品了~</div>'
+                    },
+                loadDownFn: function(me) {
+                    _self.page++;
+                    if (!_self.isMore) {
+                        return;
+                    }
+                    $.ajax({
+                        type: 'GET',
+                        url: 'data/index' + _self.page + '.json',
+                        dataType: 'json',
+                        success: function(res) {
+                            if (res && res.isMore) {
+                                console.log(res.data.commodity);
+                                _self.dataList = _self.dataList.concat(res.data);
+                                _self.isMore = res.isMore;
+                            } else {
+                                // 锁定
+                                me.lock();
+                                // 无数据
+                                me.noData();
+                            }
+                            me.resetload();
+                        },
+                        error: function(xhr, type) {
+                            alert('Ajax error!');
+                            // 即使加载出错，也得重置
+                            me.resetload();
+                        }
+                    });
+                }
+            });
+        }
+    })
+</script>
+
+</html>

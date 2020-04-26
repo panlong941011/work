@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>历史分红</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../../css/mescroll.min.css">
+    <link rel="stylesheet" href="../../css/supplierMain.css">
+    <script src="../js/hotcss.js"></script>
+    <style type="text/css">
+	    body,html {
+	         height: 100%;
+	    }
+	    .wait_settlement {
+	        height: 100%;
+	    }
+	    .mescroll{
+	      position: fixed;
+	      left: 0;
+	      top:0;
+	      bottom: 0;
+	      height: auto;
+	      width: 100%;
+	      max-width: 16rem;
+	      margin:0 auto;
+	    }
+	    .mescroll-upwarp {
+	        display: none;
+	    }
+	</style>
+</head>
+<body>
+	<div class="history_bonus" id='app'>
+		<div id="mescroll" class="mescroll">
+        <div class="mescroll-bounce">
+			<div class="ad_header">
+		        <a href="javascript:;" class="ad_back">
+		            <span class="icon">&#xe885;</span>
+		        </a>
+		        <h2>历史分红</h2>
+		        <a href="" class="ad_more icon more_link">&#xe670;</a>
+		    </div>
+		    <div class="wait_top">
+				<h3 class="wait_income">累计分红</h3>
+				<div class="wait_amount">
+					<span>¥</span>
+					<em>25.10</em>
+				</div>
+		    </div>
+		   	<ul class="history_bonus_list">
+				<li v-for="item in dataList">
+					<p class="history_bonus_time" v-text="item.bonusTime">2017-02-21 17:13:15</p>
+					<div class="history_bonus_item flex">
+						<span class="history_bonus_title">分红金额</span>
+						<em  class="history_bonus_pirce" v-text="'+'+item.bonusPrice"></em>
+					</div>
+					<div class="history_bonus_number flex">
+						<span>获得分红份数 </span>
+						<span v-text="item.bonusCopies"></span>
+					</div>
+					<div class="history_pirce_amount flex">
+						<span>资金池金额</span>
+						<span v-text="'¥'+item.totalAmount"></span>
+					</div>
+				</li>
+		   	</ul>
+		   	<div class="loading_wrap" v-if="mescrollLoading">
+                <p class="loading"></p>
+                <p class="loading_tip">加载中...</p>
+            </div>
+            <div class="bottom_tip" v-if="fullData">没有更多数据了~</div>
+		</div>
+		</div>
+	</div>
+</body>
+<script src="../../js/mescroll.min.js"></script>
+<script src="../../js/vue.min.js"></script>
+<script>
+	var data = [
+		{
+			bonusPrice: "154.48",
+			bonusTime: "2017-02-21 17:13:15",
+			bonusCopies: "15",
+			totalAmount: '150.00'
+		},
+		{
+			bonusPrice: "154.48",
+			bonusTime: "2017-02-21 17:13:15",
+			bonusCopies: "15",
+			totalAmount: '150.00'
+		},
+		{
+			bonusPrice: "154.48",
+			bonusTime: "2017-02-21 17:13:15",
+			bonusCopies: "15",
+			totalAmount: '150.00'
+		},
+		{
+			bonusPrice: "154.48",
+			bonusTime: "2017-02-21 17:13:15",
+			bonusCopies: "15",
+			totalAmount: '150.00'
+		}
+		,{
+			bonusPrice: "154.48",
+			bonusTime: "2017-02-21 17:13:15",
+			bonusCopies: "15",
+			totalAmount: '150.00'
+		}
+	]
+	new Vue({
+		el: '#app',
+		data: {
+			mescrollLoading: false,//加载图
+			dataMore: true,	//更多数据
+			fullData: false, //满屏数据
+			mescroll: null, //滚动对象
+			dataList: data,
+		},
+		mounted: function() {
+			var _self = this;
+
+			if( _self.dataList.length < 10 ) {
+				_self.dataMore = false;
+			}
+
+            _self.mescroll = new MeScroll("mescroll", {
+                 up: {
+                     auto:false, //初始化不加载
+                     callback: _self.upCallback, //上拉回调
+                 },
+                 down: {
+                    use: false,
+                 }
+             });
+             document.getElementById("app").style.display="block";
+		},
+		methods: {
+			//回调
+            upCallback: function() {
+                var _this = this;
+
+                if( !_this.dataMore){ //判断是否有更多
+                    _this.mescroll.endSuccess();
+                    return;
+                }
+                _this.page++;
+                _this.mescrollLoading = true;
+                
+               /* $.get('/seller/unsettlementitem',
+                    {
+                        'page': _this.page,   
+                    },
+                    function(res) {
+                         console.log(res);
+                         if (res  && res.data && res.data.length !== 0) {
+                              
+                            _this.dataList = _this.dataList.concat(res);
+
+                        } else {
+                            _this.dataMore = false;
+                            _this.mescrollLoading = false;
+                            _this.fullData = true;
+                        }
+
+                         _this.mescroll.endSuccess();
+
+                       
+                },'json')*/
+            },
+		}
+	})
+</script>
+</html>

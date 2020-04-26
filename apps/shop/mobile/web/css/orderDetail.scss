@@ -1,0 +1,381 @@
+@charset "utf-8";
+@import 'px2rem'; 
+$designWidth : 750; 
+
+body {
+	background: #eee;
+}
+.order_detail_wrap {
+	width: 100%;
+	padding-bottom: px2rem(120);
+}
+.ad_header {
+    height: px2rem(88);
+    padding: 0 px2rem(30);
+    border-bottom: 1px solid #d2d2d2;
+    position: relative;
+    background: #fff;
+}
+.ad_header h2 {
+    color: #333;
+    @include px2px(34);
+    text-align: center;
+    width: 100%;
+    line-height: px2rem(88);
+}
+.ad_back .icon {
+    display: block;
+    font-size:  px2rem(35);
+}
+.ad_back {
+    display: block;
+    width:  px2rem(50);
+    height: 100%;
+    display: block;
+    line-height: px2rem(88);
+    position: absolute;
+    left:  px2rem(30);
+    top:  px2rem(0);
+}
+.ad_more {
+    @include px2px(40);
+    color: #333;
+    display: block;
+    width: px2rem(60);
+    height: 100%;
+    text-align: right;
+    line-height: px2rem(88);
+    position: absolute;
+    right: px2rem(30);
+    top: px2rem(0);
+}
+.detail_status {
+	width: 100%;
+	height: px2rem(180);
+	background: url(../images/order/order_status.png) no-repeat;
+	background-size: 100%;
+	em {
+		color: #fff;
+		@include px2px(32);
+		display: block;
+		padding-top: px2rem(60);
+		padding-left: px2rem(80);
+	}
+	.unpaid {
+		color: #fff;
+		@include px2px(26);
+		padding-top: px2rem(10);
+		padding-left: px2rem(80);
+		span {
+			color: #fff600;
+		}
+	}
+}
+.order_info {
+	padding: 0 px2rem(30);
+	background: #fff;
+	border-bottom: 1px solid #d2d2d2;
+	.logistics_icon {
+		width: px2rem(38);
+		height: px2rem(38);
+		background: url(../images/order/logistics.png) no-repeat;
+		background-size: 100%;
+		position: absolute;
+		top: 45%;
+    	left: 0rem;
+	}
+	.logistics {
+		/* height: px2rem(130); */
+		-webkit-align-items: center;
+        align-items: center;
+        position: relative;
+        border-bottom: 1px solid #eeeeee;
+        padding-left: px2rem(40);
+     }
+     .logistics::after {
+		content: '';
+		position: absolute;
+        width: px2rem(16);
+        height:  px2rem(16);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        border-width: 2px 2px 0 0;
+        border-color: #666666;
+        border-style: solid;
+        right: 0;
+        top: px2rem(60);
+    }
+}
+.logistics_info {
+	padding: px2rem(20) 0 px2rem(20) px2rem(10);
+	h5 {
+		color: #359a2b;
+		@include px2px(28);
+		padding-bottom: px2rem(12);
+	}
+	.logistics_time {
+		color: #999;
+		@include px2px(28);
+	}
+	
+}
+.person {
+	height: px2rem(190);
+	padding-left: px2rem(45);
+	color: #999;
+    position: relative;
+	@include px2px(28);
+	.title {
+		-webkit-justify-content: space-between;
+        justify-content: space-between;
+        padding: px2rem(30) 0 px2rem(24);
+	}
+	::before {
+		position: absolute;
+	    display: block;
+	    width: px2rem(40);
+	    height: px2rem(40);
+	    top: 45%;
+	    left: px2rem(0);
+	    content: '';
+	    background: url(../images/order/address.png) no-repeat;
+	    background-size: contain;
+	}
+}
+section {
+	margin-top: px2rem(20);
+	.layer_title {
+        height: px2rem(88);
+        line-height: px2rem(88);
+        padding-left: px2rem(20);
+        color: #333;
+        @include px2px(26);
+        position: relative;
+         background: #fff;
+    }
+    .list_item_warp {
+    	border-bottom: 1px solid #fff;
+    	padding: px2rem(20) px2rem(30);
+    	background: #f9f9f9;
+    }
+    .title_word {
+        display:inline-block;
+        width: auto;
+        max-width: 50%;
+        vertical-align: middle;
+    }
+    .title_arrow {
+       display: inline-block;
+        content: '';
+        width: px2rem(16);
+        height:  px2rem(16);
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        border-width: 2px 2px 0 0;
+        border-color: #666666;
+        border-style: solid;
+    }
+    .operation {
+    	text-align: right;
+    	position: relative;
+    	font-size: 0;
+    	a {
+    		display: inline-block;
+	    	width: px2rem(140);
+	        height: px2rem(50);
+	        line-height: px2rem(50);
+	        text-align: center;
+	        -webkit-border-radius: px2rem(10);
+	        border-radius: px2rem(10);
+	        border: 1px solid #333;
+	        color: #333;
+	        @include px2px(24);
+    	}
+    	.opt_red_btn {
+	    	border: 1px solid #f42323;
+	        color: #f42323;
+	    }
+    }
+}
+.list_item {
+    width: 100%;
+    background: #f9f9f9;
+    .pic {
+        width: px2rem(180);
+        height: px2rem(180);
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+.info {
+    flex: 1;
+    margin-left: px2rem(30);
+    position:relative;
+
+    .title {
+        @include px2px(26);
+    }
+    .prop {
+        color: #666;
+        @include px2px(24);
+        position: relative;
+        padding-bottom: px2rem(10);
+    }
+    .num {
+        position: absolute;
+        right: 0;
+        top: px2rem(40);
+    }
+    .price {
+         -webkit-justify-content: space-between;
+        justify-content: space-between;
+        padding-top: px2rem(10);
+        @include px2px(24);
+        color: #f42323;
+    }
+}
+.list_footer {
+	background: #fff;
+	.fright {
+		color: #333;
+		@include px2px(26);
+		height: px2rem(90);
+		-webkit-justify-content: space-between;
+        justify-content: space-between;
+        -webkit-align-items: center;
+        align-items: center;
+        padding: 0 px2rem(30);
+        border: 1px solid #eee;
+	}
+	.pay {
+		color: #333;
+		@include px2px(30);
+		height: px2rem(90);
+		text-align: right;
+        padding: 0 px2rem(30);
+        line-height: px2rem(90);
+        em {
+        	color: #f42323;
+        }
+	}
+}
+.buyer_operation {
+	padding: px2rem(30);
+	margin: px2rem(20) 0;
+	background: #fff;
+	.message {
+		font-size: 0;
+		p {
+			color: #999;
+			@include px2px(26);
+			width: px2rem(560);
+		}
+		span {
+		    display: block;
+			width: px2rem(130);
+			color:#333;
+			@include px2px(26);
+		}
+	}
+	.connect_service {
+		display:block;
+		width: px2rem(690);
+		height: px2rem(80);
+		border: 1px solid #717171;
+		-webkit-border-radius: px2rem(10);
+		border-radius: px2rem(10);
+		text-align: center;
+		line-height: px2rem(80);
+		color: #333;
+		@include px2px(28);
+		margin: 0 auto;
+		margin-top: px2rem(25);
+		i {
+			display: inline-block;
+			width: px2rem(34);
+			height: px2rem(34); 
+			background:url(../images/order/connect.png) no-repeat;
+			background-size: contain;
+			vertical-align: middle;
+			margin-right: px2rem(10); 
+		}
+	}
+}
+.order_detail_info {
+	padding: px2rem(20) px2rem(30) px2rem(30); 
+	background: #fff;
+	border-bottom: 1px solid #d2d2d2;
+	div {
+		-webkit-justify-content: space-between;
+        justify-content: space-between;
+        color: #999;
+        @include px2px(28);
+        padding-top: px2rem(10);
+	}
+}
+.bottom_operation {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	z-index: 10;
+	height: px2rem(100);
+	padding-right: px2rem(30);
+	font-size: 0;
+	-webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    -webkit-align-items: center;
+    align-items: center;
+    background: #fff;
+	a {
+		display: inline-block;
+    	width: px2rem(140);
+        height: px2rem(50);
+        line-height: px2rem(50);
+        text-align: center;
+        -webkit-border-radius: px2rem(10);
+        border-radius: px2rem(10);
+        border: 1px solid #333;
+        color: #333;
+        @include px2px(24);
+        margin-left: px2rem(10);
+	}
+	.red {
+		 border: 1px solid #f42323;
+        color: #f42323;
+	}
+}
+//弹框
+.message_alert {   
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    width: px2rem(500);
+    height: px2rem(280);
+    -webkit-border-radius: px2rem(10);
+    border-radius: px2rem(10);
+    background:#fff;
+    z-index: 220;
+    display: none;
+    .alert_title {
+        color: #666;
+        @include px2px(30);
+        padding: px2rem(65) px2rem(40) px2rem(40);
+    }
+    .alert_btn {
+        width: px2rem(400);
+        height: px2rem(80);
+        -webkit-border-radius: px2rem(10);
+        border-radius: px2rem(10);
+        text-align: center;
+        line-height:px2rem(80);
+        background: #4395FF;
+        @include px2px(30);
+        color: #fff;
+        margin: 0 auto;
+    }
+}

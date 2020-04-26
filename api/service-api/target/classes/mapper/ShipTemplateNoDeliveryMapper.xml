@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.ShipTemplateNoDeliveryMapper">
+    <select id="getShipTemplateNoDeliveryByArea" parameterType="group.dny.api.entity.ShipTemplateNoDelivery"
+            resultType="group.dny.api.entity.ShipTemplateNoDelivery">
+        SELECT lID
+        FROM ShipTemplateNoDelivery
+        WHERE ShipTemplateID = #{ShipTemplateID}
+          AND sAreaID LIKE '%${sAreaID}%'
+    </select>
+
+    <select id="getShipTemplateNoDeliveryByTemplateID" parameterType="int"
+            resultType="group.dny.api.entity.ShipTemplateNoDelivery">
+        SELECT lID,ShipTemplateID,sAreaID
+        FROM ShipTemplateNoDelivery
+        WHERE ShipTemplateID = #{ShipTemplateID}
+    </select>
+</mapper>

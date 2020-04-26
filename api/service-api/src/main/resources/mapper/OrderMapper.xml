@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.OrderMapper">
+    <resultMap id="orderResultMap" type="group.dny.api.entity.Order">
+        <result column="lID" property="lID"/>
+        <result column="sName" property="sName"/>
+        <result column="SupplierID" property="SupplierID"/>
+        <result column="StatusID" property="StatusID"/>
+        <result column="sClientSN" property="sClientSN"/>
+        <result column="fBuyerPaid" property="fBuyerPaid"/>
+        <result column="fSupplierIncome" property="fSupplierIncome"/>
+        <result column="fBuyerProductPaid" property="fBuyerProductPaid"/>
+        <result column="fBuyerRefund" property="fBuyerRefund"/>
+        <result column="fSupplierProductIncome" property="fSupplierProductIncome"/>
+        <result column="fSupplierRefund" property="fSupplierRefund"/>
+        <result column="fShip" property="fShip"/>
+        <result column="BuyerID" property="BuyerID"/>
+        <collection property="detailList" column="lID" ofType="group.dny.api.entity.OrderDetail"
+                    javaType="java.util.ArrayList">
+            <result column="lID" property="lID"/>
+            <result column="sName" property="sName"/>
+            <result column="StatusID" property="StatusID"/>
+        </collection>
+    </resultMap>
+
+    <update id="updateOrderAddressByID" parameterType="group.dny.api.entity.Order">
+        UPDATE `Order`
+        SET OrderAddressID=
+                #{OrderAddressID}
+        WHERE lID = #{lID}
+    </update>
+
+    <select id="getOrderByID" parameterType="int" resultType="group.dny.api.entity.Order">
+        select lID,
+               sName,
+               sClientSN,
+               OwnerID,
+               SupplierID,
+               BuyerID,
+               OrderAddressID,
+               StatusID,
+               dNewDate,
+               RefundStatusID,
+               fShip,
+               fBuyerPaid,
+               fBuyerProductPaid,
+               fSupplierProductIncome,
+               fProfit,
+               fBuyerRefund,
+               fSupplierRefund,
+               dReceiveDate,
+               dSignDate,
+               dCloseDate,
+               sMessage,
+               sIP,
+               fRefund,
+               ShipCompanyID,
+               sShipNo,
+               dShipDate,
+               sCloseReson,
+               sTradeNo
+        from `Order`
+        where lID = #{lID};
+    </select>
+
+    <update id="updateOrderStatusByID" parameterType="group.dny.api.entity.Order">
+        UPDATE `Order`
+        SET StatusID=
+                #{StatusID}
+        WHERE lID = #{lID}
+    </update>
+
+    <select id="getWaitMoneyBySupplierID" parameterType="int" resultType="java.math.BigDecimal">
+        SELECT SUM(fSupplierIncome)
+        FROM `Order`
+        WHERE StatusID IN ('paid', 'delivered')
+          AND SupplierID = #{supplierID}
+    </select>
+
+    <select id="getOrderBySn" parameterType="string" resultMap="orderResultMap">
+        SELECT o.lID,
+               o.sName,
+               o.SupplierID,
+               o.StatusID,
+               o.sClientSN,
+               o.fBuyerPaid,
+               o.fSupplierIncome,
+               o.fBuyerProductPaid,
+               o.fBuyerRefund,
+               o.fSupplierProductIncome,
+               o.fSupplierRefund,
+               o.fShip,
+               o.BuyerID,
+               d.lID,
+               d.sName,
+               d.StatusID
+        FROM `Order` o,
+             OrderDetail d
+        WHERE
+                o
+                    .
+                    lID =
+                d
+                    .
+                    OrderID
+          AND
+                sClientSN =
+                #{sClientSN}
+    </select>
+
+    <insert id="insertOrder" useGeneratedKeys="true" keyProperty="lID" parameterType="group.dny.api.entity.Order">
+        INSERT
+        INTO
+            `Order`
+        (sName,
+         sClientSN,
+         SupplierID,
+         BuyerID,
+         StatusID,
+         dNewDate,
+         fShip,
+         fBuyerProductPaid,
+         fSupplierProductIncome,
+         fBuyerPaid,
+         fSupplierIncome,
+         fProfit,
+         PurchaseID,
+         WholesalerID,
+         TypeID,
+         sMessage)
+        VALUES
+        (#{sName},
+         #{sClientSN},
+         #{SupplierID},
+         #{BuyerID},
+         #{StatusID},
+         #{dNewDate},
+         #{fShip},
+         #{fBuyerProductPaid},
+         #{fSupplierProductIncome},
+         #{fBuyerPaid},
+         #{fSupplierIncome},
+         #{fProfit},
+         #{PurchaseID},
+         #{WholesalerID},
+         #{TypeID},
+         #{sMessage})
+    </insert>
+
+    <update id="updateOrderReceiveInfo" parameterType="group.dny.api.entity.Order">
+        UPDATE `Order`
+        SET StatusID=
+                #{StatusID},
+            dReceiveDate=#{dReceiveDate},
+            fBuyerPaid=#{fBuyerPaid},
+            fSupplierIncome=#{fSupplierIncome}
+        WHERE lID = #{lID}
+    </update>
+
+    <update id="updateRefundStatus" parameterType="group.dny.api.entity.Order">
+        UPDATE `Order`
+        SET RefundStatusID= #{RefundStatusID}
+        WHERE lID = #{lID}
+    </update>
+</mapper>

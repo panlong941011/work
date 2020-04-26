@@ -1,0 +1,2 @@
+<button type="button" class="btn default" onclick="parent.closeCurrTab()"><?=Yii::t('app', '取消')?></button>
+<button type="submit" class="btn green" onclick="objectSubmit()"><i class="fa fa-check"></i> <?=Yii::t('app', '保存')?></button>   

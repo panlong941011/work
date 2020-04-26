@@ -1,0 +1,21 @@
+var locale = "<?=\Yii::$app->language?>";
+var JSLang = new Array();
+JSLang['请选择。。。'] = "<?=Yii::t('app', '请选择。。。')?>";
+JSLang['全选'] = "<?=Yii::t('app', '全选')?>";
+JSLang['自定义'] = "<?=Yii::t('app', '自定义')?>";
+JSLang['确定'] = "<?=Yii::t('app', '确定')?>";
+JSLang['取消'] = "<?=Yii::t('app', '取消')?>";
+JSLang['必须选择一条记录。'] = "<?=Yii::t('app', '必须选择一条记录。')?>";
+JSLang['只能选择一条记录。'] = "<?=Yii::t('app', '只能选择一条记录。')?>";
+JSLang['至少选择一条记录。'] = "<?=Yii::t('app', '至少选择一条记录。')?>";
+JSLang['，已选中所有数据'] = "<?=Yii::t('app', '，已选中所有数据')?>";
+JSLang['，已选中N条数据'] = "<?=Yii::t('app', '，已选中N条数据')?>";
+JSLang['请修正表单中红色框的内容。'] = "<?=Yii::t('app', '请修正表单中红色框的内容。')?>";
+JSLang['今天'] = "<?=Yii::t('app', '今天')?>";
+JSLang['昨天'] = "<?=Yii::t('app', '昨天')?>";
+JSLang['过去7天'] = "<?=Yii::t('app', '过去7天')?>";
+JSLang['过去30天'] = "<?=Yii::t('app', '过去30天')?>";
+JSLang['今年'] = "<?=Yii::t('app', '今年')?>";
+JSLang['本月'] = "<?=Yii::t('app', '本月')?>";
+JSLang['上个月'] = "<?=Yii::t('app', '上个月')?>";
+

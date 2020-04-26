@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.RefundReturnMapper">
+    <insert id="insertRefundReturn" parameterType="group.dny.api.entity.RefundReturn">
+        INSERT INTO RefundReturn(sName, dNewDate, RefundID, StatusID, sShipVoucher, SupplierID)
+        VALUES (#{sName},
+                #{dNewDate},
+                #{RefundID},
+                #{StatusID},
+                #{sShipVoucher},
+                #{SupplierID})
+    </insert>
+
+    <update id="closeRefund" parameterType="group.dny.api.entity.RefundReturn">
+        UPDATE RefundReturn
+        SET StatusID=#{StatusID}
+        WHERE sName = #{sName}
+    </update>
+
+    <update id="updateShipInfo" parameterType="group.dny.api.entity.RefundReturn">
+        UPDATE RefundReturn
+        SET sMobile=#{sMobile},
+            sShipNo=#{sShipNo},
+            ShipCompanyID=#{ShipCompanyID},
+            sShipVoucher=#{sShipVoucher},
+            StatusID=#{StatusID}
+        WHERE sName = #{sName}
+    </update>
+</mapper>

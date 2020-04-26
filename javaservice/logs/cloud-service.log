@@ -1,0 +1,562 @@
+2019-05-08 10:02:06 restartedMain Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@5e0a6bbb: startup date [Wed May 08 10:02:06 CST 2019]; root of context hierarchy 
+2019-05-08 10:02:06 restartedMain JSR-330 'javax.inject.Inject' annotation found and supported for autowiring 
+2019-05-08 10:02:07 restartedMain Bean 'configurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$63e8feaa] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2019-05-08 10:02:07 restartedMain No active profile set, falling back to default profiles: default 
+2019-05-08 10:02:07 restartedMain Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6af8663a: startup date [Wed May 08 10:02:07 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@5e0a6bbb 
+2019-05-08 10:02:09 restartedMain Overriding bean definition for bean 'proxyRequestHelper' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.cloud.netflix.zuul.ZuulProxyAutoConfiguration$EndpointConfiguration; factoryMethodName=proxyRequestHelper; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration$EndpointConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.cloud.netflix.zuul.ZuulProxyAutoConfiguration$NoActuatorConfiguration; factoryMethodName=proxyRequestHelper; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulProxyAutoConfiguration$NoActuatorConfiguration.class]] 
+2019-05-08 10:02:09 restartedMain Overriding bean definition for bean 'counterFactory' with a different definition: replacing [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.cloud.netflix.zuul.ZuulServerAutoConfiguration$ZuulMetricsConfiguration; factoryMethodName=counterFactory; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulServerAutoConfiguration$ZuulMetricsConfiguration.class]] with [Root bean: class [null]; scope=; abstract=false; lazyInit=false; autowireMode=3; dependencyCheck=0; autowireCandidate=true; primary=false; factoryBeanName=org.springframework.cloud.netflix.zuul.ZuulServerAutoConfiguration$ZuulCounterFactoryConfiguration; factoryMethodName=counterFactory; initMethodName=null; destroyMethodName=(inferred); defined in class path resource [org/springframework/cloud/netflix/zuul/ZuulServerAutoConfiguration$ZuulCounterFactoryConfiguration.class]] 
+2019-05-08 10:02:09 restartedMain BeanFactory id=64ad72ef-8b38-3eee-89ed-987bbff50bb5 
+2019-05-08 10:02:09 restartedMain JSR-330 'javax.inject.Inject' annotation found and supported for autowiring 
+2019-05-08 10:02:09 restartedMain Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$47cefbad] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2019-05-08 10:02:10 restartedMain Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$63e8feaa] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) 
+2019-05-08 10:02:10 restartedMain Tomcat initialized with port(s): 8881 (http) 
+2019-05-08 10:02:10 restartedMain Initializing ProtocolHandler ["http-nio-8881"] 
+2019-05-08 10:02:10 restartedMain Starting service [Tomcat] 
+2019-05-08 10:02:10 restartedMain Starting Servlet Engine: Apache Tomcat/8.5.32 
+2019-05-08 10:02:10 localhost-startStop-1 The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk18\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;E:\xftp\;C:\Program Files (x86)\NetSarang\Xshell 6\;C:\Program Files\Java\jdk18\bin;C:\Program Files\Java\jdk18\jre\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;E:\svn\bin;E:\phpStudy\PHPTutorial\php\php-7.0.12-nts;C:\Program Files\erl10.1\bin;C:\Program Files\Git\cmd;C:\ProgramData\ComposerSetup\bin;C:\Users\lizhengfan\AppData\Local\Programs\Python\Python37;C:\Program Files\TortoiseGit\bin;D:\Program Files\JetBrains\IntelliJ IDEA 2018.3\plugins\maven\lib\maven3\bin;curl-7.63.0-win64-mingw\bin;D:\Program Files (x86)\Fiddler2;C:\Users\lizhengfan\AppData\Roaming\Composer\vendor\bin;d:\Program Files\Docker Toolbox;.] 
+2019-05-08 10:02:11 localhost-startStop-1 Initializing Spring embedded WebApplicationContext 
+2019-05-08 10:02:11 localhost-startStop-1 Root WebApplicationContext: initialization completed in 3871 ms 
+2019-05-08 10:02:11 localhost-startStop-1 No URLs will be polled as dynamic configuration sources. 
+2019-05-08 10:02:11 localhost-startStop-1 To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath. 
+2019-05-08 10:02:11 localhost-startStop-1 DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@7421a0f6 
+2019-05-08 10:02:13 localhost-startStop-1 Mapping filter: 'characterEncodingFilter' to: [/*] 
+2019-05-08 10:02:13 localhost-startStop-1 Mapping filter: 'webMvcMetricsFilter' to: [/*] 
+2019-05-08 10:02:13 localhost-startStop-1 Mapping filter: 'hiddenHttpMethodFilter' to: [/*] 
+2019-05-08 10:02:13 localhost-startStop-1 Mapping filter: 'httpPutFormContentFilter' to: [/*] 
+2019-05-08 10:02:13 localhost-startStop-1 Mapping filter: 'requestContextFilter' to: [/*] 
+2019-05-08 10:02:13 localhost-startStop-1 Mapping filter: 'httpTraceFilter' to: [/*] 
+2019-05-08 10:02:13 localhost-startStop-1 Mapping filter: 'webStatFilter' to urls: [/*] 
+2019-05-08 10:02:13 localhost-startStop-1 Servlet dispatcherServlet mapped to [/] 
+2019-05-08 10:02:13 localhost-startStop-1 Servlet statViewServlet mapped to [/druid/*] 
+2019-05-08 10:02:13 localhost-startStop-1 Servlet webServlet mapped to [/h2-console/*] 
+2019-05-08 10:02:13 localhost-startStop-1 Servlet zuulServlet mapped to [/zuul/*] 
+2019-05-08 10:02:13 restartedMain {dataSource-1} inited 
+2019-05-08 10:02:14 restartedMain No URLs will be polled as dynamic configuration sources. 
+2019-05-08 10:02:14 restartedMain To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath. 
+2019-05-08 10:02:14 restartedMain Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2019-05-08 10:02:14 restartedMain Looking for @ControllerAdvice: org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6af8663a: startup date [Wed May 08 10:02:07 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@5e0a6bbb 
+2019-05-08 10:02:14 restartedMain Mapped "{[/],produces=[text/html]}" onto public java.lang.String org.springframework.cloud.netflix.sidecar.SidecarController.home() 
+2019-05-08 10:02:14 restartedMain Mapped "{[/ping]}" onto public java.lang.String org.springframework.cloud.netflix.sidecar.SidecarController.ping() 
+2019-05-08 10:02:14 restartedMain Mapped "{[/hosts/{appName}]}" onto public java.util.List<org.springframework.cloud.client.ServiceInstance> org.springframework.cloud.netflix.sidecar.SidecarController.hosts(java.lang.String) 
+2019-05-08 10:02:14 restartedMain Mapped "{[/hosts]}" onto public java.util.List<org.springframework.cloud.client.ServiceInstance> org.springframework.cloud.netflix.sidecar.SidecarController.hosts2(java.lang.String) 
+2019-05-08 10:02:14 restartedMain Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.error(javax.servlet.http.HttpServletRequest) 
+2019-05-08 10:02:14 restartedMain Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2019-05-08 10:02:14 restartedMain Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2019-05-08 10:02:14 restartedMain Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler] 
+2019-05-08 10:02:15 restartedMain SpringTemplateLoader for FreeMarker: using resource loader [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6af8663a: startup date [Wed May 08 10:02:07 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@5e0a6bbb] and template loader path [classpath:/templates/] 
+2019-05-08 10:02:15 restartedMain ClassTemplateLoader for Spring macros added to FreeMarker configuration 
+2019-05-08 10:02:15 restartedMain Using default implementation for ThreadExecutor 
+2019-05-08 10:02:15 restartedMain Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl 
+2019-05-08 10:02:15 restartedMain Quartz Scheduler v.2.3.0 created. 
+2019-05-08 10:02:15 restartedMain RAMJobStore initialized. 
+2019-05-08 10:02:15 restartedMain Scheduler meta-data: Quartz Scheduler (v2.3.0) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+ 
+2019-05-08 10:02:15 restartedMain Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance. 
+2019-05-08 10:02:15 restartedMain Quartz scheduler version: 2.3.0 
+2019-05-08 10:02:15 restartedMain JobFactory set to: org.springframework.boot.autoconfigure.quartz.AutowireCapableBeanJobFactory@7954f334 
+2019-05-08 10:02:15 restartedMain Unable to start LiveReload server 
+2019-05-08 10:02:17 restartedMain Starting filter initializer 
+2019-05-08 10:02:17 restartedMain Exposing 2 endpoint(s) beneath base path '/actuator' 
+2019-05-08 10:02:17 restartedMain Mapped "{[/actuator/health],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>) 
+2019-05-08 10:02:17 restartedMain Mapped "{[/actuator/info],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.web.servlet.AbstractWebMvcEndpointHandlerMapping$OperationHandler.handle(javax.servlet.http.HttpServletRequest,java.util.Map<java.lang.String, java.lang.String>) 
+2019-05-08 10:02:17 restartedMain Mapped "{[/actuator],methods=[GET],produces=[application/vnd.spring-boot.actuator.v2+json || application/json]}" onto protected java.util.Map<java.lang.String, java.util.Map<java.lang.String, org.springframework.boot.actuate.endpoint.web.Link>> org.springframework.boot.actuate.endpoint.web.servlet.WebMvcEndpointHandlerMapping.links(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) 
+2019-05-08 10:02:17 restartedMain Registering beans for JMX exposure on startup 
+2019-05-08 10:02:17 restartedMain Bean with name 'dataSource' has been autodetected for JMX exposure 
+2019-05-08 10:02:17 restartedMain Bean with name 'environmentManager' has been autodetected for JMX exposure 
+2019-05-08 10:02:17 restartedMain Bean with name 'refreshScope' has been autodetected for JMX exposure 
+2019-05-08 10:02:17 restartedMain Bean with name 'configurationPropertiesRebinder' has been autodetected for JMX exposure 
+2019-05-08 10:02:17 restartedMain Located managed bean 'environmentManager': registering with JMX server as MBean [org.springframework.cloud.context.environment:name=environmentManager,type=EnvironmentManager] 
+2019-05-08 10:02:17 restartedMain Located managed bean 'refreshScope': registering with JMX server as MBean [org.springframework.cloud.context.scope.refresh:name=refreshScope,type=RefreshScope] 
+2019-05-08 10:02:17 restartedMain Located managed bean 'configurationPropertiesRebinder': registering with JMX server as MBean [org.springframework.cloud.context.properties:name=configurationPropertiesRebinder,context=6af8663a,type=ConfigurationPropertiesRebinder] 
+2019-05-08 10:02:17 restartedMain Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource] 
+2019-05-08 10:02:17 restartedMain Starting beans in phase 0 
+2019-05-08 10:02:17 restartedMain Starting beans in phase 2147483647 
+2019-05-08 10:02:17 restartedMain Starting Quartz Scheduler now 
+2019-05-08 10:02:17 restartedMain Scheduler quartzScheduler_$_NON_CLUSTERED started. 
+2019-05-08 10:02:17 restartedMain No TaskScheduler/ScheduledExecutorService bean found for scheduled processing 
+2019-05-08 10:02:17 restartedMain Setting initial instance status as: STARTING 
+2019-05-08 10:02:17 restartedMain Initializing Eureka in region us-east-1 
+2019-05-08 10:02:18 restartedMain Using JSON encoding codec LegacyJacksonJson 
+2019-05-08 10:02:18 restartedMain Using JSON decoding codec LegacyJacksonJson 
+2019-05-08 10:02:18 restartedMain Using XML encoding codec XStreamXml 
+2019-05-08 10:02:18 restartedMain Using XML decoding codec XStreamXml 
+2019-05-08 10:02:19 restartedMain Resolving eureka endpoints via configuration 
+2019-05-08 10:02:19 restartedMain Disable delta property : false 
+2019-05-08 10:02:19 restartedMain Single vip registry refresh property : null 
+2019-05-08 10:02:19 restartedMain Force full registry fetch : false 
+2019-05-08 10:02:19 restartedMain Application is null : false 
+2019-05-08 10:02:19 restartedMain Registered Applications size is zero : true 
+2019-05-08 10:02:19 restartedMain Application version is -1: true 
+2019-05-08 10:02:19 restartedMain Getting all instance registry info from the eureka server 
+2019-05-08 10:02:19 restartedMain The response status is 200 
+2019-05-08 10:02:19 restartedMain Starting heartbeat executor: renew interval is: 30 
+2019-05-08 10:02:19 restartedMain InstanceInfoReplicator onDemand update allowed rate per min is 4 
+2019-05-08 10:02:19 restartedMain Discovery Client initialized at timestamp 1557280939394 with initial instances count: 7 
+2019-05-08 10:02:19 restartedMain Starting ProtocolHandler ["http-nio-8881"] 
+2019-05-08 10:02:19 restartedMain Using a shared selector for servlet write/read 
+2019-05-08 10:02:19 restartedMain Tomcat started on port(s): 8881 (http) with context path '' 
+2019-05-08 10:02:19 restartedMain Updating port to 8881 
+2019-05-08 10:02:19 restartedMain Registering application dnycloud-service with eureka with status UP 
+2019-05-08 10:02:19 restartedMain Saw local status change event StatusChangeEvent [timestamp=1557280939440, current=UP, previous=STARTING] 
+2019-05-08 10:02:19 DiscoveryClient-InstanceInfoReplicator-0 DiscoveryClient_DNYCLOUD-SERVICE/UMHAYKE6JYPIX2U.xdd.com:dnycloud-service:8881: registering service... 
+2019-05-08 10:02:19 restartedMain Started ShopServiceApplication in 14.206 seconds (JVM running for 17.261) 
+2019-05-08 10:02:19 DiscoveryClient-InstanceInfoReplicator-0 DiscoveryClient_DNYCLOUD-SERVICE/UMHAYKE6JYPIX2U.xdd.com:dnycloud-service:8881 - registration status: 204 
+2019-05-08 10:02:19 RMI TCP Connection(5)-127.0.0.1 Initializing Spring FrameworkServlet 'dispatcherServlet' 
+2019-05-08 10:02:19 RMI TCP Connection(5)-127.0.0.1 FrameworkServlet 'dispatcherServlet': initialization started 
+2019-05-08 10:02:19 RMI TCP Connection(5)-127.0.0.1 FrameworkServlet 'dispatcherServlet': initialization completed in 29 ms 
+2019-05-08 10:03:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:03:05 Thread-49 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:03:05 pool-2-thread-1  
+2019-05-08 10:03:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:03:10 Thread-50 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:03:10 pool-2-thread-1  
+2019-05-08 10:03:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:03:15 Thread-51 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:03:15 pool-2-thread-1  
+2019-05-08 10:04:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:04:05 Thread-52 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:04:05 pool-2-thread-1  
+2019-05-08 10:04:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:04:10 Thread-53 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:04:10 pool-2-thread-1  
+2019-05-08 10:04:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:04:15 Thread-54 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:04:15 pool-2-thread-1  
+2019-05-08 10:05:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:05:05 Thread-55 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:05:05 pool-2-thread-1  
+2019-05-08 10:05:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:05:10 Thread-56 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:05:10 pool-2-thread-1  
+2019-05-08 10:05:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:05:15 Thread-57 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:05:15 pool-2-thread-1  
+2019-05-08 10:06:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:06:05 Thread-58 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:06:05 pool-2-thread-1  
+2019-05-08 10:06:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:06:10 Thread-59 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:06:10 pool-2-thread-1  
+2019-05-08 10:06:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:06:15 Thread-60 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:06:15 pool-2-thread-1  
+2019-05-08 10:07:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:07:05 Thread-61 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:07:05 pool-2-thread-1  
+2019-05-08 10:07:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:07:10 Thread-62 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:07:10 pool-2-thread-1  
+2019-05-08 10:07:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:07:15 Thread-63 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:07:15 pool-2-thread-1  
+2019-05-08 10:07:19 AsyncResolver-bootstrap-executor-0 Resolving eureka endpoints via configuration 
+2019-05-08 10:08:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:08:05 Thread-64 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:08:05 pool-2-thread-1  
+2019-05-08 10:08:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:08:10 pool-2-thread-1  
+2019-05-08 10:08:10 Thread-65 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:08:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:08:15 pool-2-thread-1  
+2019-05-08 10:08:15 Thread-66 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:09:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:09:05 Thread-67 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:09:05 pool-2-thread-1  
+2019-05-08 10:09:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:09:10 Thread-68 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:09:10 pool-2-thread-1  
+2019-05-08 10:09:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:09:15 Thread-69 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:09:15 pool-2-thread-1  
+2019-05-08 10:10:03 pool-2-thread-1 执行确认订单签收时间计划任务 
+2019-05-08 10:10:03 Thread-70 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:10:03 pool-2-thread-1  
+2019-05-08 10:10:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:10:05 Thread-71 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:10:05 pool-2-thread-1  
+2019-05-08 10:10:06 pool-2-thread-1 执行确认收货计划任务 
+2019-05-08 10:10:06 Thread-72 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:10:06 pool-2-thread-1  
+2019-05-08 10:10:09 pool-2-thread-1 执行推送促销更新计划任务 
+2019-05-08 10:10:09 Thread-73 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:10:09 pool-2-thread-1  
+2019-05-08 10:10:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:10:10 Thread-74 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:10:10 pool-2-thread-1  
+2019-05-08 10:10:12 pool-2-thread-1 执行来三斤商品下载计划任务 
+2019-05-08 10:10:12 Thread-75 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:10:12 pool-2-thread-1  
+2019-05-08 10:10:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:10:15 Thread-76 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:10:15 pool-2-thread-1  
+2019-05-08 10:11:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:11:05 pool-2-thread-1  
+2019-05-08 10:11:05 Thread-77 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:11:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:11:10 Thread-78 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:11:10 pool-2-thread-1  
+2019-05-08 10:11:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:11:15 pool-2-thread-1  
+2019-05-08 10:11:15 Thread-79 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:12:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:12:05 Thread-80 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:12:05 pool-2-thread-1  
+2019-05-08 10:12:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:12:10 Thread-81 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:12:10 pool-2-thread-1  
+2019-05-08 10:12:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:12:15 Thread-82 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:12:15 pool-2-thread-1  
+2019-05-08 10:12:19 AsyncResolver-bootstrap-executor-0 Resolving eureka endpoints via configuration 
+2019-05-08 10:13:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:13:05 Thread-83 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:13:05 pool-2-thread-1  
+2019-05-08 10:13:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:13:10 Thread-84 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:13:10 pool-2-thread-1  
+2019-05-08 10:13:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:13:15 Thread-85 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:13:15 pool-2-thread-1  
+2019-05-08 10:14:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:14:05 Thread-86 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:14:05 pool-2-thread-1  
+2019-05-08 10:14:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:14:10 Thread-87 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:14:10 pool-2-thread-1  
+2019-05-08 10:14:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:14:15 Thread-88 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:14:15 pool-2-thread-1  
+2019-05-08 10:15:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:15:05 Thread-89 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:15:05 pool-2-thread-1  
+2019-05-08 10:15:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:15:10 Thread-90 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:15:10 pool-2-thread-1  
+2019-05-08 10:15:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:15:15 Thread-91 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:15:15 pool-2-thread-1  
+2019-05-08 10:16:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:16:05 Thread-92 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:16:05 pool-2-thread-1  
+2019-05-08 10:16:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:16:10 pool-2-thread-1  
+2019-05-08 10:16:10 Thread-93 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:16:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:16:15 Thread-94 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:16:15 pool-2-thread-1  
+2019-05-08 10:17:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:17:05 pool-2-thread-1  
+2019-05-08 10:17:05 Thread-95 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:17:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:17:10 pool-2-thread-1  
+2019-05-08 10:17:10 Thread-96 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:17:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:17:15 Thread-97 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:17:15 pool-2-thread-1  
+2019-05-08 10:17:19 AsyncResolver-bootstrap-executor-0 Resolving eureka endpoints via configuration 
+2019-05-08 10:18:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:18:05 Thread-98 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:18:05 pool-2-thread-1  
+2019-05-08 10:18:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:18:10 Thread-99 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:18:10 pool-2-thread-1  
+2019-05-08 10:18:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:18:15 Thread-100 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:18:15 pool-2-thread-1  
+2019-05-08 10:19:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:19:05 Thread-101 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:19:05 pool-2-thread-1  
+2019-05-08 10:19:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:19:10 Thread-102 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:19:10 pool-2-thread-1  
+2019-05-08 10:19:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:19:15 Thread-103 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:19:15 pool-2-thread-1  
+2019-05-08 10:20:03 pool-2-thread-1 执行确认订单签收时间计划任务 
+2019-05-08 10:20:03 Thread-104 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:20:03 pool-2-thread-1  
+2019-05-08 10:20:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:20:05 Thread-105 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:20:05 pool-2-thread-1  
+2019-05-08 10:20:06 pool-2-thread-1 执行确认收货计划任务 
+2019-05-08 10:20:06 pool-2-thread-1  
+2019-05-08 10:20:06 Thread-106 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:20:09 pool-2-thread-1 执行推送促销更新计划任务 
+2019-05-08 10:20:09 Thread-107 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:20:09 pool-2-thread-1  
+2019-05-08 10:20:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:20:10 Thread-108 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:20:10 pool-2-thread-1  
+2019-05-08 10:20:12 pool-2-thread-1 执行来三斤商品下载计划任务 
+2019-05-08 10:20:12 Thread-109 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:20:12 pool-2-thread-1  
+2019-05-08 10:20:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:20:15 Thread-110 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:20:15 pool-2-thread-1  
+2019-05-08 10:21:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:21:05 Thread-111 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:21:05 pool-2-thread-1  
+2019-05-08 10:21:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:21:10 Thread-112 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:21:10 pool-2-thread-1  
+2019-05-08 10:21:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:21:15 Thread-113 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:21:15 pool-2-thread-1  
+2019-05-08 10:22:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:22:05 Thread-114 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:22:05 pool-2-thread-1  
+2019-05-08 10:22:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:22:10 Thread-115 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:22:10 pool-2-thread-1  
+2019-05-08 10:22:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:22:15 Thread-116 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:22:15 pool-2-thread-1  
+2019-05-08 10:22:19 AsyncResolver-bootstrap-executor-0 Resolving eureka endpoints via configuration 
+2019-05-08 10:23:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:23:05 Thread-117 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:23:05 pool-2-thread-1  
+2019-05-08 10:23:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:23:10 Thread-118 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:23:10 pool-2-thread-1  
+2019-05-08 10:23:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:23:15 Thread-119 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:23:15 pool-2-thread-1  
+2019-05-08 10:24:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:24:05 Thread-120 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:24:05 pool-2-thread-1  
+2019-05-08 10:24:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:24:10 Thread-121 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:24:10 pool-2-thread-1  
+2019-05-08 10:24:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:24:15 Thread-122 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:24:15 pool-2-thread-1  
+2019-05-08 10:25:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:25:05 Thread-123 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:25:05 pool-2-thread-1  
+2019-05-08 10:25:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:25:10 Thread-124 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:25:10 pool-2-thread-1  
+2019-05-08 10:25:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:25:15 Thread-125 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:25:15 pool-2-thread-1  
+2019-05-08 10:26:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:26:05 Thread-126 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:26:05 pool-2-thread-1  
+2019-05-08 10:26:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:26:10 Thread-127 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:26:10 pool-2-thread-1  
+2019-05-08 10:26:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:26:15 Thread-128 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:26:15 pool-2-thread-1  
+2019-05-08 10:27:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:27:05 pool-2-thread-1  
+2019-05-08 10:27:05 Thread-129 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:27:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:27:10 Thread-130 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:27:10 pool-2-thread-1  
+2019-05-08 10:27:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:27:15 Thread-131 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:27:15 pool-2-thread-1  
+2019-05-08 10:27:19 AsyncResolver-bootstrap-executor-0 Resolving eureka endpoints via configuration 
+2019-05-08 10:28:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:28:05 pool-2-thread-1  
+2019-05-08 10:28:05 Thread-132 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:28:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:28:10 Thread-133 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:28:10 pool-2-thread-1  
+2019-05-08 10:28:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:28:15 Thread-134 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:28:15 pool-2-thread-1  
+2019-05-08 10:29:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:29:05 Thread-135 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:29:05 pool-2-thread-1  
+2019-05-08 10:29:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:29:10 Thread-136 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:29:10 pool-2-thread-1  
+2019-05-08 10:29:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:29:15 Thread-137 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:29:15 pool-2-thread-1  
+2019-05-08 10:30:03 pool-2-thread-1 执行确认订单签收时间计划任务 
+2019-05-08 10:30:03 Thread-138 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:30:03 pool-2-thread-1  
+2019-05-08 10:30:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:30:05 pool-2-thread-1  
+2019-05-08 10:30:05 Thread-139 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:30:06 pool-2-thread-1 执行确认收货计划任务 
+2019-05-08 10:30:06 Thread-140 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:30:06 pool-2-thread-1  
+2019-05-08 10:30:09 pool-2-thread-1 执行推送促销更新计划任务 
+2019-05-08 10:30:09 Thread-141 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:30:09 pool-2-thread-1  
+2019-05-08 10:30:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:30:10 Thread-142 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:30:10 pool-2-thread-1  
+2019-05-08 10:30:12 pool-2-thread-1 执行来三斤商品下载计划任务 
+2019-05-08 10:30:12 Thread-143 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:30:12 pool-2-thread-1  
+2019-05-08 10:30:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:30:15 Thread-144 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:30:15 pool-2-thread-1  
+2019-05-08 10:31:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:31:05 Thread-145 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:31:05 pool-2-thread-1  
+2019-05-08 10:31:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:31:10 Thread-146 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:31:10 pool-2-thread-1  
+2019-05-08 10:31:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:31:15 Thread-147 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:31:15 pool-2-thread-1  
+2019-05-08 10:32:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:32:05 Thread-148 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:32:05 pool-2-thread-1  
+2019-05-08 10:32:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:32:10 Thread-149 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:32:10 pool-2-thread-1  
+2019-05-08 10:32:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:32:15 Thread-150 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:32:15 pool-2-thread-1  
+2019-05-08 10:32:19 AsyncResolver-bootstrap-executor-0 Resolving eureka endpoints via configuration 
+2019-05-08 10:33:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:33:05 pool-2-thread-1  
+2019-05-08 10:33:05 Thread-151 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:33:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:33:10 Thread-152 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:33:10 pool-2-thread-1  
+2019-05-08 10:33:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:33:15 Thread-153 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:33:15 pool-2-thread-1  
+2019-05-08 10:34:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:34:05 pool-2-thread-1  
+2019-05-08 10:34:05 Thread-154 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:34:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:34:10 Thread-155 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:34:10 pool-2-thread-1  
+2019-05-08 10:34:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:34:15 Thread-156 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:34:15 pool-2-thread-1  
+2019-05-08 10:35:05 pool-2-thread-1 执行商品库存变化计划任务 
+2019-05-08 10:35:05 Thread-157 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:35:05 pool-2-thread-1  
+2019-05-08 10:35:10 pool-2-thread-1 执行退货超时计划任务 
+2019-05-08 10:35:10 Thread-158 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:35:10 pool-2-thread-1  
+2019-05-08 10:35:15 pool-2-thread-1 执行退款超时计划任务 
+2019-05-08 10:35:15 Thread-159 Could not open input file: D:\\myermnew\\wwwroot\\dnycloud/shop
+ 
+2019-05-08 10:35:15 pool-2-thread-1  

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>绑定银行卡</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet"  href="../../css/supplierMain.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="bind">
+		<div class="ad_header">
+	        <a href="javascript:;" class="ad_back">
+	            <span class="icon">&#xe885;</span>
+	        </a>
+	        <h2>绑定银行卡</h2>
+	    </div>
+	    <div class="form_wrap">
+			<form>
+				<div class="bind_card_wrap flex">
+					<span>持卡人姓名</span>
+					<input type="text" name="" placeholder="请输入真实姓名" class="b_c_name" id="sName">
+				</div>
+				<div class="bind_card_wrap flex">
+					<span>银行卡号</span>
+					<input type="text" name="" placeholder="请输入银行卡号" class="b_c_number" id="sNumber">
+				</div>
+				<div class="bind_card_wrap bank flex">
+					<span>银行</span>
+					<input type="text" readonly="readonly" name="" placeholder="招商银行" class="b_c_bank" id="sBank">
+				</div>
+				<div class="bind_card_wrap flex">
+					<span>手机号</span>
+					<input type="text" name="" placeholder="请输入银行预留手机号" class="b_c_phone" id="sPhone">
+				</div>
+			</form>
+			<button class="complete_btn">完成</button>
+			<p class="bottom_tip">仅支持储蓄卡，仅支持银行选择列表银行</p>
+	    </div>
+	</div>
+
+	<!-- 银行卡类型 -->
+	<div class="bank_wrap">
+		<div class="bank_type_wrap">
+			<h2>银行类型</h2>
+			<ul class="bank_list">
+				<li class="bank_type">银行类型1</li>
+				<li class="bank_type">银行类型2</li>
+				<li class="bank_type">银行类型3</li>
+				<li class="bank_type">银行类型1</li>
+				<li class="bank_type">银行类型2</li>
+				<li class="bank_type">银行类型3</li>
+				<li class="bank_type">银行类型1</li>
+				<li class="bank_type">银行类型2</li>
+				<li class="bank_type">银行类型3</li>
+				<li class="bank_type">银行类型1</li>
+				<li class="bank_type">银行类型2</li>
+				<li class="bank_type">银行类型3</li>
+			</ul>
+			<div class="bank_close">关闭</div>
+		</div>
+	</div>
+</body>
+<!-- <?php $this->beginBlock('foot') ?> -->
+<script src="../js/zepto.min.js"></script>
+<script>
+    $(function() {
+    	//选择银行类型
+    	$('.bank').on('click',function() {
+    		$('.bank_wrap').show();
+    	})
+    	$('.bank_wrap,.bank_close').on('click',function() {
+    		$('.bank_wrap').hide();
+    	})
+    	$('.bank_type').on('click',function(event) {
+    		event.stopPropagation();
+        	var value = $(this).html();
+        	$(this).addClass('active').siblings().removeClass('active');
+        	$('.b_c_bank').val(value);
+        })
+
+
+        //提交
+        $('.complete_btn').on('click',function() {
+        	var pattern = /^1\d{10}$/; //验证手机
+        		cardPattern = /^[0-9]{1,}$/;//验证卡号
+        	var name = $.trim( $('#sName').val() ),
+        		phone =$.trim( $('#sPhone').val() ),
+        		card = $.trim( $('#sNumber').val() ),
+        		bank = $.trim( $('#sBank').val() );
+
+        	if( name == '' ) {
+        		alert("持卡人姓名不能为空");
+        		return;
+        	}
+        	if( card == '') {
+        		alert("银行卡号不能为空");
+        		return;
+        	}
+        	if( !cardPattern.test( card ) ) {
+        		alert("请输入正确的银行卡号");
+        		return;
+        	}
+
+        	if( bank == '' ) {
+        		alert("请选择银行");
+        		return;
+        	}
+        	if( phone == '' ) {
+        		alert("请输入手机号");
+        		return;
+        	}
+        	if( !pattern.test( phone ) ) {
+        		alert("手机号格式不正确");
+        		return;
+        	}
+
+        	//$.pos()
+        })
+    })
+</script>
+<!-- <?php $this->endBlock() ?> -->
+</html>

@@ -1,0 +1,36 @@
+{
+	"msg": "操作成功",
+	"status": 0,
+	"isMore":true,
+    "data": {
+     	"type": "grid",
+        "title_img":"images/home/ad1.png",
+        "commodity": [
+            	{
+	                "title": "正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3-12周岁09个月-1",
+	                "price": "¥3299.00",
+	                "market_price":"¥4299.00",
+	                "image":"images/home/product4.png"
+           	 	}, 
+         		{
+	                "title": "哈罗闪儿童洗发水 宝宝婴儿洗发露 新生幼儿洗发",
+	                "price": "¥3299.00",
+	                "market_price":"¥4299.00",
+	               "image":"images/home/product1.png"
+           	 	}, 
+           	 	{
+	                "title": "可优比婴儿安抚巾毛绒玩具玩偶布艺安抚手偶宝..",
+	                "price": "¥3299.00",
+	                "market_price":"¥4299.00",
+	               "image":"images/home/product2.png"
+           	 	}, 
+           	 	{
+	                "title": "哈罗闪儿童洗发水 宝宝婴儿洗发露 新生幼儿洗发...",
+	                "price": "¥3299.00",
+	                "market_price":"¥4299.00",
+	               "image":"images/home/product3.png"
+           	 	}
+           	]
+    }
+
+}

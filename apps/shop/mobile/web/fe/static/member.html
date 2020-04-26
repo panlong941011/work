@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>个人中心</title>
+	
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/member.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="member">
+		<header class="flex">
+			<div class="portrait">
+				<img src="../images/order/person.png">
+			</div>
+			<h3 class="person_name">请登录</h3>
+			<div class="person_set">
+				<span>个人设置</span>
+				<i class="icon">&#xe600;</i>
+			</div>
+		</header>
+		<nav>
+			<div class="person_order">
+				<a href="" class="flex">
+					<em>我的订单</em>
+					<span>查看全部订单</span>
+				</a>
+			</div>
+			<div class="nav_list flex">
+				<a href="">
+					<div class="nav_item flex">
+						<i class="mav_icon icon_one"></i>
+						<span class="item_title">待付款</span>
+						<em class="wait_pay_num">11</em>
+					</div>
+				</a>
+				<a href="">
+					<div class="nav_item flex">
+						<i class="mav_icon icon_two"></i>
+						<span class="item_title">待发货</span>
+					</div>
+				</a>
+				<a href="">
+					<div class="nav_item flex">
+						<i class="mav_icon icon_three"></i>
+						<span class="item_title">待收货</span>
+					</div>
+				</a>
+				<a href="" >
+					<div class="nav_item flex">
+						<i class="mav_icon icon_four"></i>
+						<span class="item_title">已完成</span>
+					</div>
+				</a>
+				<a href="" >
+					<div class="nav_item flex">
+						<i class="mav_icon icon_five"></i>
+						<span class="item_title">退款/售后</span>
+					</div>
+				</a>
+			</div>
+		</nav>
+		<section>
+			<div class="personal_list ">
+				<a href="" class="flex">
+					<div class="person_item">
+						<i class="add"></i>
+						<span>收货地址管理</span>
+					</div>
+					<div class="arrow"></div>
+				</a>
+			</div>
+			<div class="personal_list">
+				<a href="" class="flex">
+					<div class="person_item">
+						<i class="kefu"></i>
+						<span>在线客服</span>
+					</div>
+					<div class="arrow">400-888-1234</div>
+				</a>
+			</div>
+			<div class="personal_list">
+				<a href="" class="flex">
+					<div class="person_item">
+						<i class="about"></i>
+						<span>关于我们</span>
+					</div>
+					<div class="arrow"></div>
+
+				</a>
+			</div>
+		</section>
+	</div>
+
+	 <footer>
+        <div class="bottom_fixed flex">
+            <a href="">
+                <span class="icon">&#xe608;</span>
+                <p>首页</p>
+            </a>
+             <a href="">
+                <span class="icon">&#xe6b0;</span>
+                <p>分类</p>
+            </a> 
+            <a href=""> 
+            	<span class="icon">&#xe60a;</span>
+                <p>购物车</p>
+            </a> 
+            <a href="" class="on"> 
+            	<span class="icon">&#xe637;</span>
+                <p>我的</p>
+            </a>
+        </div>
+    </footer>
+
+</body>
+<script type="text/javascript" src="../js/zepto.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('.portrait,.person_name').on('click',function() {
+			location.href = 'http://m.shop.myerm.cn/member/login';
+		})
+	})
+</script>
+</html>

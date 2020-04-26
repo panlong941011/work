@@ -1,0 +1,1 @@
+<textarea sDataType="<?=$field->sDataType?>" sFieldAs="<?=$field->sFieldAs?>" class="form-control" rows="2" name="arrObjectData[<?=$field->sObjectName?>][<?=$field->sFieldAs?>][]"><?=$data?></textarea>

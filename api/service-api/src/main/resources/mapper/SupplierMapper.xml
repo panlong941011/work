@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.SupplierMapper">
+    <select id="getSupplierByID" parameterType="int" resultType="group.dny.api.entity.Supplier">
+        SELECT lID,
+               sName,
+               dNewDate,
+               MemberID,
+               sUrl,
+               sPic,
+               sPicPath,
+               sRefundAddress,
+               sUserName,
+               sMobile,
+               fBalance,
+               fUnsettlement,
+               fWithdrawed,
+               fSumIncome,
+               BuyerID
+        FROM Supplier
+        WHERE lID = #{lID};
+    </select>
+
+    <update id="updateBalanceByID" parameterType="group.dny.api.entity.Supplier">
+        UPDATE Supplier
+        SET fBalance=
+                #{fBalance}
+        WHERE lID = #{lID}
+    </update>
+
+    <update id="updateUnsettlementByID" parameterType="group.dny.api.entity.Supplier">
+        UPDATE Supplier
+        SET fUnsettlement=
+                #{fUnsettlement}
+        WHERE lID = #{lID}
+    </update>
+
+    <update id="updateWithdrawByID" parameterType="group.dny.api.entity.Supplier">
+        UPDATE Supplier
+        SET fWithdrawed=
+                #{fWithdrawed}
+        WHERE lID = #{lID}
+    </update>
+
+    <update id="updateSumIncomeByID" parameterType="group.dny.api.entity.Supplier">
+        UPDATE Supplier
+        SET fSumIncome=
+                #{fSumIncome}
+        WHERE lID = #{lID}
+    </update>
+
+    <select id="getSupplierList" resultType="group.dny.api.entity.Supplier">
+        SELECT lID,
+        sName,
+        dNewDate,
+        MemberID,
+        sUrl,
+        sPic,
+        sPicPath,
+        sRefundAddress,
+        sUserName,
+        sMobile,
+        fBalance,
+        fUnsettlement,
+        fWithdrawed,
+        fSumIncome
+        FROM Supplier
+        WHERE lID = #{lID}
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+</mapper>

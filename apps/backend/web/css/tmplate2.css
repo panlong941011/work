@@ -1,0 +1,654 @@
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+    margin: 0;
+    padding: 0
+}
+
+body,
+button,
+input,
+select,
+textarea {
+    font: 12px/1.5 tahoma, arial, \5b8b\4f53, sans-serif
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%
+}
+
+address,
+cite,
+dfn,
+em,
+var {
+    font-style: normal
+}
+
+code,
+kbd,
+pre,
+samp {
+    font-family: courier new, courier, monospace
+}
+
+small {
+    font-size: 12px
+}
+
+ul,
+ol,
+li {
+    list-style: none
+}
+
+a {
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+sup {
+    vertical-align: text-top
+}
+
+sub {
+    vertical-align: text-bottom
+}
+
+legend {
+    color: #000
+}
+
+fieldset,
+img {
+    border: 0
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    display: block;
+    margin: 0;
+    padding: 0
+}
+
+button.btn:hover,
+button.small-btn:hover,
+button.long-btn:hover,
+button.short-btn:hover,
+button.small-long-btn:hover {
+    text-decoration: none
+}
+
+
+
+.dialog-areas {
+    position: absolute;
+    width: 580px;
+    border: 1px solid #c4d5df;
+    background-color: #fff
+}
+
+.dialog-areas .title {
+    padding-left: 10px;
+    height: 22px;
+    line-height: 22px;
+    font-weight: 700;
+    background-color: #e9f1f4;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #fff #fff #c4d5df
+}
+
+.dialog-areas .even {
+    background-color: #ecf4ff
+}
+
+.dialog-areas .btns {
+    padding: 5px 0 5px 10px;
+    margin-left: 430px
+}
+
+.dialog-areas label {
+    margin: 0 3px
+}
+
+.dialog-areas ul {
+    border-bottom: 1px solid #c4d5df
+}
+
+.dialog-areas li {
+    width: 100%;
+    overflow: hidden
+}
+
+.dialog-areas li span.group-label2 {
+    margin-right: 5px;
+    padding: 5px 0 5px 10px;
+    display: inline-block;
+    width: 70px;
+    font-weight: 700
+}
+
+.dialog-areas button {
+    margin-right: 5px;
+    padding: 2px 3px
+}
+
+.dialog-areas .btns .msg {
+    position: absolute
+}
+
+.dialog-areas input,
+.dialog-areas button {
+    vertical-align: middle
+}
+
+.dialog-areas .ks-ext-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 10px
+}
+
+.dialog-areas .areas2 b {
+    display: none;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    font-size: 0;
+    border-width: 4px;
+    border-color: #666 #fff #fff;
+    border-style: solid;
+    vertical-align: middle;
+    overflow: hidden
+}
+
+.ks-ext-mask,
+.ks-dialog-mask2 {
+    background-color: #fff;
+    opacity: .3;
+    filter: alpha(opacity=30)
+}
+
+.dialog-address {
+    position: absolute;
+    width: 580px;
+    border: 1px solid #95d2ff;
+    background-color: #f1fafe
+}
+
+.dialog-address .hd {
+    padding: 0 5px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden
+}
+
+.dialog-address h3 {
+    display: inline
+}
+
+.dialog-address .action {
+    float: right
+}
+
+.dialog-address table {
+    width: 100%;
+    border-left: 1px solid #fff
+}
+
+.dialog-address caption {
+    display: none
+}
+
+.dialog-address .col-uid {
+    width: 30px
+}
+
+.dialog-address .col-name {
+    width: 80px
+}
+
+.dialog-address .col-postcode {
+    width: 60px
+}
+
+.dialog-address .col-phone,
+.dialog-address .col-mobile {
+    width: 90px
+}
+
+.dialog-address td {
+    padding: 5px;
+    height: 34px;
+    border-width: 0 1px 1px 0;
+    border-style: solid;
+    border-color: #fff;
+    background-color: #e2efff;
+    word-wrap: break-word
+}
+
+.dialog-address .even td {
+    background-color: #cbe1ff
+}
+
+.dialog-address input {
+    vertical-align: middle
+}
+
+.dialog-address .ft {
+    padding: 5px
+}
+
+.dialog-batch {
+    position: absolute;
+    width: 620px;
+    padding: 10px;
+    border: 1px solid #95d2ff;
+    background-color: #fff
+}
+
+.dialog-batch .input-text {
+    width: 6em;
+    height: 15px;
+    line-height: 15px;
+    padding: 1px 0;
+    border: 1px solid #7f9db9
+}
+
+.dialog-batch .input-readonly {
+    background-color: #eee;
+    border: 1px solid #ccc
+}
+
+.dialog-batch .btns {
+    padding-top: 10px;
+    text-align: center
+}
+
+.dialog-batch button {
+    margin: 0 5px
+}
+
+.dialog-batch .ks-ext-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 10px
+}
+
+.clearfix:after {
+    display: block;
+    height: 0;
+    clear: both;
+    content: ''
+}
+
+.clearfix {
+    zoom: 1
+}
+
+.citys {
+    background-color: #FFFEC6;
+    position: absolute;
+    float: right;
+    border: solid 1px #f7e4a5;
+    z-index: 20000;
+    top: 23px;
+    left: 0;
+    width: 214px;
+    display: none;
+    white-space: wrap
+}
+
+.styblock {
+    display: block
+}
+
+.citys span {
+    line-height: 2;
+    margin-right: 2px
+}
+
+.dialog-areas li {
+    overflow: visible
+}
+
+.dcity {
+    vertical-align: middle;
+    display: block;
+    z-index: 1
+}
+
+.ecity {
+    position: relative;
+    float: left;
+    margin-right: 1px;
+    padding-right: 8px;
+    height: 30px;
+    width: 80px
+}
+
+.gcity,
+.province-list {
+    display: inline-block
+}
+
+.province-list {
+    width: 450px
+}
+
+.trigger {
+    width: 8px;
+    height: 8px;
+    padding: 2px;
+    cursor: pointer
+}
+
+.dialog-areas li span.areas2 {
+    margin-right: 3px;
+    padding: 4px 0 1px 4px;
+    display: inline-block
+}
+
+.dialog-areas span.gareas2 {
+    white-space: nowrap;
+    margin-right: 3px;
+    padding: 4px 4px 1px;
+    display: inline-block;
+    position: relative;
+    height: 17px;
+    border: 1px solid #fff
+}
+
+.dialog-areas .even span.gareas2 {
+    background-color: #ECF4FF;
+    border-color: #ecf4ff
+}
+
+.dialog-areas li span.egareas {
+    margin-right: 3px;
+    padding: 3px 0 1px;
+    display: inline-block;
+    background-color: #FFFEC6;
+    border: solid 1px #f7e4a5;
+    width: 70px
+}
+
+.showCityPop {
+    z-index: 55556
+}
+
+.dialog-areas .showCityPop .gareas2 {
+    background-color: #FFFEC6;
+    border: solid 1px #f7e4a5;
+    border-bottom: solid 1px #FFFEC6;
+    z-index: 56000
+}
+
+.dialog-areas .even .showCityPop .gareas2 {
+    background-color: #FFFEC6;
+    border-color: #f7e4a5 #f7e4a5 #FFFEC6
+}
+
+.showCityPop .citys {
+    display: block;
+    z-index: 55900
+}
+
+.checkbox {
+    vertical-align: middle;
+    padding: 0
+}
+
+.dialog-areas label {
+    margin: 0 1px
+}
+
+.check_num2 {
+    color: #F60;
+    font-size: 12px;
+    letter-spacing: -1px
+}
+
+.j_sellerBearFrePrice {
+    display: none;
+    width: 4em;
+    height: 15px;
+    line-height: 15px;
+    padding: 1px 0;
+    border: 1px solid #7f9db9;
+    text-align: right
+}
+
+.default .j_sellerBearFrePrice {
+    text-align: left
+}
+
+.select-by-custom .section {
+    margin-left: 20px
+}
+
+.fare-time {
+    float: left;
+    margin-right: 10px
+}
+
+.dialog2 {
+    display: none;
+}
+
+.set-free {
+    padding-left: 28px!important;
+    margin-bottom: 20px;
+    display: none
+}
+
+.set-free p.free-title {
+    padding-top: 15px;
+    margin-top: 15px;
+    border-top: 1px solid #ccc
+}
+
+.set-free .table {
+    width: 100%;
+    margin-top: 15px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: none
+}
+
+.set-free .table th {
+    height: 28px;
+    font-weight: 400;
+    background-color: #f5f5f5;
+    text-align: center;
+    border: 1px solid #bbb
+}
+
+.set-free .table td {
+    border: 1px solid #bbb;
+    background: #fcfcfc;
+    padding: 10px
+}
+
+.set-free .table td select {
+    width: 87px
+}
+
+.set-free .small-icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 15px;
+    background: url(//img.alicdn.com/tps/i4/TB1TlaNFVXXXXXLXpXXCKzvHXXX-48-14.png) 0 0 no-repeat
+}
+
+.set-free .free-contion {
+    margin-top: 15px;
+}
+
+.set-free .free-contion input {
+    width: 36px
+}
+
+.set-free .J_DelateItem {
+    background-position: -34px 0
+}
+
+.set-free .edit {
+    float: right
+}
+
+.set-free .area-group2 {
+    padding-right: 3em;
+    display: block
+}
+
+.set-free .hidden {
+    display: none
+}
+
+.set-free .table td.hui-error {
+    padding: 10px 0;
+    border: 0
+}
+
+.set-free .table td select.J_ChageContion {
+    width: 100px
+}
+
+.set-free .free-contion input.input-65 {
+    width: 65px
+}
+
+.noDeliver {
+     font-size: 12px;
+}
+/* .noDeliver {
+ font-size: 12px;
+}
+.noDeliver sup{
+    color: #e7505a;
+    vertical-align: middle;
+}
+.noDeliver a {
+    color: #38f;
+}
+.noDeliver a {
+    margin-left: 5px;
+}
+.deliverWrap {
+    display: none;
+}
+.noDeliver .table2 {
+    width: 50%;
+}
+.set-free2 .table2 {
+    width: 50%;
+    margin-top: 15px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    display: table;
+}
+.set-free2 {
+    padding-left: 28px!important;
+    margin-bottom: 20px;
+    display: list-item;
+}
+
+.set-free2 .table2 th {
+    height: 28px;
+    font-weight: 400;
+    background-color: #f5f5f5;
+    text-align: center;
+    border: 1px solid #bbb
+}
+
+.set-free2 .table2 td {
+    border: 1px solid #bbb;
+    background: #fcfcfc;
+    padding: 10px;
+    text-align: center;
+}
+
+.set-free2 .table2 td select {
+    width: 87px
+}
+.set-free2 .small-icon {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-left: 15px;
+    background: url(//img.alicdn.com/tps/i4/TB1TlaNFVXXXXXLXpXXCKzvHXXX-48-14.png) 0 0 no-repeat
+}
+
+.set-free2 .free-contion {
+    margin-top: 15px
+}
+.set-free2 .J_DelateItem2 {
+    background-position: -34px 0
+}
+.set-free2 .area-group2 {
+    padding-right: 3em;
+    display: block
+}
+.set-free2 .edit {
+    float: right
+} */

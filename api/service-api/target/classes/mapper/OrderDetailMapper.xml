@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.OrderDetailMapper">
+    <select id="getOrderStatuByClientSn" parameterType="string" resultType="group.dny.api.entity.OrderDetail">
+        SELECT d.ProductID,
+               d.ShipID,
+               d.sShipNo,
+               d.ShipCompanyID,
+               d.StatusID,
+               d.dShipDate,
+               d.OrderID
+        FROM OrderDetail d,
+             `Order` o
+        WHERE
+            d.OrderID = o.lID
+          AND o.sClientSN = #{sClientSN}
+    </select>
+
+    <select id="getOrderDetailByID" parameterType="int" resultType="group.dny.api.entity.OrderDetail">
+        SELECT ProductID,lID
+        FROM OrderDetail
+        WHERE lID = #{lID}
+    </select>
+
+    <select id="getOrderDetailByOrderID" parameterType="int" resultType="group.dny.api.entity.OrderDetail">
+        SELECT ProductID,dShipDate,StatusID
+        FROM OrderDetail
+        WHERE OrderID = #{lID}
+    </select>
+
+    <select id="getDetailByOrderIDAndPID" parameterType="group.dny.api.entity.OrderDetail"
+            resultType="group.dny.api.entity.OrderDetail">
+        SELECT lID,fBuyerPaidTotal,fSupplierIncomeTotal,ShipTemplateID,sShipNo,fShip
+        FROM OrderDetail
+        WHERE OrderID = #{OrderID}
+          AND ProductID = #{ProductID}
+    </select>
+
+    <select id="countProductPrice" parameterType="group.dny.api.entity.OrderDetail" resultType="java.math.BigDecimal">
+        SELECT SUM(fBuyerPaidTotal)
+        FROM OrderDetail
+        WHERE ShipTemplateID = #{ShipTemplateID}
+          AND OrderID = #{OrderID}
+    </select>
+
+    <update id="updateRefundStatus" parameterType="group.dny.api.entity.OrderDetail">
+        UPDATE OrderDetail
+        SET StatusID=#{StatusID}
+        <choose>
+            <when test="RefundID !=null">
+                ,RefundID=#{RefundID}
+            </when>
+        </choose>
+        WHERE lID = #{lID}
+    </update>
+
+    <update id="refundClosed" parameterType="group.dny.api.entity.OrderDetail">
+        UPDATE OrderDetail
+        SET dRefundCompleteDate=#{dRefundCompleteDate},
+            StatusID=#{StatusID}
+        WHERE lID = #{lID}
+    </update>
+
+    <select id="countRefundProductPrice" parameterType="group.dny.api.entity.OrderDetail"
+            resultType="java.math.BigDecimal">
+        SELECT SUM(fBuyerPaidTotal)
+        FROM OrderDetail
+        WHERE OrderID = #{OrderID}
+          AND ShipTemplateID = #{ShipTemplateID}
+    </select>
+
+    <select id="getDetailByClientSnAndPID" parameterType="map" resultType="group.dny.api.entity.OrderDetail">
+        SELECT d.lID,
+               d.ProductID,
+               d.ShipID,
+               d.sShipNo,
+               d.ShipCompanyID,
+               d.StatusID,
+               d.dShipDate,
+               d.OrderID,
+               d.fBuyerPaidTotal,
+               d.fSupplierIncomeTotal,
+               d.ShipTemplateID,
+               d.fShip
+        FROM OrderDetail d,
+             `Order` o
+        WHERE
+                d
+                    .
+                    OrderID =
+                o
+                    .
+                    lID
+          AND
+                o
+                    .
+                    sClientSN =
+                ${sClientSN}
+          AND
+                d
+                    .
+                    ProductID =
+                ${ProductID}
+    </select>
+</mapper>

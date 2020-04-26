@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>店铺设置</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet"   href="../../css/supplierMain.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="shop_setting">
+		<div class="ad_header">
+	        <a href="javascript:;" class="ad_back">
+	            <span class="icon">&#xe885;</span>
+	        </a>
+	        <h2>店铺设置</h2>
+	        <span class="ad_more icon">&#xe602;</span>
+	    </div>
+	    <div class="shop_logo">
+			<div class="logo_pic">
+				<img src="../../images/supplier/shopLogo.png" class="logo_show">
+				<input type="file" name="" class="logo_file">
+				<span class="close"></span>
+			</div>
+			<h3>店铺logo</h3>
+	    </div>
+		<div class="shop_name flex">
+			<span class="s_name">店铺名称</span>
+			<input type="text" name="" placeholder="不得多于10个字" maxlength="10" class="sName">
+		</div>
+		<button class="keep">保存</button>
+	</div>
+	<div class="nav_more_list">
+	    <div class="triangle-up"></div>
+	    <ul>
+	        <li class="flex" onclick="">
+	            <span class="icon">&#xe608;</span>
+	            <em>首页</em>
+	        </li>
+	        <li class="flex" onclick="">
+	            <span class="icon">&#xe60a;</span>
+	            <em>购物车</em>
+	        </li>
+	        <li class="flex" onclick="">
+	            <span class="icon">&#xe64a;</span>
+	            <em>我的</em>
+	        </li>
+	    </ul>
+	</div>
+</body>
+<!-- <?php $this->beginBlock('foot') ?> -->
+<script src="../../js/zepto.min.js"></script>
+<script src="../../js/lrz.all.bundle.js"></script>
+<script>
+	$(function() {
+		 $('.ad_more').on('click', function () {
+            event.stopPropagation();
+            $(".nav_more_list").toggle();
+        })
+        $(window).on('click', function () {
+            $(".nav_more_list").hide();
+        })
+        //图片上传
+		$('.logo_file').on('change',function(event) {
+
+            var files = event.currentTarget.files[0];
+
+            lrz(files)
+                .then(function (rst) {
+                    // 处理成功会执行
+                    addImg(rst.base64);
+
+                })
+                .catch(function (err) {
+                    console.log(err);
+                    // 处理失败会执行
+                    shoperm.showTip('上传正确图片格式');
+                    return;
+                })
+                .always(function () {
+                    // 不管是成功失败，都会执行
+                   
+                });
+		})
+
+		$('.close').on('click',function() {
+			$(this).hide();
+			$('.logo_file').show();
+			$('.logo_file').val('');
+			$('.logo_show').attr('src','../../images/supplier/shopLogo.png');
+		})
+
+		$('.keep').on('click',function() {
+			//$.post(); 
+		})
+
+		function addImg(file) {
+			$('.logo_show').attr('src',file);
+			$('.close').show();
+			$('.logo_file').hide();
+		}
+	})
+</script>
+<!-- <?php $this->endBlock() ?> -->
+</html>

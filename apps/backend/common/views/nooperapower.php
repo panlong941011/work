@@ -1,0 +1,1 @@
+error("<?=$sMsg?>");throw '';

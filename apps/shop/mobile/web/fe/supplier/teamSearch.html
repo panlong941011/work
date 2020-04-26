@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>团队搜索</title>
+	
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../../css/settlement.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="team_search">
+		<div class="search_header flex">
+            <div class="s_close_wrap">
+                <span class="s_close icon">&#xe885;</span>
+            </div>
+           <div class="search_input flex">
+                <span></span>
+             	<input type="text" placeholder="用户昵称/手机号" v-model="keys">
+           </div>
+           <div class="search_btn">搜索</div>
+        </div>
+
+        <!-- 为空时 -->
+        <div class="search_empty"  style="display: none;">
+			<div class="empty_pic">
+				<img src="../../images/list_empty.png">
+			</div>
+			<p>啊哦~没有搜到相关经销商</p>
+	    </div>
+		<ul class="team_list">
+			<li class="team_item">
+				<a href="" class="flex">
+					<div class="t_i_pic">
+						<img src="../../images/supplier/buyer.png">
+					</div>
+					<div class="t_i_info">
+						<h3>用户昵称</h3>
+						<p>个人业绩：¥500.00</p>
+						<div class="mom flex">
+							<span>环比：</span>
+							<div class="mom_icon ">
+								<i class="icon">&#xe612;</i>
+								<em>20%</em>
+							</div>
+						</div>
+					</div>
+				</a>
+			</li>
+			<li class="team_item">
+				<a href="" class="flex">
+					<div class="t_i_pic">
+						<img src="../../images/supplier/buyer.png">
+					</div>
+					<div class="t_i_info">
+						<h3>用户昵称</h3>
+						<p>个人业绩：¥500.00</p>
+						<div class="mom flex">
+							<span>环比：</span>
+							<div class="mom_icon downward">
+								<i class="icon">&#xe612;</i>
+								<em>20%</em>
+							</div>
+						</div>
+					</div>
+				</a>
+			</li>
+			<li class="team_item">
+				<a href="" class="flex">
+					<div class="t_i_pic">
+						<img src="../../images/supplier/buyer.png">
+					</div>
+					<div class="t_i_info">
+						<h3>用户昵称</h3>
+						<p>个人业绩：¥500.00</p>
+						<div class="mom flex">
+							<span>环比：</span>
+							<div class="equal">--</div>
+						</div>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+</body>
+<!-- <?php $this->beginBlock('foot') ?> -->
+	<script src="../js/zepto.min.js"></script>
+	<script>
+	    $(function() {
+	    	$('.search_btn').on('click',function() {
+	    		
+	    	})
+	       
+	    })
+	</script>
+<!-- <?php $this->endBlock() ?> -->
+</html>

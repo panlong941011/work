@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>提现记录</title>
+	
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../../css/settlement.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="withdraw_record">
+		<div class="ad_header">
+	        <a href="javascript:;" class="ad_back">
+	            <span class="icon">&#xe885;</span>
+	        </a>
+	        <h2>提现记录</h2>
+	    </div>
+	    <!-- 为空 -->
+	    <div class="record_empty" style="display: none;">
+			<div class="record_pic">
+				<img src="../../images/supplier/record.png">
+			</div>
+			<p class="d_e_tip">您还没有提现记录</p>
+	    </div>
+	    
+	    <div class="withdraw_record_main" >
+			 <div class="w_r_opt flex">
+				<span class="opt_item active">全部</span>
+				<span class="opt_item">提现中</span>
+				<span class="opt_item">已提现</span>
+		    </div>
+		    <ul class="w_r_list">
+				<li class="w_r_item">
+					<div class="w_r_top flex">
+						<h2>申请提现</h2>
+						<em>+0.58</em>
+					</div>
+					<div class="w_r_bottom flex">
+						<p>2017-02-21 17:13：15</p>
+						<span class="withdrawing">提现中</span>
+					</div>
+				</li>
+				<li class="w_r_item">
+					<div class="w_r_top flex">
+						<h2>申请提现</h2>
+						<em>+0.58</em>
+					</div>
+					<div class="w_r_bottom flex">
+						<p>2017-02-21 17:13：15</p>
+						<span class="withdrawed">已提现</span>
+					</div>
+				</li>
+				<li class="w_r_item">
+					<div class="w_r_top flex">
+						<h2>申请提现</h2>
+						<em>+0.58</em>
+					</div>
+					<div class="w_r_bottom flex">
+						<p>2017-02-21 17:13：15</p>
+						<span  class="withdrawed">已提现</span>
+					</div>
+				</li>
+		    </ul>
+	    </div>
+	  
+	</div>
+</body>
+	  var data = [
+		{
+			'tile': '申请提现',
+			'price': '+0.58',
+			'time': '2017-02-21 17:13：15',
+			'status': '已提现',
+		},
+		{
+			'tile': '申请提现',
+			'price': '+0.58',
+			'time': '2017-02-21 17:13：15',
+			'status': '已提现',
+		},
+		{
+			'tile': '申请提现',
+			'price': '+0.58',
+			'time': '2017-02-21 17:13：15',
+			'status': '已提现',
+		}
+	  ]
+</html>

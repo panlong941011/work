@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.DealFlowMapper">
+    <select id="computeDeal" parameterType="map" resultType="java.math.BigDecimal">
+        SELECT SUM(fMoney)
+        FROM DealFlow
+        WHERE 1 = 1
+        <if test="roleType=='buyer'">
+            AND BuyerID=#{memberID}
+        </if>
+        <if test="roleType=='supplier'">
+            AND SupplierID=#{memberID}
+        </if>
+    </select>
+
+    <select id="getMoneyBySupplierID" parameterType="map" resultType="java.math.BigDecimal">
+        SELECT SUM(fMoney)
+        FROM DealFlow
+        WHERE SupplierID = #{SupplierID}
+          AND TypeID = #{TypeID}
+    </select>
+</mapper>

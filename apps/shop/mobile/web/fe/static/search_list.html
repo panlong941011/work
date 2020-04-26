@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>搜索列表</title>
+	 <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="../css/common.css">	
+	<link rel="stylesheet" href="../css/searchList.css">
+	<script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="searchList_wrap" id="app">
+		<div class="top_colum">
+			<div class="s_l_top flex">
+				<div class="s_l_back">
+					<span class="icon">&#xe885;</span>
+				</div>
+				<div class="s_input flex">
+					<span></span>
+					<h2>安全座椅</h2>
+					<!-- <input type="text" placeholder="安全座椅"> -->
+				</div>
+				<div class="s_l_more flexOne">
+					<span class="icon">&#xe602;</span>
+				</div>
+			</div>
+			<div class="select_area flex">
+				<div class="area_left flex">
+					<span class="on" @click="changeCondition('defalut')">默认排序</span>
+					<span @click="changeCondition('sale')">销售量</span>
+					<span class="arrow_wrap" @click="changeCondition('price')">
+						价格
+						<i class="arrow_top"></i>
+						<i class="arrow_bottom"></i>
+					</span>
+				</div>
+				<div class="area_right flex">
+					<span class="icon">&#xe635;</span>
+					<em>筛选</em>
+				</div>
+			</div>
+		</div>
+		<div class="s_l_content">
+			<div class="s_l_list">
+				<ul>
+					<li v-for="item in dataList">
+						<a :href="item.link" class="flex">
+							<div class="list_img">
+								<img :src="item.image" alt="">
+								<div class="list_img_mask" v-if="item.saleout">
+                                    <div class="l_wrap">
+                                        <img src="/images/home/sellout.png" alt="">
+                                    </div>
+                                </div>
+							</div>
+							<div class="list_content flexOne">
+								<h2 v-text="item.title"></h2>
+								<del v-text="item.market_price"></del>
+								<em v-text="item.price"></em>
+								<span v-text="item.sold"></span>
+							</div>
+						</a>
+						
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="filter_wrap">
+			<div class="filter_top flex">
+				<span class="cancel_btn">取消</span>
+				<h3>筛选</h3>
+				<span class="sure_btn" @click="choseTarget()">确认</span>
+			</div>
+			<div class="filter_content">
+				<div class="f_label">
+					<div class="f_l_top flex">
+						<div class="l_t_name">标签</div>
+						<div class="l_t_all">展开全部</div>
+					</div>
+					<div class="f_l_content">
+						<span class="all on">全部</span> <!-- 第一个要特殊处理 class all其他span不能有 -->
+						<span>纸尿裤纸尿裤纸尿裤</span>
+						<span>辅食喂养</span>
+						<span>安全座椅</span>
+						<span>纸尿裤</span>
+						<span>纸尿裤</span>
+					</div>
+				</div>
+				<div class="f_classify">
+					<div class="f_c_top flex">
+						<div class="c_t_name">分类</div>
+						<div class="c_t_all">展开全部</div>
+					</div>
+					<div class="f_c_content">
+						<span class="all on">全部</span>
+						<span>辅食喂养</span>
+						<span>安全座椅</span>
+						<span>纸尿裤</span>
+						<span>纸尿裤</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	
+	<div class="search_wrap" style="display: none;">
+        <div class="search_header flex">
+            <span class="s_close"></span>
+            <div class="search_input flex">
+                <span></span>
+                <input type="text" placeholder="花王纸尿裤" id="keyWord">
+            </div>
+            <div class="search_btn">搜索</div>
+        </div>
+        <div class="search_content">
+            <div class="history_search">
+                <div class="h_s_header flex">
+                    <span class="h_s_name">历史搜索</span>
+                    <span class="h_s_icon"></span>
+                </div>
+                <div class="h_s_content">
+                </div>
+            </div>
+            <div class="hot_search">
+                <div class="hot_header">
+                    <span>热门搜索</span>
+                </div>
+                <div class="hot_content">
+                    <span>奶嘴</span>
+                    <span>玻璃奶瓶</span>
+                    <span>爸爸去哪儿同款安全座椅</span>
+                    <span>即食 辅食</span>
+                    <span>更多</span>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="mask"></div>
+	<div class="selection_bar">
+	    <div class="select_name">确认清空全部历史记录？</div>
+	    <div class="select_chose flex">
+	        <span class="select_cancel flexOne">取消</span>
+	        <span class="select_sure flexOne">确认</span>
+	    </div>
+	</div>
+</body>
+
+<script src="../js/zepto.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="../js/dropload.min.js"></script>
+<script>
+	$(function() {
+		var price_flag = 1;
+		$('.area_left span').on('click',function() {
+			var index = $(this).index();
+			$(this).addClass('on').siblings().removeClass('on');
+			if( index !== 2 ) {
+				$('.arrow_top').removeClass('up');
+				$('.arrow_bottom').removeClass('down');
+
+			}
+		})
+		$('.arrow_wrap').on('click',function() {
+			if ( price_flag ) {
+				$('.arrow_top ').addClass('up');
+				$('.arrow_bottom').removeClass('down');
+				price_flag = 0;
+			} else {
+				$('.arrow_bottom').addClass('down');
+				$('.arrow_top').removeClass('up');
+				price_flag = 1;
+			}
+			
+		})
+
+		/*$('.arrow_top').on('click',function() {
+			$(this).addClass('up');
+			$('.arrow_bottom').removeClass('down');
+		})
+		$('.arrow_bottom').on('click',function() {
+			$(this).addClass('down');
+			$('.arrow_top').removeClass('up');
+		})*/
+
+		$('.area_right').on('click',function() {
+			$('.mask').show();
+			/*$('.filter_wrap').addClass('filter-show').removeClass('filter-hide');*/
+			$('.filter_wrap').show();
+		})
+		$('.cancel_btn,.mask').on('click',function() {
+			/*$('.filter_wrap').removeClass('filter-show').addClass('filter-hide');*/
+			$('.filter_wrap').hide();
+			$('.mask').hide();
+		})
+		$('.sure_btn').on('click',function() {
+			$('.mask').hide();
+			$('.filter_wrap').hide();
+
+		})
+
+		$('.f_l_content span,.f_c_content span').on('click',function() {
+			var isOn = $(this).hasClass("on")
+			if( isOn ) {
+				$(this).removeClass('on');
+			}else {
+				$(this).addClass('on');
+			}
+			
+			$(this).siblings('.all').removeClass('on');
+		})
+
+		$('.all').on('click',function() {
+			$(this).siblings('span').removeClass('on');
+		})
+
+
+		//搜索页
+		$('.s_input').on('click',function() {
+			$('.search_wrap').show();
+			$('.searchList_wrap').hide();
+            $('footer').hide();
+		})
+		
+		$('.s_close').on('click', function() {
+            $('.search_wrap').hide();
+            $('.searchList_wrap').show();
+            $('footer').show();
+        })
+         var local = localStorage.getItem('searchWordArr'),
+            spanHtml = '';
+        if (local) {
+            local = local.split(',');
+            for (var i = 0; i < local.length; i++) { //取缓存里面的值  循环成span标签插入
+                if (i > 4) { //只显示5个
+                    break;
+                }
+                spanHtml += '<span>' + local[i] + '</span>';
+                $('.h_s_content').html(spanHtml);
+            }
+        } else {
+            $('.history_search').hide();
+        }
+
+        $('.search_btn').on('click', function() {
+
+            //设置缓存
+            var value = $('#keyWord').val();
+            if (!value) {
+                value = $('#keyWord').attr('placeholder');
+            }
+            var sWords = localStorage.getItem('searchWordArr'), //获取缓存值
+                searchWordArr = [];
+            if (!sWords) { //判断没有的话 新建
+                searchWordArr.unshift(value);
+                localStorage.setItem("searchWordArr", searchWordArr);
+            } else { //有的话 分割字符串 重新组装
+                searchWordArr = sWords.split(',');
+                for(var i = 0; i < searchWordArr.length; i++) {
+                	if( searchWordArr[i] == value ) {
+                		return;
+                	}
+                }
+                searchWordArr.unshift(value);
+                localStorage.setItem("searchWordArr", searchWordArr);
+            }
+
+            //value 输入的值
+            //location.href = "https://xw.qq.com/index.htm"; //跳转模拟
+
+        })
+
+        $('.h_s_icon').on('click', function() {
+            $('.mask').show();
+            $('.selection_bar').show();
+        })
+
+        $('.select_cancel').on('click', function() {
+            $('.selection_bar').hide();
+            $('.mask').hide();
+        })
+
+        $('.select_sure').on('click', function() {
+            $('.selection_bar').hide();
+            $('.mask').hide();
+            $('.history_search').hide();
+
+            localStorage.removeItem('searchWordArr');
+        })
+
+
+	})
+</script>
+<script>
+	var initList = [	
+		 	{
+                 "title": "正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3-12周岁09个月-1",
+                "price": "¥3299.00",
+                "market_price":"¥4299.00",
+                "image":"../images/home/product4.png",
+                "sold": "500",
+                "link": "",
+                "saleout": true
+       	 	}, 
+     		{
+                 "title": "正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3-12周岁09个月-1",
+                "price": "¥3299.00",
+                "market_price":"¥4299.00",
+                "image":"../images/home/product4.png",
+                "sold": "500",
+                "link": "",
+                "saleout": false
+       	 	}, 
+       	 	{
+                 "title": "正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3-12周岁09个月-1",
+                "price": "¥3299.00",
+                "market_price":"¥4299.00",
+                "image":"../images/home/product4.png",
+                "sold": "500",
+                "link": "",
+                "saleout": false
+       	 	}, 
+       	 	{
+                 "title": "正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3-12周岁09个月-1",
+                "price": "¥3299.00",
+                "market_price":"¥4299.00",
+                "image":"../images/home/product4.png",
+                "sold": "500",
+                "link": "",
+                "saleout": false
+           },
+           {
+                 "title": "正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3-12周岁09个月-1",
+                "price": "¥3299.00",
+                "market_price":"¥4299.00",
+                "image":"../images/home/product4.png",
+                "sold": "500",
+                "link": "",
+                "saleout": false
+           },
+           { "title": "正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3正品kidstar童星儿童安全座椅3-12周岁09个月-1",
+                "price": "¥3299.00",
+                "market_price":"¥4299.00",
+                "image":"../images/home/product4.png",
+                "sold": "500",
+                "link": "",
+                "saleout": false
+           }
+	];
+	var initData = {
+			sortby: '',
+			ascdesc: 'up',
+			catid: '',
+			tag: [],
+			brand: [],
+			keyword:'',
+			pageno: 1
+		};//后端初始化数据
+	new Vue({
+		el:'#app',
+		data:{
+			priceSort: false, //价格排序
+			reqData: initData,
+			dataList: initList,
+			isMore: true,
+		},
+		mounted:function() {
+			//console.log(search);
+			var _self = this;
+            $('.searchList_wrap').dropload({
+                scrollArea: window,
+                domDown:{
+                    domClass : 'dropload-down',
+                    domRefresh : '<div class="dropload-refresh"></div>',
+                    domLoad : '<div class="dropload-load">加载中...</div>',
+                    domNoData : '<div class="dropload-noData">没有更多商品了~</div>'
+                    },
+                loadDownFn: function(me) {
+                	console.log(_self.dataList);
+
+                    _self.reqData.pageno++;
+                    if (!_self.isMore) {
+                        return;
+                    }
+                    _self.getData(me);
+
+                }
+            });
+		},
+		methods: {
+			getData:function(me) {
+				var _this = this;
+				 $.ajax({
+                        type: 'GET',
+                        url: 'data/search.json',
+                        data: _this.reqData,
+                        dataType: 'json',
+                        success: function(res) {
+                        	console.log(res);
+                            if ( res.data.commodity ) {
+                                console.log(res.data.commodity);
+                                _self.dataList = _self.dataList.concat(res.data);
+                                _self.isMore = res.isMore;
+                            } else {
+                            	 _self.isMore = false;
+                                // 锁定
+                                me.lock();
+                                // 无数据
+                                me.noData();
+                            }
+                            me.resetload();
+                        },
+                        error: function(xhr, type) {
+                           // alert('Ajax error!');
+                            // 即使加载出错，也得重置
+                            me.resetload();
+                        }
+                    });
+			},
+			changeCondition:function(value) {
+				
+				switch (value) {
+					case 'defalut':
+						this.reqData.pageno = 1;
+						this.reqData.sortby = '';
+					break;
+					case 'sale':
+						this.reqData.pageno = 1;
+						this.reqData.sortby = 'sale'; 
+					break;
+					case 'price':
+						this.priceSort = !this.priceSort;
+						if(this.priceSort){
+							this.reqData.ascdesc = "up";
+						}else{
+							this.reqData.ascdesc = "down";
+						}
+						this.reqData.pageno = 1;
+					break;
+				}
+				console.log(this.reqData.ascdesc);
+			},
+			choseTarget:function() {
+
+				var that = this;
+				//选择标签
+				$('.f_l_content span').each(function() {
+					var isChose = $(this).hasClass("on"),
+						lText = $(this).html();
+					if( isChose ) {
+						that.reqData.tag.push(lText);
+					}
+				});
+				$('.f_c_content span').each(function() {
+					var isChose = $(this).hasClass("on"),
+						cText = $(this).html();
+					if( isChose ) {
+						that.reqData.brand.push(cText);
+					}
+				})
+				console.log(that.reqData);
+			},
+		}
+	})
+</script>
+</html>

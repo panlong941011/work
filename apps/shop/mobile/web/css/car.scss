@@ -1,0 +1,487 @@
+@import 'px2rem'; 
+$designWidth : 750; 
+
+body {
+	width: 16rem;
+	margin: 0 auto;
+	background: #eee;
+}
+.car_wrap {
+	width: 100%;
+	position: relative;
+	padding-bottom:  px2rem(120);
+}
+.car_header {
+	height: px2rem(88);
+	padding: 0 px2rem(30);
+	border-bottom: 1px solid #d2d2d2;
+	position: relative;
+	background: #fff;
+}
+.car_header h2 {
+	color: #333;
+	@include px2px(34);
+	text-align: center;
+	width: 100%;
+	line-height: px2rem(88);
+}
+.car_header .icon {
+	display: block;
+	font-size:  px2rem(40);
+}
+.ad_more {
+	@include px2px(40);
+	color: #333;
+	display: block;
+	width: px2rem(60);
+	height: 100%;
+	text-align: right;
+	line-height: px2rem(88);
+	position: absolute;
+	right: px2rem(30);
+	top: px2rem(0);
+}
+.car_back {
+	display: block;
+	width:  px2rem(50);
+	height: 100%;
+	display: block;
+	line-height: px2rem(88);
+	position: absolute;
+	left:  px2rem(30);
+	top:  px2rem(0);
+}
+.car_deit {
+	@include px2px(28);
+	color: #333;
+	display: block;
+	width: px2rem(80);
+	height: 100%;
+	text-align: right;
+	line-height: px2rem(88);
+	position: absolute;
+	right: px2rem(30);
+	top: px2rem(0);
+}
+.c_line {
+	height: px2rem(10);
+	width: 100%;
+	background: #f0f0f0;
+}
+.no_commodity {
+	width: 100%;
+	height: px2rem(890);
+	margin-top: px2rem(10);
+	border-bottom: px2rem(20) solid #f0f0f0;
+	background: #fff;
+	padding-top: px2rem(105);
+}
+.no_commodity .no_c_pic {
+	height: px2rem(330);
+	width: px2rem(306);
+	margin: 0 auto;
+}
+.no_commodity p {
+	color: #999;
+	@include px2px(26);
+	text-align: center;
+	padding: px2rem(30);
+}
+.to_index {
+	display: block;
+	width: px2rem(160);
+	height: px2rem(60);
+	color: #f42323;
+	@include px2px(26);
+	text-align: center;
+	line-height: px2rem(60);
+	border: 1px solid #f42323;
+	-webkit-border-radius: px2rem(10);
+	border-radius:  px2rem(10);
+	margin: 0 auto;
+}
+.car_selling {
+	width: 100%;
+}
+.car_selling h2 {
+	height:  px2rem(88);
+	border-bottom: 1px solid #eee;
+	color: #333;
+	@include px2px(30);
+	text-align: center;
+	line-height:  px2rem(88);
+		background: #fff;
+}
+.car_selling h2 .icon {
+	color: #f42323;
+	@include px2px(36);
+	vertical-align: middle;
+	margin-right: px2rem(10);
+}
+.selling_list ul {
+	overflow: hidden;
+	padding: 0  px2rem(10);
+}
+.selling_list ul .sellings {
+	float: left;
+	margin-top:  px2rem(10);
+	width:  px2rem(360);
+}
+.selling_list ul .sellings:nth-child(2n+1) {
+	margin-right:  px2rem(10);
+}
+.sell_pic {
+	width: px2rem(360);
+	height: px2rem(360);
+	position: relative;
+}
+.sell_info {
+	padding: px2rem(15) px2rem(10) px2rem(10);
+	background: #fafafa;
+	height:  px2rem(158);
+	position: relative;
+}
+.sell_pic img {
+	display: block;
+	height: 100%;
+}
+.label {
+	position: absolute;
+	top: px2rem(10);
+	left: px2rem(0);
+	width: px2rem(130);
+	height: px2rem(130);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+.sell_speckill {
+	position: absolute;
+	left: px2rem(10);
+	top: px2rem(10);
+	width: px2rem(92);
+	height: px2rem(78);
+	background: url('/images/home/index_seckill.png') no-repeat;
+    background-size: contain;
+}
+.buy_time {
+	width: 100%;
+	height: px2rem(40); 
+	line-height: px2rem(40);
+	text-align: center;
+	color: #fff;
+	@include px2px(24);
+	background: rgba(244,35,35,0.8);
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+.buy_stock {
+	@extend .buy_time;
+}
+.sellout {
+    position: relative;
+    &::before {
+    	 display: block;
+	    content: '';
+	    width: 100%;
+	    height: 100%;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    background: rgba(0, 0, 0, 0.4);
+    }
+    &::after {
+    	display: block;
+	    content: '';
+	    width: 100%;
+	    height: 100%;
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    background: url(/images/saleout.png) no-repeat center center;
+    }
+}
+
+.loot_all {
+    @extend .sellout;
+    &::after {
+        background: url('/images/home/lootall.png') no-repeat center center;
+        background-size: 50%;
+    }
+}
+.over {
+    @extend .sellout;
+    &::after {
+        background: url('/images/home/over.png') no-repeat center center;
+         background-size: 50%;
+    }
+}
+.sell_info h3 {
+	color: #333;
+	@include px2px(26);
+}
+.sell_info .sell_price {
+	color: #d10503;
+	@include px2px(30);
+	/* display: block;
+	padding-top: px2rem(20); */
+	position: absolute;
+	left: px2rem(10);
+	bottom: px2rem(10);
+}
+footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	z-index: 100;
+}
+footer .accounts_cell {
+	margin: 0 auto;
+	border-top: 1px solid #d2d2d2;
+	height: px2rem(100);
+	background: #fff;
+	max-width: px2rem(750);
+}
+.account_info {
+	width: px2rem(530);
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+	padding: 0 px2rem(20) 0 px2rem(30);
+}
+.chose_icon {
+	display: block;
+	width: px2rem(40);
+	height: px2rem(40);
+	border: 1px solid #999999;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	margin-right: px2rem(10);
+}
+.chose_btn em {
+	color: #333;
+	@include px2px(30);
+}
+.accounts_price {
+	-webkit-flex-direction: column;
+    flex-direction: column;
+}
+.accounts_total {
+	color: #333;
+	@include px2px(28);
+}
+.accounts_total em {
+	color: #f42323;
+}
+.accounts_tip {
+	color: #999;
+	@include px2px(28);
+	text-align: right;
+}
+.account_btn {
+	width: px2rem(220);
+	height: 100%;
+	background: #f42323;
+	line-height: px2rem(100);
+	text-align: center;
+	color: #fff;
+	@include px2px(28);
+}
+.account_btn span {
+	@include px2px(28);
+}
+.car_list {
+	width: 100%;
+}
+.car_commodity {
+	border-bottom: px2rem(20) solid #eee;
+}
+.car_commodity li:not(:first-child)  {
+	border-top: 1px solid #fff;
+}
+.commodity_title {
+	height: px2rem(88);
+	padding-left: px2rem(30);
+	-webkit-align-items: center;
+	align-items: center;
+	background: #fff;
+}
+.all_icon {
+	display: block;
+	width: px2rem(40);
+	height: px2rem(40);
+	border: 1px solid #999999;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+.commodity_title h2 {
+	color: #333;
+	@include px2px(28);
+	padding-left: px2rem(20);
+}
+.commodity_title .arrow {
+	display: inline-block;
+	right: px2rem(20);
+	top: px2rem(70);
+	content: '';
+	width: px2rem(20);
+	height: px2rem(20);
+
+	-webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-width: 2px 2px 0 0;
+    border-color: #717171;
+    border-style: solid;
+}
+.commodity_title .singleEllipsis{
+	width: 80%;
+}
+.car_on {
+	background: url(../images/car/check.png) no-repeat;
+	background-size: 100% 100%;
+	border: none !important;
+}
+.commodity_content {
+	background: #fafafa;
+	-webkit-align-items: center;
+	align-items: center;
+	padding: px2rem(20) px2rem(30) px2rem(60);
+}
+.commodity_icon span {
+	display: block;
+	width:  px2rem(40);
+	height:  px2rem(40);
+	border: 1px solid #999999;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+}
+.commodity_icon {
+	padding-right: px2rem(20);
+}
+.commodity_detail {
+	-webkit-align-items: center;
+	align-items: center;
+}
+.commodity_pic {
+	width:  px2rem(140);
+	height: px2rem(140);
+	overflow: hidden;
+	position: relative;
+}
+.car_spckill {
+	position: absolute;
+	left: px2rem(6);
+	top: px2rem(6);
+	width: px2rem(46);
+	height: px2rem(40);
+	background: url('/images/home/index_seckill.png') no-repeat;
+    background-size: contain;
+}
+.commodity_pic img {
+	display: block;
+}
+.commodity_info {
+	padding-left: px2rem(30);
+	flex-direction: column;
+	position: relative;
+}
+.commodity_info h2 {
+	color: #333;
+	@include px2px(26);
+}
+.commodity_stock {
+	color: #666;
+	@include px2px(26);
+	padding: px2rem(5) 0 px2rem(10) 0;
+}
+.commodity_info em {
+	display: block;
+	color: #f42323;
+	@include px2px(26);
+}
+.limit_num {
+	color: #f42323;
+	@include px2px(26);
+}
+.commodity_btn {
+	position: absolute;
+	border: 1px solid #cccccc;
+	right: px2rem(30);
+	bottom: px2rem(-30);
+	background: #fff;
+}
+.commodity_btn .btn_input {
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #ccc;
+	width: px2rem(56);
+	height: px2rem(50);
+	line-height: px2rem(50);
+	text-align: center;
+	background: #fff;
+	@include px2px(26);
+}
+.commodity_btn span {
+	width: px2rem(50);
+	height: px2rem(50);
+	line-height: px2rem(50);
+	text-align: center;
+	color: #333;
+	@include px2px(26);
+	display: inline-block;
+}
+.invalid_title {
+	height: px2rem(88);
+	padding: 0 px2rem(30);
+	line-height: px2rem(88);
+	color: #333;
+    @include px2px(28);
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    	background: #fff;
+}
+.invalid_title p {
+	color: #f42323;
+}
+.invalid_content {
+	background: #fafafa;
+	-webkit-align-items: center;
+	align-items: center;
+	padding: px2rem(20);
+	padding-right: px2rem(30);
+}
+.invalid_tip {
+	padding: px2rem(5) px2rem(10);
+	background: #999999;
+	color: #fff;
+	@include px2px(20);
+	border-radius: px2rem(10);
+	margin-right: px2rem(10);
+	line-height: px2rem(30);
+	text-align: center;
+	-webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-item: center;
+    align-item: center;
+}
+.invalid_reason {
+	color: #f42323;
+	@include px2px(24);
+}
+.invalid_list li:not(:first-child) {
+    border-top: 1px solid #fff;
+}
+.invalid_line {
+	height: px2rem(40);
+	background: #f0f0f0;
+	width: 100%;
+}
+.commodity_footer {
+	-webkit-justify-content: space-between;
+    justify-content: space-between;
+}
+.del_page {
+	height: px2rem(625);
+	padding-top: px2rem(110);
+}

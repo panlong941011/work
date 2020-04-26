@@ -1,0 +1,32 @@
+server:
+  port: 8886
+mybatis-plus:
+  type-aliases-package: group.dny.api.entity   # 定义所有操作类的别名所在包
+  mapper-locations: classpath:mapper/*.xml # 所有的mapper映射文件
+  configuration:
+    lazy-loading-enabled: true #打开延迟加载的开关
+    aggressive-lazy-loading: false #将积极加载改为消息加载即按需加载
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://root:123456@192.168.0.206:10000/eureka/
+logging:
+  config: classpath:logback-dev.xml
+  level:
+    group.dny.api.mapper: debug
+pic:
+  url: http://image.dny.group
+datasource:
+  url: jdbc:mysql://192.168.0.206:3306/dnycloud?useUnicode=true&characterEncoding=utf-8&useSSL=false
+  username: root
+  password: 123456
+wholesale:
+  allowIP:
+    - 192.168.0.184
+    - 192.168.0.172
+    - 139.159.149.94
+    - 139.159.135.155
+    - 192.168.0.226
+

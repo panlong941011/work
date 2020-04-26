@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.OrderLogisticsMapper">
+    <select id="getOrderLogicByOrderID" parameterType="int" resultType="group.dny.api.entity.OrderLogistics">
+        SELECT lID,
+               sName,
+               sProductInfo,
+               sOrderDetailID,
+               OrderID,
+               sExpressNo,
+               sExpressCompany,
+               dNewDate,
+               ShipID,
+               dShipDate,
+               lChildID,
+               sExpressNo,
+               sExpressCompany
+        FROM OrderLogistics
+        WHERE OrderID = #{OrderID}
+    </select>
+</mapper>

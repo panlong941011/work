@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.OrderAddressMapper">
+    <update id="updateOrderAddress" parameterType="group.dny.api.entity.OrderAddress">
+        UPDATE OrderAddress
+        SET sName=#{sName},
+            ProvinceID=#{ProvinceID},
+            CityID=#{CityID},
+            AreaID=#{AreaID},
+            sAddress=#{sAddress},
+            sMobile=#{sMobile}
+        WHERE OrderID = #{OrderID}
+    </update>
+
+    <select id="getOrderAddressByID" parameterType="int">
+        SELECT ProvinceID,CityID
+        FROM OrderAddress
+        WHERE lID = #{lID}
+    </select>
+
+    <select id="getOrderAddressList" resultType="group.dny.api.component.model.OrderAddressModel">
+        SELECT oa.lID,oa.OrderID,p.sArea,a.ID
+        FROM OrderAddress oa,
+             `Order` o,
+             PreOrder p,
+             Area a
+        WHERE oa.AreaID is null
+          AND oa.OrderID = o.lID
+          AND p.sArea is not null
+          AND p.sArea = a.sName
+          AND o.sClientSN = p.sName;
+    </select>
+
+    <update id="updateOrderAddressArea" parameterType="group.dny.api.entity.OrderAddress">
+        UPDATE OrderAddress
+        SET AreaID=#{AreaID}
+        WHERE lID = #{lID}
+    </update>
+</mapper>

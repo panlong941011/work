@@ -1,0 +1,13 @@
+.input-text,select{
+  height: 26px!important;
+  margin-right: 5px;
+}
+label,span{
+  font-size: 14px;
+}
+#postage-tpl .setting .postage-detail .default input{
+  width: 5.7em;
+}
+.table thead{
+  border-top: 1px solid #bbb;
+}

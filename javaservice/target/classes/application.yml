@@ -1,0 +1,72 @@
+server:
+  port: 8881
+
+spring:
+
+  application:
+    name: dnycloud-service
+
+  ##数据库连接信息
+  datasource:
+    url: jdbc:mysql://192.168.0.206:3306/dnycloud?useSSL=false
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    ###################以下为druid增加的配置###########################
+    type: com.alibaba.druid.pool.DruidDataSource
+    # 下面为连接池的补充设置，应用到上面所有数据源中
+    # 初始化大小，最小，最大
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    # 配置获取连接等待超时的时间
+    maxWait: 60000
+    # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+    timeBetweenEvictionRunsMillis: 60000
+    # 配置一个连接在池中最小生存的时间，单位是毫秒
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    # 打开PSCache，并且指定每个连接上PSCache的大小
+    poolPreparedStatements: true
+    maxPoolPreparedStatementPerConnectionSize: 20
+    # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+    filters: stat,wall,log4j
+    # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
+    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
+    # 合并多个DruidDataSource的监控数据
+    useGlobalDataSourceStat: true
+    ###############以上为配置druid添加的配置########################################
+
+mybatis-plus:
+  type-aliases-package: group.dny.shop.service.entity   # 定义所有操作类的别名所在包
+  mapper-locations: classpath:mapper/*.xml # 所有的mapper映射文件
+  configuration:
+    lazy-loading-enabled: true #打开延迟加载的开关
+    aggressive-lazy-loading: false #将积极加载改为消息加载即按需加载
+
+
+#服务注册中心实例的主机名、端口
+#是否向服务注册中心注册自己
+#是否检索服务
+#服务注册中心的配置内容，指定服务注册中心的位置
+eureka:
+  port: 10001
+  instance:
+    hostname: 192.168.0.206
+    prefer-ip-address: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+      defaultZone: http://root:123456@${eureka.instance.hostname}:${eureka.port}/eureka/
+dny:
+  shop:
+    root:
+      path: D:\\myermnew\\wwwroot\\dnycloud
+    image:
+      savepath: D:\\myermnew\\wwwroot\\dnycloud\\apps\\backend\\web
+    debug:
+      savepath: D:\\myermnew\\wwwroot\\dnycloud\\apps\\common\\runtime\\debug

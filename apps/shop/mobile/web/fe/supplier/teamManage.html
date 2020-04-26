@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>团队管理</title>
+	
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../../css/settlement.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="team_manage" id="app">
+		<div class="t_m_content" v-if="!isSearchShow">
+			<div class="ad_header">
+		        <a href="javascript:;" class="ad_back">
+		            <span class="icon">&#xe885;</span>
+		        </a>
+		        <div class="s_input flex" @click="showSearch">
+	                <span></span>
+	                <h2>收货人/手机号搜索订单</h2>
+	            </div>
+		        <a href="" class="ad_more icon more_link">&#xe670;</a>
+		    </div>
+		    <div class="options_area flex">
+		    	<div class="area_left">
+					<span class="o_a_item" :class="{active: isOpt=='sub'}" @click="changeItem('sub')">直接下属</span>
+					<span class="o_a_item"  :class="{active: isOpt=='all'}" @click="changeItem('all')">全部</span>
+		    	</div>
+				<div class="tag" @click="showCommission" v-text="commissionName">全部</div>
+		    </div>
+		    <div class="team_person">
+				<h3 class="c_m_title">
+					<i class="icon">&#xe723;</i>
+					<span>人数</span>
+				</h3>
+				<div class="c_m_person">
+					<em>156</em>
+				</div>
+		    </div>
+		    <!-- 为空时 -->
+		    <div class="team_empty" style="display: none;">
+				<div class="empty_pic">
+					<img src="../../images/supplier/teamBg.png">
+				</div>
+				<p>你还没有团队成员哦~快去发展团队吧！</p>
+				<a href="">如何发展团队？</a>
+		    </div>
+
+		    <div class="team_main">
+				<div class="team_option flex">
+					<div class="t_o_person" :class="{up: isChoseOpt =='person'}" @click="filterOpt('person')">个人业绩</div>
+					<div class="t_o_all" :class="{ up: isChoseOpt =='all'}" @click="filterOpt('all')">团队总数</div>
+					<div class="t_o_time" :class="{ up: isChoseOpt =='time'}" @click="filterOpt('time')">入驻时间</div>
+			    </div>
+			    <ul class="team_list">
+					<li class="team_item">
+						<a href="" class="flex">
+							<div class="t_i_pic">
+								<img src="../../images/supplier/buyer.png">
+							</div>
+							<div class="t_i_info">
+								<h3>用户昵称</h3>
+								<p>个人业绩：¥500.00</p>
+								<div class="mom flex">
+									<span>环比：</span>
+									<div class="mom_icon ">
+										<i class="icon">&#xe612;</i>
+										<em>20%</em>
+									</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="team_item">
+						<a href="" class="flex">
+							<div class="t_i_pic">
+								<img src="../../images/supplier/buyer.png">
+							</div>
+							<div class="t_i_info">
+								<h3>用户昵称</h3>
+								<p>个人业绩：¥500.00</p>
+								<div class="mom flex">
+									<span>环比：</span>
+									<div class="mom_icon downward">
+										<i class="icon">&#xe612;</i>
+										<em>20%</em>
+									</div>
+								</div>
+							</div>
+						</a>
+					</li>
+					<li class="team_item">
+						<a href="" class="flex">
+							<div class="t_i_pic">
+								<img src="../../images/supplier/buyer.png">
+							</div>
+							<div class="t_i_info">
+								<h3>用户昵称</h3>
+								<p>个人业绩：¥500.00</p>
+								<div class="mom flex">
+									<span>环比：</span>
+									<div class="equal">--</div>
+								</div>
+							</div>
+						</a>
+					</li>
+			    </ul>
+		    </div>
+		</div>
+	    <search-part :partstatus="isSearchShow"  @status="returnStatus" ></search-part>
+
+	    <commission-part :slectdata="commissionList" v-if="commissionShow" @chose="selectItem" @partopt="closePart"></commission-part>
+	</div>
+
+</body>
+<!-- <?php $this->beginBlock('foot') ?> -->
+	<script src="../../js/mescroll.min.js"></script>
+	<script src="../js/zepto.min.js"></script>
+	<script src="../js/vue.min.js"></script>
+	<script>
+		var data = {
+			teamPerson: '5',
+			personList: [
+				{
+					'personLogo': '../../images/supplier/buyer.png',
+					'personName': '123',
+					'achieve': '7000',
+					'momUp': '50%',
+					'momDown': '50%',
+					'contrast': 'up'
+				},
+				{
+					'personLogo': '../../images/supplier/buyer.png',
+					'personName': '123',
+					'achieve': '7000',
+					'momUp': '50%',
+					'momDown': '50%',
+					'contrast': 'down'
+				}
+			]
+		};
+		//选择组件
+		var commission = Vue.extend({
+			template: '<div class="com_type_wrap" @click="closeCon">'+
+					  '<div class="com_type">'+
+		              '<h2>请选择</h2>' +
+		              '<ul>'+
+		              '<li class="com_type_item" v-for="(item,index) in commissionData" :class="{active: item.isMark}" @click="isChose(item.name,index)">{{item.name}}</li>'+
+		              '</ul>'+
+		              '<div class="com_type_chose" @click="closeCon">关闭</div>'+
+	                  '</div>'+
+			          ' </div>',
+
+		    props: ['slectdata'],//父组件的传值 必须是小写
+            data: function () {
+                return {
+                    commissionData: this.slectdata,
+                }
+            },
+            watch: {
+               
+            },
+            mounted: function () {
+            	console.log(this.commissionData);
+            },
+            methods: {
+               isChose: function(name,val) {
+               		event.stopPropagation();
+               		this.$emit('chose', name);
+               		var len = this.commissionData.length;
+                    for (var i = 0; i < len; i++) {
+                        this.commissionData[i].isMark = false;
+                    }
+               		this.commissionData[val].isMark = true;
+               },
+               closeCon: function() {
+               		this.$emit('partopt',false);
+               }
+            }
+		});
+
+		var searchPart =  Vue.extend({
+			template: '<div class="search" v-if="isShow">'+
+						'<div class="search_header flex">'+
+				           ' <div class="s_close_wrap" @click="closePage">'+
+				                '<span class="s_close icon">&#xe885;</span>'+
+				           ' </div>'+
+				           ' <div class="search_input flex">'+
+				                '<span></span>'+
+				             	'<input type="text" placeholder="用户昵称/手机号" v-model="keys">'+
+				           '</div>'+
+				           '<div class="search_btn" @click="search">搜索</div>'+
+				        '</div>'+
+					'</div>',
+
+		    props: ['partstatus'],//父组件的传值 必须是小写
+            data: function () {
+                return {
+                    isShow: this.partstatus,
+                    keys: '',
+                    cache: false,
+                    keyAttr: [],
+                    optShow: true,
+                }
+            },
+            watch: {
+                partstatus: function () {
+                    this.isShow = this.partstatus;
+                }
+            },
+            mounted: function () {
+            	
+            },
+            methods: {
+                    search: function() {
+	                    var keys = this.keys.replace(/\s+/g,"");
+	                    //location.href = "<?=\yii\helpers\Url::toRoute([\Yii::$app->request->shopUrl . "/member/ordersearch"],true)?>?keyword=" + encodeURI(keys);
+
+	                },
+	                closePage: function() {
+	                   	 this.$emit('status', false);
+	                },
+            }
+		});
+		new Vue({
+			el: '#app',
+			components: {
+                'commission-part': commission,
+                'search-part': searchPart
+            },
+			data: {
+				commissionList: [{name:'全部',isMark: false},{name:'经销商类型1',isMark: false},{name:'经销商类型2',isMark: false}],
+				commissionShow: false,
+				commissionName: '全部',
+				dataList:'',
+				isChoseOpt: 'person',
+				isEmpty: true,
+				isSearchShow: false, //搜索框
+				isOpt: 'sub',
+			},
+			mounted: function() {
+
+				/*_self.mescroll = new MeScroll("mescroll", {
+	                up: {
+	                    auto:false, //初始化不加载
+	                    callback: _self.upCallback, //上拉回调
+	                },
+	                down: {
+	                    use: false,
+	                }
+	            });
+            	document.getElementById("app").style.display="block";*/
+			},
+			methods: {	
+				//显示提成选项
+			   showCommission: function() {
+			   		this.commissionShow = true;
+			   },
+               selectItem: function(val) {
+               		//console.log(val);
+               		this.commissionName = val;
+               },
+               //遮罩操作
+               closePart: function(val) {
+               		this.commissionShow = val;
+               },
+               //条件选择
+               filterOpt:function(val) {
+               		this.isChoseOpt = val;
+               		var name = '.t_o_'+val;
+               		if ( $(name).hasClass('up') ) {
+
+               			$(name).removeClass('up').addClass('down');
+               		}else {
+
+               			$(name).removeClass('down').addClass('up');
+               		}
+               },
+               //搜索
+               showSearch: function() {
+               		this.isSearchShow = true;
+               },
+               returnStatus: function(val) {
+					this.isSearchShow = val;
+               },
+               //切换
+               changeItem: function(val) {
+               		this.isOpt = val;
+               }
+			}
+
+		})
+	</script>
+<!-- <?php $this->endBlock() ?> -->
+</html>

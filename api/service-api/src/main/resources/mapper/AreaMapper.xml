@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.AreaMapper">
+    <select id="getAreaByProvince" parameterType="java.lang.String" resultType="group.dny.api.entity.Area">
+        SELECT ID,sName,UpID,sType,bActive,sPostCode
+        FROM Area
+        WHERE sName = #{province}
+          AND sType = 'Province'
+    </select>
+
+    <select id="getAreaByCity" parameterType="group.dny.api.entity.Area" resultType="group.dny.api.entity.Area">
+        SELECT ID,sName,UpID,sType,bActive,sPostCode
+        FROM Area
+        WHERE UpID = #{UpID}
+          AND sName = #{sName}
+    </select>
+
+    <select id="getAreaByID" parameterType="string" resultType="group.dny.api.entity.Area">
+        SELECT ID,sName,UpID,sType,bActive,sPostCode
+        FROM Area
+        WHERE ID = #{ID}
+    </select>
+
+    <select id="getAreaList" parameterType="group.dny.api.entity.Area" resultType="group.dny.api.entity.Area">
+        SELECT ID,sName,UpID,sType,bActive,sPostCode
+        FROM Area
+        WHERE 1=1
+        <choose>
+            <when test="UpID !=null">
+                and UpID = ${UpID}
+            </when>
+            <otherwise>
+                and UpID is null
+            </otherwise>
+        </choose>
+    </select>
+</mapper>

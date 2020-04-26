@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.PreOrderMapper">
+    <select id="getPreOrderBySn" parameterType="string" resultType="group.dny.api.entity.PreOrder">
+        SELECT lID,
+               sName,
+               dNewDate,
+               sReceiverName,
+               sProvince,
+               sCity,
+               sArea,
+               sAddress,
+               sMobile,
+               bClosed,
+               sCloseReason,
+               BuyerID,
+               WholesalerID,
+               sMessage
+        FROM PreOrder
+        WHERE sName = #{sn}
+    </select>
+
+    <update id="updatePreOrderAddress" parameterType="group.dny.api.entity.PreOrder">
+        UPDATE PreOrder
+        SET sReceiverName=#{sReceiverName},
+            sProvince=#{sProvince},
+            sCity=#{sCity},
+            sArea=#{sArea},
+            sAddress=#{sAddress},
+            sMobile=#{sMobile}
+        WHERE sName = #{sName}
+    </update>
+
+    <update id="updateOrderTotal" parameterType="group.dny.api.entity.PreOrder">
+        UPDATE PreOrder
+        SET fTotal=#{fTotal},
+            fShip=#{fShip}
+        WHERE sName = #{sName}
+    </update>
+
+    <update id="updatePreOrderStatus" parameterType="group.dny.api.entity.PreOrder">
+        UPDATE PreOrder
+        SET dCloseDate=#{dCloseDate},
+            bClosed=#{bClosed},
+            sCloseReason=#{sCloseReason}
+        WHERE sName = #{sName}
+    </update>
+</mapper>

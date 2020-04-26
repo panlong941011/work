@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)http://lvyee.com.cn/green_hlife/xnyx/h5/index -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title>绿业健康生活</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<link rel="stylesheet" type="text/css" href="./绿业健康生活_files/mui.min.css">
+	<link rel="stylesheet" type="text/css" href="./绿业健康生活_files/Swiper.min.css">
+	<link rel="stylesheet" type="text/css" href="./绿业健康生活_files/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="./绿业健康生活_files/layui.css">
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			
+			.mui-bar .mui-pull-left .mui-icon {
+				padding-right: 5px;
+				font-size: 28px;
+			}
+			
+			.mui-bar .mui-btn {
+				font-weight: normal;
+				font-size: 17px;
+			}
+			
+			.mui-bar .mui-btn-link {
+				top: 1px;
+			}
+			
+			.mui-content img{
+				width: 100%;
+			}
+			.hm-description{
+				margin: 15px;
+			}
+			
+			.hm-description>li {
+				font-size: 14px;
+				color: #8f8f94;
+			}
+			.mui-col-sm-3 {
+			    width: 20% !important; 
+			}
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+				margin: 0;
+			    padding: 0px 0px;
+			    vertical-align: top;
+			    border-right: 1px solid #eee;
+			    border-bottom: 1px solid #eee;	
+			}
+			.mui-table-view.mui-grid-view .mui-table-view-cell .mui-media-body{
+				font-size: 12px;
+			    line-height: 15px;
+			    display: block;
+			    width: 100%;
+			    height: 15px;
+			    margin-top:5px;
+			    text-overflow: ellipsis;
+			    color: #333;
+				
+			}
+			.mui-title {
+			    font-size: 17px;
+			    font-weight: 500;
+			    line-height: 44px;
+			    position: absolute;
+			    display: block;
+			    width: 100%;
+			    margin: 0 -10px;
+			    padding: 0;
+			    text-align: center;
+			    white-space: nowrap;
+			    color: #fff;
+			}
+			.pull-left{
+				font-size: 14px;
+			    font-weight: 500;
+			    line-height: 44px;
+			    position: absolute;
+			    display: block;
+			    width: 100%;
+			    margin: 0 -10px;
+			    padding: 0 10px;			
+			    white-space: nowrap;
+			    color: #fff;
+			    float:left ;
+				
+			}
+			.mui-title-hot{
+				font-size:14px;
+				font-weight: 500;
+				color:rgb(126,211,33) ;
+				background-color: #fff;
+			}
+			.mui-price{
+				color:rgb(245,166,35);
+				float: right;
+				
+			}
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell{
+				
+				border-right: 0px solid #eee !important;
+    			border-bottom:0px solid #eee !important;
+			}
+			.mui-content{
+				padding-bottom: 5rem;
+				
+			}
+			.mui-tab-label{
+				font-size: 12px !important;
+			}
+			.mui-bar-tab{
+				bottom: 0;
+			    display: table;
+			    width: 100%;
+			    height: 3rem !important;
+			    padding: 0;
+			    table-layout: fixed;
+			    border-top: 0;
+			    border-bottom: 0;
+			    -webkit-touch-callout: none;
+			    display: inline-block !important;
+			}
+			.mui-card-footer:before, .mui-card-header:after{
+				background-color: #fff !important;
+			}
+			.media-img{
+				display: block;
+    			padding: 10px;
+    			height: 46vw;
+    			border-radius: 15px;
+			}
+			.mui-grid-view.mui-grid-9 .mui-table-view-cell>a:not(.mui-btn){
+				margin: 0;
+    			padding: 5px 0;
+			}
+			.mui-title-hot{
+				width: 20%;
+			    display: inline-block;
+			    float: left;
+			    height: 47px;
+			    line-height: 47px;
+			    text-align: center;
+			}
+			.txtScroll-top{
+			    width: 80%;
+    			float: right;
+			}
+			img {
+			    max-width: 100%;
+			    display: inline-block !important;
+			}
+			.txtScroll-top ul{ overflow:hidden; zoom:1; margin-top:10px; }
+			.mui-bl{
+			    position: absolute;
+			    z-index: 9;
+			    left: 0;
+			    top: 81.5%;
+			}
+			
+			#shouyeimg{
+		  	display: inline-block;
+		    width:1.2rem !important;
+		    height:1.2rem !important;
+		    cursor: pointer;
+			background: url(/green_hlife/resource/images/home.png) no-repeat !important;
+			background-size: 100% !important;
+			top: 0.3rem !important;
+		  }
+		  .icon-topic{
+			display: inline-block;
+		    width:1.2rem !important;
+		    height:1.2rem !important;
+		    cursor: pointer;
+			background: url(/green_hlife/resource/images/community.png) no-repeat !important;
+			background-size: 100% !important;
+			top: 0.3rem !important;
+		}
+		.cart{
+			display: inline-block;
+		    width:1.2rem !important;
+		    height:1.2rem !important;
+		    cursor: pointer;
+			background: url(/green_hlife/resource/images/cartBlack.png) no-repeat !important;
+			background-size: 100% !important;
+			top: 0.3rem !important;
+		}
+		.icon-my{
+			display: inline-block;
+		    width:1.2rem !important;
+		    height:1.2rem !important;
+		    cursor: pointer;
+			background: url(/green_hlife/resource/images/meBlack.png) no-repeat !important;
+			background-size: 100% !important;
+			top: 0.3rem !important;
+		}
+		  #shouye{color:rgb(0, 160, 135)!important;}
+		  #shequ{color:#000 !important;}
+		  #gwc{color:#000 !important;}
+		  #wode{color:#000 !important;}
+		  
+		   .activity_Ware{
+    
+    	max-width: 640px;
+	    margin: 0 auto;
+	    position: fixed;
+	    top: 0;
+	    background: rgba(0,0,0,0.6);
+	    filter: alpha(opacity=60);
+	    width: 100%;
+	    height:100%;
+	    z-index: 9999;
+    }
+    #activtiyImg{
+  	width: 80%;
+    vertical-align: middle;
+    margin-top: 45%;
+    margin-left: 10%;
+    }
+    .activcloseImg{
+	    width: 1.5rem;
+	    height: 1.5rem;
+	    margin-top: -160%;
+	    margin-left: 85%;
+    }
+		</style>
+	</head>
+
+	<body class="mui-ios mui-ios-9 mui-ios-9-1">
+
+		<header id="header" class="mui-bar mui-bar-transparent mui-active" style="background-color: rgb(0, 160, 135);">
+			<!-- <a class="pull-left" id="cityName">
+				<a class="mui-icon mui-icon-arrowdown" style="margin-left:10%;font-size: 16px;line-height: 1.5rem;color: #fff;"></a>
+			</a> -->
+			<h1 class="mui-title">绿业健康生活</h1>
+			 
+				
+					<a class="mui-icon mui-icon-search" style="float: right;color: #fff;" href="http://lvyee.com.cn/green_hlife/xnyx/h5/index/toWareList?typeId=29&amp;type=%E5%85%A8%E9%83%A8%E5%95%86%E5%93%81&amp;stype=1"></a>
+				
+				
+		</header>
+
+		<div class="mui-content">
+			 
+				<div class="swiper-container marb swiper-container-horizontal">
+		       		<div class="swiper-wrapper" style="transition-duration: 0ms; transform: translate3d(0px, 0px, 0px);">
+			       		
+			       			
+			        			
+			        			
+			        			
+			        			
+			        			
+			        			
+			        			
+			        			
+			        			
+			        			
+			        			 
+			        			 	<div class="swiper-slide swiper-slide-active" style="width: 1920px;"><a href="http://lvyee.com.cn/green_hlife/xnyx/h5/activity/toList"><img src="./绿业健康生活_files/u4QCd8hBN9EzmFzMwHNm1506844953584.jpg"></a></div>
+			        			
+		        			
+			       		
+		       		</div>
+	       			 
+	       			 <div class="mui-bl"><img alt="" src="./绿业健康生活_files/bl.png"></div>
+	       		</div>
+	       	
+	       
+	        <div>
+		   		<ul class="mui-table-view mui-grid-view mui-grid-9" style="background-color:#fff;margin-top: -0.4rem; padding: 15px 0px;">
+		   			 
+		   					   				
+		           			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		           				
+					             
+					                <a onclick="wareType(29,&#39;全部商品&#39;)">
+					                    <img src="./绿业健康生活_files/Lir8bY5C7Q98O3NCXBbj1494658498253.png" style="width:50%;border-radius: 50%;">
+					                    <div class="mui-media-body">全部商品</div>
+					                </a>							
+				                 
+		                    </li>		               		           
+			           	   				
+		           			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		           				
+					             
+					                <a onclick="wareType(30,&#39;有机果蔬&#39;)">
+					                    <img src="./绿业健康生活_files/PkP0sgzvPlwyshFzvPYP1494658576801.png" style="width:50%;border-radius: 50%;">
+					                    <div class="mui-media-body">有机果蔬</div>
+					                </a>							
+				                 
+		                    </li>		               		           
+			           	   				
+		           			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		           				
+					             
+					                <a onclick="wareType(31,&#39;个人护理&#39;)">
+					                    <img src="./绿业健康生活_files/zE10JWbjaqG4Lq4a5QzU1494658596504.png" style="width:50%;border-radius: 50%;">
+					                    <div class="mui-media-body">个人护理</div>
+					                </a>							
+				                 
+		                    </li>		               		           
+			           	   				
+		           			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		           				
+					             
+					                <a onclick="wareType(32,&#39;过滤网&#39;)">
+					                    <img src="./绿业健康生活_files/yuwmCBAoflogHKfZ4M3o1494658608395.png" style="width:50%;border-radius: 50%;">
+					                    <div class="mui-media-body">过滤网</div>
+					                </a>							
+				                 
+		                    </li>		               		           
+			           	   				
+		           			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		           				
+					             
+					                <a onclick="wareType(33,&#39;宠物护理&#39;)">
+					                    <img src="./绿业健康生活_files/TXb3vy4PMeFxdy0sPQF41494658635176.png" style="width:50%;border-radius: 50%;">
+					                    <div class="mui-media-body">宠物护理</div>
+					                </a>							
+				                 
+		                    </li>		               		           
+			           	   				
+		           			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		           				
+					             
+					                <a onclick="wareType(34,&#39;婴儿护理&#39;)">
+					                    <img src="./绿业健康生活_files/BkaWFy46OV81WUT7Asc31494658649676.png" style="width:50%;border-radius: 50%;">
+					                    <div class="mui-media-body">婴儿护理</div>
+					                </a>							
+				                 
+		                    </li>		               		           
+			           	   				
+		           			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		           				
+					             
+					                <a onclick="wareType(35,&#39;汽车养护&#39;)">
+					                    <img src="./绿业健康生活_files/6hhqy5pK0CiAkO3bMpQd1494658662223.png" style="width:50%;border-radius: 50%;">
+					                    <div class="mui-media-body">汽车养护</div>
+					                </a>							
+				                 
+		                    </li>		               		           
+			           	   				
+		           			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		           				
+					             
+					                <a onclick="wareType(36,&#39;空气净化&#39;)">
+					                    <img src="./绿业健康生活_files/jyEzHCIdSID30MorMk301494658672973.png" style="width:50%;border-radius: 50%;">
+					                    <div class="mui-media-body">空气净化</div>
+					                </a>							
+				                 
+		                    </li>		               		           
+			           	   				
+		           			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		           				
+					             
+					                <a onclick="wareType(37,&#39;家用产品&#39;)">
+					                    <img src="./绿业健康生活_files/0eLZVIxbCxQ6uno7vlQ11494658685489.png" style="width:50%;border-radius: 50%;">
+					                    <div class="mui-media-body">家用产品</div>
+					                </a>							
+				                 
+		                    </li>		               		           
+			           	   				
+		           			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+		           				
+				           			<a href="http://lvyee.com.cn/green_hlife/lvye/h5/sellerWare/matrixWare?pReferralCode=">
+					                    <img src="./绿业健康生活_files/WpXJFC7emdAqV9pBOdHD1494658697708.png" style="width:50%;border-radius:50%;">
+					                    <div class="mui-media-body">共赢模式</div>
+					                </a>
+					             
+					             
+		                    </li>		               		           
+			           
+		            
+			    </ul> 
+		    </div>	
+		     <div class="mui-card-content" style="background-color: #fff;margin-top:0.5rem;height:47px;">
+				<div class="mui-card-content-inner" style="padding:0px;">
+					<span class="mui-title-hot">绿业头条</span> 
+					<div class="txtScroll-top" style="margin-top: 3.7%;">
+						<div class="bd">
+							<div class="tempWrap" style="overflow:hidden; position:relative; height:21px"><ul class="infoList" id="infoList" style="position: relative; padding: 0px; margin: 0px; top: -21px;"><li style="height: 21px;"><span class="date"></span><a onclick="toBusinessTopic(3)">教你分辨市场上化妆品是否为全植</a></li><li style="height: 21px;"><span class="date"></span><a onclick="toBusinessTopic(2)">绿氧空气净化器</a></li><li style="height: 21px;"><span class="date"></span><a onclick="toBusinessTopic(1)">润滋蔓</a></li></ul></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		    <div id="rechargeList">
+			    
+			<div class="mui-card" onclick="toWareDetail(&#39;56&#39;)"><div class="mui-card-media"><img src="./绿业健康生活_files/9HZWqyUQ0ftOYMd67Uoq1506780871818.jpg" class="media-img"></div><div class="mui-card-content"><div class="mui-card-content-inner" style="padding:10px;"><p style="color:#333;margin-bottom: 0px;">润滋蔓植物微粒沐浴露<span class="mui-price">￥59.00</span></p></div></div></div><div class="mui-card" onclick="toWareDetail(&#39;55&#39;)"><div class="mui-card-media"><img src="./绿业健康生活_files/f1Z3nnuiKGv6ibzGWvd51506764620959.jpg" class="media-img"></div><div class="mui-card-content"><div class="mui-card-content-inner" style="padding:10px;"><p style="color:#333;margin-bottom: 0px;">润滋蔓植物微粒洗发水<span class="mui-price">￥69.00</span></p></div></div></div><div class="mui-card" onclick="toWareDetail(&#39;27&#39;)"><div class="mui-card-media"><img src="./绿业健康生活_files/PKT6dSpTxn4fliOLdpCV1506763568553.jpg" class="media-img"></div><div class="mui-card-content"><div class="mui-card-content-inner" style="padding:10px;"><p style="color:#333;margin-bottom: 0px;">润滋蔓植物微粒洁面乳<span class="mui-price">￥189.00</span></p></div></div></div><div class="mui-card" onclick="toWareDetail(&#39;29&#39;)"><div class="mui-card-media"><img src="./绿业健康生活_files/WpEgbNHQ7P42mG0p0a0t1494662603873.jpg" class="media-img"></div><div class="mui-card-content"><div class="mui-card-content-inner" style="padding:10px;"><p style="color:#333;margin-bottom: 0px;">润滋蔓暖心旅行套装<span class="mui-price">￥189.00</span></p></div></div></div><div class="mui-card" onclick="toWareDetail(&#39;57&#39;)"><div class="mui-card-media"><img src="./绿业健康生活_files/yIeFNK4v8bHLrRyGOl6W1506782484443.jpg" class="media-img"></div><div class="mui-card-content"><div class="mui-card-content-inner" style="padding:10px;"><p style="color:#333;margin-bottom: 0px;">润滋蔓植物微粒洗衣液<span class="mui-price">￥79.00</span></p></div></div></div><div class="mui-card" onclick="toWareDetail(&#39;58&#39;)"><div class="mui-card-media"><img src="./绿业健康生活_files/KAvkY55rrHvvFNkHdIFv1506783157897.jpg" class="media-img"></div><div class="mui-card-content"><div class="mui-card-content-inner" style="padding:10px;"><p style="color:#333;margin-bottom: 0px;">润滋蔓植物微粒祛痘精华<span class="mui-price">￥189.00</span></p></div></div></div><div class="mui-card" onclick="toWareDetail(&#39;60&#39;)"><div class="mui-card-media"><img src="./绿业健康生活_files/OqZZm6EkXSaUkKtFTVj81506844366319.jpg" class="media-img"></div><div class="mui-card-content"><div class="mui-card-content-inner" style="padding:10px;"><p style="color:#333;margin-bottom: 0px;">润滋蔓植物微粒护发素<span class="mui-price">￥49.00</span></p></div></div></div><div class="mui-card" onclick="toWareDetail(&#39;26&#39;)"><div class="mui-card-media"><img src="./绿业健康生活_files/QGmPw9SUaxvO8HYDAdHp1503373705631.jpg" class="media-img"></div><div class="mui-card-content"><div class="mui-card-content-inner" style="padding:10px;"><p style="color:#333;margin-bottom: 0px;">润滋蔓植物微粒保湿水<span class="mui-price">￥239.00</span></p></div></div></div><div class="mui-card" onclick="toWareDetail(&#39;28&#39;)"><div class="mui-card-media"><img src="./绿业健康生活_files/i70hIOeHxIKG3p49cQ9d1506763660818.jpg" class="media-img"></div><div class="mui-card-content"><div class="mui-card-content-inner" style="padding:10px;"><p style="color:#333;margin-bottom: 0px;">润滋蔓矿植物面膜<span class="mui-price">￥289.00</span></p></div></div></div><div class="layui-flow-more">没有更多了</div></div>
+		</div>
+		 <!-- 新人活动商品 -->
+		<div id="activityHtml" style="display:none; ">
+		</div>
+		<!-- 互助循环活动商品 -->
+		<div id="hzActivityHtml" style=""></div>
+		
+<link rel="stylesheet" type="text/css" href="./绿业健康生活_files/aui.css">
+
+<style>
+.icon-home{
+	display: inline-block;
+    width:1.2rem !important;
+    height:1.2rem !important;
+    cursor: pointer;
+	background: url(/green_hlife/resource/images/home.png) no-repeat;
+	background-size: 100%;
+	top: 0.3rem;
+}
+.icon-topic{
+	display: inline-block;
+    width:1.2rem !important;
+    height:1.2rem !important;
+    cursor: pointer;
+	background: url(/green_hlife/resource/images/community.png) no-repeat;
+	background-size: 100%;
+	top: 0.3rem ;
+}
+.cart{
+	display: inline-block;
+    width:1.2rem !important;
+    height:1.2rem !important;
+    cursor: pointer;
+	background: url(/green_hlife/resource/images/cartBlack.png) no-repeat;
+	background-size: 100%;
+	top: 0.3rem ;
+}
+.icon-my{
+	display: inline-block;
+    width:1.2rem !important;
+    height:1.2rem !important;
+    cursor: pointer;
+	background: url(/green_hlife/resource/images/meBlack.png) no-repeat;
+	background-size: 100%;
+	top: 0.3rem;
+}
+.zu{
+	display: inline-block;
+    width: 2.8rem !important;
+    height: 2.8rem !important;
+    cursor: pointer;
+    background: url(/green_hlife/resource/images/zu3x.png) no-repeat;
+    background-size: 100%;
+    top: -0.8rem !important;
+    position: absolute !important;
+    left: 10%;
+}
+.aui-bar-tab .aui-bar-tab-label{
+    color: #333;
+}
+
+</style>
+<footer class="aui-bar aui-bar-tab">
+    <div class="aui-bar-tab-item aui-active" tapmode="" onclick="toIndex()">
+        <i class="aui-iconfont icon-home" id="shouyeimg"></i>
+        <div class="aui-bar-tab-label" id="shouye">首页</div>
+    </div>
+    <div class="aui-bar-tab-item" tapmode="" onclick="toTopic()">
+        <i class="aui-iconfont icon-topic" id="shequimg"></i>
+        <div class="aui-bar-tab-label" id="shequ">社区</div>
+    </div>
+    <div class="aui-bar-tab-item" tapmode="" onclick="toLease()">
+        <i class="aui-iconfont zu"></i>
+    </div>
+    <div class="aui-bar-tab-item" tapmode="" onclick="toShopCar()">
+        <i class="aui-iconfont cart" id="gwcimg"></i>
+        <div class="aui-bar-tab-label" id="gwc">购物车</div>
+    </div>
+    <div class="aui-bar-tab-item" tapmode="" onclick="toCenter()">
+        <i class="aui-iconfont icon-my" id="wodeimg"></i>
+        <div class="aui-bar-tab-label" id="wode">我的</div>
+    </div>
+</footer>
+<script type="text/javascript">
+function toIndex(){
+	window.location = "/green_hlife/xnyx/h5/index";
+}
+function toTopic(){
+	window.location = "/green_hlife/xnyx/h5/topic/toTopic";
+}
+function toShopCar(){
+	window.location = "/green_hlife/lvye/h5/center/shopcar/shopCarIndex";
+}
+function toCenter(){
+	window.location = "/green_hlife/xnyx/h5/center/index";
+}
+function toLease(){
+	window.location = "/green_hlife/lvye/h5/lease/lease";
+}
+</script>
+	
+		<script type="text/javascript" src="./绿业健康生活_files/jquery-2.1.0.min.js"></script>
+		<script type="text/javascript" src="./绿业健康生活_files/Swiper.min.js"></script>
+<script type="text/javascript" src="./绿业健康生活_files/mui.min.js"></script>
+<script type="text/javascript" src="./绿业健康生活_files/layui.js"></script>
+<script type="text/javascript" src="./绿业健康生活_files/util.js"></script>
+<script type="text/javascript" src="./绿业健康生活_files/jquery.SuperSlide.2.1.1.js"></script>
+		
+<!-- 调用百度地图来获取经纬度以及当前城市等-->
+<script type="text/javascript" src="./绿业健康生活_files/api"></script><script type="text/javascript" src="./绿业健康生活_files/getscript"></script><link rel="stylesheet" type="text/css" href="./绿业健康生活_files/bmap.css">
+<script type="text/javascript">
+	var geoc = new BMap.Geocoder(); 	
+    var geolocation = new BMap.Geolocation();
+    
+	BaiduMap = (function(){});
+	
+	/*获取当前经纬度*/
+	BaiduMap.getCurrentPosition = function(successCallback,errorCallback){
+		geolocation.getCurrentPosition(function(r){
+			if(this.getStatus() == "0"){//获取当前经纬度成功
+				var longitude = r.point.lng;//经度
+				var latitude = r.point.lat;//纬度
+				if(successCallback){
+					successCallback(longitude,latitude);
+				}
+			}else{//获取当前经纬度失败
+				if(errorCallback){
+					errorCallback();
+				}
+			}
+		});
+	}
+	
+	/*获取当前城市名称（适用手机移动端）*/
+	BaiduMap.getCurrentCity = function(callback){
+		geolocation.getCurrentPosition(function(r){
+			if(this.getStatus() == "0"){//获取当前位置成功
+				var longitude = r.point.lng;//经度
+				var latitude = r.point.lat;//纬度
+				geoc.getLocation(r.point, function(rs){
+					var addComp = rs.addressComponents;
+					//alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);
+					callback(addComp.city);
+				});    
+			}else{//根据ip地址获取城市
+				var myCity = new BMap.LocalCity();
+				myCity.get(myFun);
+			    function myFun(result){
+					var cityName = result.name;
+					callback(cityName);
+				}
+			}
+		});
+	}
+	
+	/*根据ip获取当前城市名称（适用pc端）*/
+	BaiduMap.getCurrentCityByIp = function(callback){
+		var myCity = new BMap.LocalCity();
+		myCity.get(myFun);
+	    function myFun(result){
+			var cityName = result.name;
+			callback(cityName);
+		}
+	}
+	
+	/*根据地址名称获取经纬度*/
+	BaiduMap.getPoint = function(address,successCallback,errorCallback){
+		geoc.getPoint(address,function(point){
+			if(point){
+				var longitude = point.lng;//经度
+				var latitude = point.lat;//纬度
+				successCallback(longitude,latitude);
+			}else{//地址没有解析到结果
+				errorCallback();
+			}
+		});
+	}
+	
+</script>
+		<script type="text/javascript">
+			var swiper = new Swiper('.swiper-container', {
+		        pagination: '.swiper-pagination',
+		        paginationClickable: true,
+		        autoplay:3000
+		    });
+			
+			$(function(){
+				$(window).on('scroll',function() {
+						console.log(123);
+				});
+				layui.use('flow', function(){
+					  var $ = layui.jquery; //不用额外加载jQuery，flow模块本身是有依赖jQuery的，直接用即可。
+					  var flow = layui.flow;
+					  flow.load({
+					    elem: '#rechargeList' //指定列表容器
+					    ,done: function(page, next){ //到达临界点（默认滚动触发），触发下一页
+					      	var lis = [];
+					      	var url;
+					    	if(isWeixin()){
+					    		url = "/green_hlife/xnyx/wx/index/getIndexWare?pageIndex="+page+"&pageSize=10";
+					    	}else{
+					    	 	url = "/green_hlife/xnyx/h5/index/getIndexWare?pageIndex="+page+"&pageSize=10";
+					    	}
+					      //以jQuery的Ajax请求为例，请求下一页数据（注意：page是从2开始返回）
+					      $.get(url, function(res){
+					        //假设你的列表返回在data集合中
+					        layui.each(res.data, function(index, item){	
+					        	var ware=item.ware;
+					        	for(var i=0;i<ware.length;i++){				        		
+					        		lis.push('<div class="mui-card" onclick="toWareDetail(\''+ware[i].id+'\')">');
+					        		lis.push('<div class="mui-card-media">');
+					        		lis.push('<img src="http://112.74.38.131:8118/upload/'+ware[i].pic+'" class="media-img"/>');
+					        		lis.push('</div>');
+					        		lis.push('<div class="mui-card-content">');
+					        		lis.push('<div class="mui-card-content-inner" style="padding:10px;">');
+					        		lis.push('<p style="color:#333;margin-bottom: 0px;">'+ware[i].name+'<span class="mui-price">￥'+parseFloat(ware[i].price).toFixed(2)+'</span></p>');	
+					        		lis.push('</div>');
+					        		lis.push('</div>');
+					        		lis.push('</div>');
+						    
+					        	}
+					        }); 
+					        
+					        //执行下一页渲染，第二参数为：满足“加载更多”的条件，即后面仍有分页
+					        //pages为Ajax返回的总页数，只有当前页小于总页数的情况下，才会继续出现加载更多
+					        next(lis.join(''), page < res.totalPage);    
+					      });
+					    }
+					  });
+					});
+				});
+
+			
+			function isWeixin() {
+			    var ua = navigator.userAgent.toLowerCase();
+			    if (ua.match(/MicroMessenger/i) == "micromessenger") {
+			        return true;
+			    } else {
+			        return false;
+			    }
+			}
+			
+			/*  var setCity = function setCity(cityName){
+			    	cityName = Util.replaceStr(cityName,"市","");
+			        $("#cityName").html(cityName);
+			   
+			    }
+			    BaiduMap.getCurrentCity(setCity); */
+			    		    
+			    $(function(){
+			 	   var url;
+			 		if(isWeixin()){
+			 			url = "/green_hlife/xnyx/wx/article/homeList";
+			 		}else{
+			 		 	url = "/green_hlife/xnyx/h5/article/homeList";	
+			 		}
+			 	   $.ajax({
+			 	        url: url,
+			 	        type:"POST",
+			 	        dataType:"JSON",
+			 	        success: function (data) {
+			 	        	var rows=data.rows;
+			 	        	if(data.state){
+			 	        		var html = "";
+			 	        		for(var i=0; i<rows.length; i++){
+			 	        			html+='<li><span class="date"></span>';
+			 	        			if(rows[i].title.length>15){
+			 	        				html+='<a onclick="toBusinessTopic('+rows[i].id+')">'+rows[i].title.substring(0,15)+'</a>';
+			 	        			}else{
+			 	        				html+='<a onclick="toBusinessTopic('+rows[i].id+')">'+rows[i].title+'</a>';
+			 	        			}
+			 	        			html+='</li>';
+			 	        		}
+			 	        		$("#infoList").html(html);
+			 				    startmarquee();   
+			 	        	}else{
+			 	        		$("#infoList").html('<p><i>加载推送话题失败</i></p>');
+			 	        	}
+			 	        },
+			 	        error: function (jqXHR, textStatus, errorThrown) {
+			 	        }
+			 	    });
+			    })
+			    
+			     function  startmarquee(){
+			    	jQuery(".txtScroll-top").slide({titCell:".hd ul",mainCell:".bd ul",autoPage:true,effect:"top",autoPlay:true,vis:1});
+	   			 } 
+			    
+			    function wareType(id,typeName){
+			    	window.location.href = "/green_hlife/xnyx/h5/index/toWareList?typeId="+id+"&type="+encodeURI(encodeURI(typeName));
+			    }
+			    
+			 // 跳转商品详情页面
+				function toWareDetail(wareId){
+					window.location.href = "/green_hlife/lvye/h5/sellerWare/getWareDetail?id="+wareId;
+				}
+			 
+			   function toBusinessTopic(id){
+			   		window.location.href = "/green_hlife/xnyx/h5/article/detail?id="+id;
+			   }
+			   
+			   function activityWare(){
+			    	$("#activityWare").hide();	
+			    	$("#hzActivityHtml").hide();	
+			    	
+			    }    
+			   
+			  	$(function(){
+			  		var url;
+			 		if(isWeixin()){
+			 			url = "/green_hlife/xnyx/wx/activity/query?tp=1";
+			 		}else{
+			 		 	url = "/green_hlife/xnyx/h5/activity/query?tp=1";	
+			 		}
+			 	   $.ajax({
+			 	        url: url,
+			 	        type:"POST",
+			 	        dataType:"JSON",
+			 	        success: function (data) {
+			 	        	var result=data.result;
+			 	        	var html="";
+			 	        	if(data.isLogin&&!data.isReceive && data.result.isShow=="1"){
+			 	        		$("#activityHtml").show();
+			 	        	}else{
+			 	        		isBuyHelpWare();
+			 	        		$("#activityHtml").hide();
+			 	        		
+			 	        	}
+			 	        	if(data.state){
+			 	        		html+='<div class="activity_Ware" id="activityWare" >';
+			 	        		html+='<a  href="/green_hlife/lvye/h5/sellerWare/activityWareDetail?id='+result.pId+'&activityId='+result.id+'">';
+			 	        		html+='<img src="/green_hlife/resource/images/moisturizingwater.png" id="activtiyImg">';
+			 	        		html+='</a>';
+			 	        		html+='<div class="right">';
+			 	        		html+='<p class="p1"><img id="activcloseImg" class="activcloseImg" src="/green_hlife/resource/images/xnyxGuide_close.png" onclick="activityWare();"></p>';
+			 	        		html+='</div>';
+			 	        		html+='</div>';
+			 	        		$("#activityHtml").html(html);
+			 	        	}else{
+			 	        		 layer.open({
+			 	    			    content:"获取活动商品失败！"
+			 	    			    ,skin: 'msg'
+			 	    			    ,time: 2 //2秒后自动关闭
+			 	    			  });
+			 	        	}
+			 	        },
+			 	        error: function (jqXHR, textStatus, errorThrown) {
+			 	        }
+			 	    });
+			  		
+			  	});
+			    
+			  	//判断是否购买矩阵商品
+			  	function isBuyHelpWare(){
+			  		var url;
+			 		if(isWeixin()){
+			 			url = "/green_hlife/xnyx/wx/center/isMyMatrix";
+			 		}else{
+			 		 	url = "/green_hlife/xnyx/h5/center/isMyMatrix";	
+			 		}
+			 		$.ajax({
+			 	        url: url,
+			 	        type:"POST",
+			 	        dataType:"JSON",
+			 	        success: function (data) {
+			 	        	var result=data.flag;
+			 	        	var html="";
+			 	        	if(!data.flag){
+			 	        		$("#hzActivityHtml").show();
+			 	        	}else{
+			 	        		$("#hzActivityHtml").hide();
+			 	        		
+			 	        	}
+			 	        	if(data.state){
+			 	        		html+='<div class="activity_Ware" id="activityWare" >';
+			 	        		html+='<a  href="/green_hlife/lvye/h5/sellerWare/matrixWare">';
+			 	        		html+='<img src="/green_hlife/resource/images/huzhutanchuang.png" id="activtiyImg">';
+			 	        		html+='</a>';
+			 	        		html+='<div class="right">';
+			 	        		html+='<p class="p1"><img id="activcloseImg" class="activcloseImg" src="/green_hlife/resource/images/xnyxGuide_close.png" onclick="activityWare();"></p>';
+			 	        		html+='</div>';
+			 	        		html+='</div>';
+			 	        		$("#hzActivityHtml").html(html);
+			 	        	}
+			 	        },
+			 	        error: function (jqXHR, textStatus, errorThrown) {
+			 	        }
+			 	    });
+			  		
+			  	}
+			  	
+			  	function tween(){	
+					var Tween = {
+						"Elastic" : {					
+							easeOut: function(t, b, c, d, a, p) {
+								var s;
+								if(t == 0) return b;
+								if((t /= d) == 1) return b + c;
+								if(typeof p == "undefined") p = d * .3;
+								if(!a || a < Math.abs(c)) {
+									a = c;
+									s = p / 4;
+								} else {
+									s = p / (2 * Math.PI) * Math.asin(c / a);
+								}
+								return(a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b);
+							}
+						}
+					};
+						
+					var ball = document.getElementById("offCanvasSideScroll")
+					var elasticFall = function() {
+						var start = 0,
+							beginingValue = -40,
+							changeValue =40,
+							during = 100;
+						var _run= function() {
+							start++;
+							var top = Tween.Elastic.easeOut(start, beginingValue, changeValue, during);
+							ball.style.webkitTransform = "translateY("+top+"px)";
+							if(start < during) requestAnimationFrame(_run);
+						}
+		                _run();
+					};
+					elasticFall();
+				}
+		</script>
+
+	
+
+<div style="position: static; display: none; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;"><div id="trans-tooltip"><div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-top.png&quot;);"></div><div id="tip-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-top.png&quot;) repeat-x;"></div><div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-top.png&quot;);"></div><div id="tip-right" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right.png&quot;) repeat-y;"></div><div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-bottom.png&quot;);"></div><div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-bottom.png&quot;) repeat-x;"></div><div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-bottom.png&quot;);"></div><div id="tip-left" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left.png&quot;);"></div><div id="trans-content"></div></div><div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-bottom.png&quot;);"></div><div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-top.png&quot;);"></div></div></body></html>

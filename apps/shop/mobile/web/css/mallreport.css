@@ -1,0 +1,105 @@
+body, html {
+  background: #eeeeee;
+  height: 100%;
+  width: 100%; }
+
+body {
+  padding-bottom: 1.0666666667rem; }
+
+.canvasBox {
+  background: #fff;
+  margin-top: .1rem;
+  padding: .1rem 0; }
+
+.content .con-nav > ul {
+  display: flex;
+  background: #fff; }
+  .content .con-nav > ul li {
+    flex: 1;
+    padding: .2rem .5rem; }
+
+.content .con-nav > ul > li > a {
+  display: block;
+  text-align: center;
+  height: 1.4933333333rem;
+  line-height: 1.4933333333rem; }
+  [data-dpr="1"] .content .con-nav > ul > li > a {
+    font-size: 13px; }
+  [data-dpr="2"] .content .con-nav > ul > li > a {
+    font-size: 26px; }
+  [data-dpr="3"] .content .con-nav > ul > li > a {
+    font-size: 39px; }
+
+.content .con-nav > ul > li.cur > a {
+  color: #f42323;
+  font-weight: 600;
+  border-bottom: 1px solid #f42323; }
+
+.btns {
+  background: #fff;
+  height: 2.1333333333rem;
+  line-height: 2.1333333333rem;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  border-top: 1px solid #e5e5e5; }
+  .btns a {
+    display: block;
+    flex: 1;
+    color: #fff;
+    background: #f60; }
+    [data-dpr="1"] .btns a {
+      font-size: 14px; }
+    [data-dpr="2"] .btns a {
+      font-size: 28px; }
+    [data-dpr="3"] .btns a {
+      font-size: 42px; }
+  .btns a:first-child {
+    border-right: 1px solid #eee; }
+
+.tab {
+  margin-top: .1rem;
+  width: 100%;
+  background: #fff;
+  padding: .2rem; }
+  .tab table {
+    width: 100%;
+    border: 0;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd; }
+    .tab table tr {
+      display: flex; }
+    .tab table tr th {
+      background: #f42323;
+      color: #fff; }
+      [data-dpr="1"] .tab table tr th {
+        font-size: 13px; }
+      [data-dpr="2"] .tab table tr th {
+        font-size: 26px; }
+      [data-dpr="3"] .tab table tr th {
+        font-size: 39px; }
+
+.tab tr th, .tab tr td {
+  flex: 1;
+  width: 33.33%;
+  text-align: center;
+  border-left: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+  /*height:.6rem;*/
+  line-height: 1.4933333333rem;
+  color: #333; }
+  [data-dpr="1"] .tab tr th, [data-dpr="1"] .tab tr td {
+    font-size: 12px; }
+  [data-dpr="2"] .tab tr th, [data-dpr="2"] .tab tr td {
+    font-size: 24px; }
+  [data-dpr="3"] .tab tr th, [data-dpr="3"] .tab tr td {
+    font-size: 36px; }
+
+.tab-tbody > tr:nth-child(even) {
+  background: #eee; }
+
+.tab tr th {
+  line-height: 0.7466666667rem;
+  padding: 0.4266666667rem 0; }

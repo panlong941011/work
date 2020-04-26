@@ -1,0 +1,15 @@
+server:
+  port: 8887
+
+spring:
+  application:
+    name: service-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+eureka:
+  instance:
+    hostname: 192.168.0.157

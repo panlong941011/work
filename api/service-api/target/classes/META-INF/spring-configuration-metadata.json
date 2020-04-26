@@ -1,0 +1,27 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "group.dny.api.configuration.PicConfig",
+      "name": "pic",
+      "type": "group.dny.api.configuration.PicConfig"
+    },
+    {
+      "sourceType": "group.dny.api.configuration.WholesaleConfig",
+      "name": "wholesale",
+      "type": "group.dny.api.configuration.WholesaleConfig"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "group.dny.api.configuration.PicConfig",
+      "name": "pic.url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "group.dny.api.configuration.WholesaleConfig",
+      "name": "wholesale.allow-i-p",
+      "type": "java.util.List<java.lang.String>"
+    }
+  ]
+}

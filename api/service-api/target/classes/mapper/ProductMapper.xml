@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.ProductMapper">
+    <resultMap type="group.dny.api.entity.Product" id="productDetailResult">
+        <result column="lID" property="lID"/>
+        <result column="sName" property="sName"/>
+        <result column="sRecomm" property="sRecomm"/>
+        <result column="sPic" property="sPic"/>
+        <result column="sContent" property="sContent"/>
+        <result column="fPrice" property="fPrice"/>
+        <result column="fBuyerPrice" property="fCostPrice"/>
+        <result column="fFreeShipCost" property="fFreeShipCost"/>
+        <result column="fShipAdjust" property="fShipAdjust"/>
+        <result column="SupplierID" property="SupplierID"/>
+        <result column="ShipTemplateID" property="ShipTemplateID"/>
+        <result column="lStock" property="lStock"/>
+        <result column="sMasterPic" property="sMasterPic"/>
+        <result column="bSale" property="bSale"/>
+        <result column="bDel" property="bDel"/>
+        <result column="fShowPrice" property="fShowPrice"/>
+        <result column="lSale" property="lSale"/>
+        <result column="lSaleBase" property="lSaleBase"/>
+        <result column="lWeight" property="lWeight"/>
+        <result column="MemberShipTemplateID" property="MemberShipTemplateID"/>
+    </resultMap>
+
+    <resultMap type="group.dny.api.entity.Product" id="productItemResult">
+        <result column="lID" property="lID"/>
+        <result column="sName" property="sName"/>
+        <result column="fPrice" property="fPrice"/>
+        <result column="lStock" property="lStock"/>
+        <result column="sMasterPic" property="sMasterPic"/>
+        <result column="fShowPrice" property="fShowPrice"/>
+        <result column="lSale" property="lSale"/>
+    </resultMap>
+
+
+    <select id="getProductById" parameterType="int" resultType="group.dny.api.entity.Product">
+        select lID,
+               sName,
+               sRecomm,
+               sMasterPic,
+               sPic,
+               sContent,
+               fPrice,
+               fBuyerPrice,
+               fFreeShipCost,
+               fShipAdjust,
+               fCostControl,
+               SupplierID,
+               ShipTemplateID,
+               lStock,
+               bSale,
+               bDel,
+               fShowPrice,
+               lSaleBase,
+               lSale,
+               lWeight,
+               MemberShipTemplateID,
+               fSupplierPrice,
+               fShowPrice,
+               ProductCatID,
+               PathID
+        from Product
+        where lID = #{pID};
+    </select>
+
+    <select id="getProductList" resultMap="productDetailResult">
+        select
+        lID,
+        sName,
+        sMasterPic,
+        fPrice,
+        fShowPrice,
+        lStock,
+        lSale,
+        sPic,
+        ProductCatID,
+        PathID
+        from Product
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </select>
+
+    <select id="getStockAndPrice" resultType="group.dny.api.entity.Product">
+        select
+            fPrice,
+            fShowPrice,
+            lStock,
+            bDel,
+            fFreeShipCost,
+            fShipAdjust,
+            fBuyerPrice,
+            fCostControl,
+            bSale
+        from Product
+        where lID = #{pID};
+    </select>
+
+    <update id="updateStockByID" parameterType="group.dny.api.entity.Product">
+        UPDATE Product
+        SET lStock=#{lStock}
+        WHERE lID = #{lID}
+    </update>
+</mapper>

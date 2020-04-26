@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>物流信息</title>
+	
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/logistics.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="logistics">
+		<div class="ad_header">
+	        <a href="javascript:;" class="ad_back">
+	            <span class="icon">&#xe885;</span>
+	        </a>
+	        <h2>我的订单</h2>
+	        <span class="ad_more icon">&#xe602;</span>
+	    </div>
+	    <nav class="flex">
+			<div class="logistics_item on">快递1</div>
+			<div class="logistics_item">快递2</div>
+	    </nav>
+	    <div class="logistics_info">	
+			<h3>
+				物流状态：
+				<em>已发货</em>
+			</h3>
+			<p>承运公司：<span>圆通</span></p>
+			<p>运单编号：<span>458475114588</span></p>
+	    </div>
+	    <!-- 无物流的情况 -->
+	    <div class="logistics_empty" style="display: none;">
+			<div class="logistics_pic">
+				<img src="../images/order/logistics_empty.png">
+			</div>
+			<p>抱歉，暂时没有查到物流具体信息</p>
+	    </div>
+	    <!-- 自配的情况 -->
+	    <div class="matching" style="display: none;">
+			<div class="logistics_pic">
+				<img src="../images/order/logistics_empty.png">
+			</div>
+			<p>本单由卖家自配，</p>
+			<p>详细送货情况，可咨询客服</p>
+			<a href="" class="service_consult">咨询客服</a>
+	    </div>
+	    <div class="logistics_list flex" >
+			<div class="navigation flex">
+				<i class="dot success"></i>
+				<span class="line"></span>
+
+				<i class="dot"></i>
+				<span class="line"></span>
+				
+				<i class="dot"></i>
+				<span class="line"></span>
+
+				<i class="dot"></i>
+				<span class="line"></span>
+
+				<i class="dot"></i>
+				<span class="line"></span>
+			</div>
+			<div class="process_list">
+				<div class="process_item active">
+					<h3 class="process_content">快件到达【厦门市】，派件员李离正在为您派件，网点客服电话4564551</h3>
+					<p class="process_time">2017-9-20 12:00:00</p>
+				</div>
+				<div class="process_item">
+					<h3 class="process_content">快件到达【泉州市】，下一站【厦门市】</h3>
+					<p class="process_time">2017-9-20 12:00:00</p>
+				</div>
+				<div class="process_item">
+					<h3 class="process_content">快件到达【萧山站】，下一站【泉州市】</h3>
+					<p class="process_time">2017-9-20 12:00:00</p>
+				</div>
+				<div class="process_item">
+					<h3 class="process_content">快件已从【杭州市】，下一站【萧山站】</h3>
+					<p class="process_time">2017-9-20 12:00:00</p>
+				</div>
+				<div class="process_item">
+					<h3 class="process_content">快件已在等待揽收</h3>
+					<p class="process_time">2017-9-20 12:00:00</p>
+				</div>
+			</div>
+	    </div>
+	</div>
+
+	<div class="nav_more_list">
+	    <div class="triangle-up"></div>
+	    <ul>
+	        <li class="flex">
+	            <span class="icon">&#xe608;</span>
+	            <em>首页</em>
+	        </li>
+	        <li class="flex">
+	            <span class="icon">&#xe60a;</span>
+	            <em>购物车</em>
+	        </li>
+	        <li class="flex">
+	            <span class="icon">&#xe64a;</span>
+	            <em>我的</em>
+	        </li>
+	    </ul>
+	</div>
+</body>
+<script src="../js/zepto.min.js"></script>
+<script>
+	$(function(){
+		/*$('.logis_type span').on('click',function() {
+			var index = $(this).index();
+			$(this).addClass('on').siblings().removeClass('on');
+			var length = $('.logis_wrap').length;
+			for(var i = 0;i < length;i++) {
+				$('.logis_wrap').eq(i).hide();
+				$('.logis_wrap').eq(index).show();
+				showLine();
+			}
+		})*/
+
+		$('.ad_more').on('click',function() {
+            event.stopPropagation(); 
+            $(".nav_more_list").toggle();
+        })
+
+        $(window).on('scroll',function() {
+             $(".nav_more_list").hide();
+        })
+
+        $('body').on('click',function() {
+             $(".nav_more_list").hide();
+        })
+
+        $('.logistics_item').on('click',function() {
+        	$(this).addClass('on').siblings().removeClass('on');
+        })
+		showLine();
+		//根据物理内容计算侧栏的长度
+		function showLine () {
+			var len = $('.process_item').length;
+			for(var i = 0; i < len; i++ ) {
+				var height = $('.process_item').eq(i).height();
+				console.log(height);
+				$('.line').eq(i).height(height-20);
+
+				if( i === (len-1) ) {
+					$('.line').eq(i).height(height/2);
+				} 	
+			}
+		}
+	})
+</script>
+</html>

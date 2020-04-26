@@ -1,0 +1,344 @@
+$designWidth: 750;
+@function px2rem($px) {
+    @return $px*320/$designWidth/20+rem;
+}
+
+@mixin px2px($px) {
+    [data-dpr="1"] & {
+        font-size: ($px / 2) * 1px;
+    }
+    [data-dpr="2"] & {
+        font-size: $px * 1px;
+    }
+    [data-dpr="3"] & {
+        font-size: ($px / 2 * 3) * 1px;
+    }
+}
+
+//flexbox
+@mixin flexbox() {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    display: box;
+}
+
+
+
+
+@mixin flex-row() {
+    @include flexbox;
+    box-direction: row;
+    box-orient: horizontal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+
+
+
+@mixin flex-column() {
+    @include flexbox;
+    box-orient: vertical;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+}
+
+@mixin flex-1() {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 0;
+    -webkit-flex-basis: 0;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+}
+
+
+
+
+@mixin align-center() {
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    box-align: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+
+
+
+@mixin justify-center() {
+    -webkit-box-pack: center;
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    box-pack: center;
+}
+
+
+
+
+@mixin flex-center() {
+    @include flexbox;
+    @include align-center;
+    @include justify-center;
+}
+
+
+
+@mixin flex-row-align() {
+    @include flex-row;
+    @include align-center;
+}
+
+
+@mixin row-center() {
+    @include flex-row;
+    @include align-center;
+    @include justify-center;
+}
+
+
+@mixin column-center() {
+    @include flex-column;
+    @include align-center;
+    @include justify-center;
+}
+
+
+@mixin column-center-justify() {
+    @include flex-column;
+    @include justify-center;
+}
+
+@mixin justify-end() {
+    -webkit-box-pack: flex-end;
+    -moz-justify-content: flex-end;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+    box-pack: flex-end;
+}
+
+@mixin between() {
+    justify-content: space-between;
+}
+
+@mixin around() {
+    -webkit-box-pack: space-around;
+    -moz-justify-content: space-around;
+    -webkit-justify-content: space-around;
+    justify-content: space-around;
+    box-pack: space-around;
+}
+
+
+@mixin row-alignCenter-jusitfyEnd() {
+    @include flex-row-align;
+    @include justify-end;
+}
+
+
+@mixin column-around() {
+    @include flex-column;
+    @include around;
+}
+
+
+@mixin column-between() {
+    @include flex-column;
+    @include between;
+}
+
+body {
+    background: #eeeeee;
+    -webkit-overflow-scrolling: touch;
+}
+
+.banner-wrap {
+    width: 100%;
+    height: px2rem(200);
+    position: relative;
+    .b-mask {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.2);
+    }
+    .s-icon {
+        display: block;
+        width: px2rem(80);
+        height: px2rem(80);
+        background: #f21f20;
+        position: absolute;
+        left: px2rem(30);
+        bottom: 0;
+    }
+    .s-icon-inner {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .s-h {
+        position: absolute;
+        left: px2rem(130);
+        bottom: 0;
+        height: 100%;
+        @include flexbox;
+        @include align-center;
+    }
+}
+
+.layer-title {
+    height: px2rem(88);
+    @include px2px(32);
+    @include flex-row;
+    @include align-center;
+    @include between;
+    padding: 0 px2rem(30);
+    border-bottom: 1px solid #e3e3e3;
+    color: #333;
+}
+
+.s-title {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: px2rem(80);
+    bottom: px2rem(0);
+    color: #fff;
+    @include px2px(32);
+    width: 100%;
+    padding: px2rem(30);
+    @include flex-row;
+}
+
+.s-list {
+    margin-top: px2rem(20);
+    background: #fff;
+    .sell_price {
+        color: #cb0707;
+    }
+    .selling_list ul {
+        padding-bottom: px2rem(10);
+    }
+}
+
+.layer-more {
+    color: #666;
+    position: relative;
+    padding-right: px2rem(40);
+}
+
+.layer-more::after {
+    position: absolute;
+    right: px2rem(10);
+    top: 50%;
+    margin-top: px2rem(-8);
+    content: '';
+    width: px2rem(20);
+    height: px2rem(20);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    border-width: 2px 2px 0 0;
+    border-color: #C8C8CD;
+    border-style: solid;
+}
+
+.s-detail {
+    margin-top: px2rem(20);
+    background: #fff;
+}
+
+.layer-con {
+    @include px2px(28);
+    padding: px2rem(30);
+    line-height: 2;
+    color: #666;
+}
+
+.sellout {
+    position: relative;
+}
+
+.sellout::before {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.sellout::after {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(/images/saleout.png) no-repeat center center;
+}
+
+.seckill {
+    position: absolute;
+    top: px2rem(10);
+    left: px2rem(10);
+    width: px2rem(92);
+    height: px2rem(78);
+    background: url('/images/home/index_seckill.png') no-repeat;
+    background-size: contain;
+}
+.s_loot_all {
+    @extend .sellout;
+    &::after {
+        background: url('/images/home/lootall.png') no-repeat center center;
+         background-size: 65%;
+    }
+}
+.s_over {
+    @extend .sellout;
+    &::after {
+        background: url('/images/home/over.png') no-repeat center center;
+        background-size: 65%;
+    }
+}
+.buy_time {
+    width: 100%;
+    height: px2rem(40); 
+    line-height: px2rem(40);
+    text-align: center;
+    color: #fff;
+    @include px2px(24);
+    background: rgba(244,35,35,0.8);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.buy_stock {
+    @extend .buy_time;
+}
+.dropload-noData {
+    background: #eeeeee;
+    text-align: center;
+    @include px2px(30);
+    padding: px2rem(30) 0;
+    color: #999;
+}
+
+.dropload-down {
+    display: none;
+}

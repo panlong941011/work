@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.RefundMapper">
+    <insert id="saveRefund" useGeneratedKeys="true" keyProperty="lID" parameterType="group.dny.api.entity.Refund">
+        INSERT
+        INTO Refund(sName,
+                    dNewDate,
+                    dEditDate,
+                    BuyerID,
+                    SupplierID,
+                    StatusID,
+                    TypeID,
+                    OrderID,
+                    OrderDetailID,
+                    fBuyerPaidTotal,
+                    fSupplierIncomeTotal,
+                    fBuyerRefund,
+                    fSupplierRefund,
+                    sReason,
+                    sExplain,
+                    sAddress,
+                    ShipTemplateID,
+                    lRefundItem,
+                    lItemTotal,
+                    fRefundProduct,
+                    fProductPrice,
+                    fBuyerRefundProduct,
+                    fSupplierRefundProduct)
+        VALUES (#{sName},
+                #{dNewDate},
+                #{dEditDate},
+                #{BuyerID},
+                #{SupplierID},
+                #{StatusID},
+                #{TypeID},
+                #{OrderID},
+                #{OrderDetailID},
+                #{fBuyerPaidTotal},
+                #{fSupplierIncomeTotal},
+                #{fBuyerRefund},
+                #{fSupplierRefund},
+                #{sReason},
+                #{sExplain},
+                #{sAddress},
+                #{ShipTemplateID},
+                #{lRefundItem},
+                #{lItemTotal},
+                #{fRefundProduct},
+                #{fProductPrice},
+                #{fBuyerRefundProduct},
+                #{fSupplierRefundProduct})
+    </insert>
+
+    <select id="getRefundBySn" parameterType="string" resultType="group.dny.api.entity.Refund">
+        SELECT
+            lID,
+            sName,
+            dNewDate,
+            dEditDate,
+            BuyerID,
+            SupplierID,
+            StatusID,
+            TypeID,
+            OrderID,
+            OrderDetailID,
+            fBuyerPaidTotal,
+            fSupplierIncomeTotal,
+            fBuyerRefund,
+            fSupplierRefund,
+            sReason,
+            sExplain,
+            sAddress,
+            ShipTemplateID,
+            lRefundItem,
+            lItemTotal,
+            fRefundProduct,
+            fProductPrice,
+            fBuyerRefundProduct,
+            fSupplierRefundProduct,
+            dNewDate,
+            dDenyApplyDate,
+            sDenyApplyReason,
+            dCompleteDate
+        FROM Refund
+        WHERE sName = #{sName}
+    </select>
+
+    <update id="updateRefund" parameterType="group.dny.api.entity.Refund">
+        UPDATE Refund
+        SET lRefundItem=#{lRefundItem},
+            lItemTotal=#{lItemTotal},
+            sReason=#{sReason},
+            sRefundVoucher=#{sRefundVoucher},
+            TypeID=#{TypeID},
+            fRefundApply=#{fRefundApply},
+            WHERE lID = #{lID}
+    </update>
+
+    <update id="closeRefund" parameterType="group.dny.api.entity.Refund">
+        UPDATE Refund
+        SET dCompleteDate=#{dCompleteDate},
+            StatusID=#{StatusID}
+        WHERE sName = #{sName}
+    </update>
+
+    <update id="updateRefundStatus" parameterType="group.dny.api.entity.Refund">
+        UPDATE Refund
+        SET StatusID=#{StatusID}
+        WHERE sName = #{sName}
+    </update>
+</mapper>

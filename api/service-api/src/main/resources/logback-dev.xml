@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="true">
+    <property name="logdir" value="d:/"/>
+    <property name="appname" value="service-api"/>
+    <contextName>${appname}</contextName>
+
+    <appender name="ConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %thread %msg %n</pattern>
+        </layout>
+    </appender>
+
+    <appender name="FileAppender" class="ch.qos.logback.core.FileAppender">
+        <file>${appname}.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %thread %msg %n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="RollAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>${logdir}/${appname}.log</File>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>${logdir}/${appname}.%d{yyyy-MM-dd}.log</FileNamePattern>
+            <maxHistory>90</maxHistory>
+        </rollingPolicy>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %thread %msg %n</pattern>
+        </layout>
+    </appender>
+
+    <!--<appender name="CatAppender" class="group.dny.api.configuration.CatLogbackConfig">-->
+    <!--</appender>-->
+
+    <root level="INFO">
+        <appender-ref ref="ConsoleAppender"/>
+        <appender-ref ref="RollAppender"/>
+    </root>
+</configuration>

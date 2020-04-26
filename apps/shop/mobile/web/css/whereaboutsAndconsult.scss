@@ -1,0 +1,184 @@
+@import 'px2rem'; 
+$designWidth : 750; 
+
+body {
+	background: #eee;
+}
+.ad_header {
+    height: px2rem(88);
+    padding: 0 px2rem(30);
+    border-bottom: 1px solid #d2d2d2;
+    position: relative;
+    background: #fff;
+}
+.ad_header h2 {
+    color: #333;
+    @include px2px(34);
+    text-align: center;
+    width: 100%;
+    line-height: px2rem(88);
+}
+.ad_back .icon {
+    display: block;
+    font-size:  px2rem(35);
+}
+.ad_back {
+    display: block;
+    width:  px2rem(50);
+    height: 100%;
+    display: block;
+    line-height: px2rem(88);
+    position: absolute;
+    left:  px2rem(30);
+    top:  px2rem(0);
+}
+.ad_more {
+    @include px2px(40);
+    color: #333;
+    display: block;
+    width: px2rem(60);
+    height: 100%;
+    text-align: right;
+    line-height: px2rem(88);
+    position: absolute;
+    right: px2rem(30);
+    top: px2rem(0);
+}
+.whereabouts_main {
+	background: #fff;
+}
+.where_top {
+	height: px2rem(180);
+	width: 100%;
+	padding-left: px2rem(30);
+	background: url(../images/order/whereabouts.png) no-repeat;
+	background-size: 100%;
+	h2 {
+		color: #fff;
+		@include px2px(32);
+		padding-top: px2rem(50); 
+	}
+	p {
+		color: #fff;
+		@include px2px(26);
+		padding-top: px2rem(10); 
+	}
+}
+.refund_price {
+	height: px2rem(100);
+	line-height: px2rem(100);
+	color: #333;
+	@include px2px(28);
+	margin-left: px2rem(10);
+	padding-left: px2rem(20);
+	border-bottom: 1px solid #f5f5f5;
+}
+.refund_process {
+	padding: px2rem(30) 0 0  px2rem(40);
+	.process_item {
+
+	}
+	.navigation {
+		width: px2rem(30);
+		-webkit-flex-direction: column;
+		flex-direction: column;
+		 -webkit-align-items: center;
+    	align-items: center;
+    	padding-top: px2rem(10);
+		.dot {
+			width: px2rem(20);
+			height: px2rem(20);
+			-webkit-border-radius: 50%;
+			border-radius: 50%;
+			background: #359a2b;
+		}
+		.line {
+			width: px2rem(2);
+			height: px2rem(96);
+			background: #359a2b;
+		}
+		.success {
+			width: px2rem(32);
+			height: px2rem(32);
+			background: url(../images/order/check.png) no-repeat;
+			background-size: 100%;
+		}
+	}
+	.process_list {
+		margin-left: px2rem(15);
+	}
+	.process_item {
+		padding-bottom: px2rem(40);
+	}
+	.process_content {
+		color: #666;
+		@include px2px(28);
+	}
+	.process_time {
+		color: #666;
+		@include px2px(24);
+		padding-top: px2rem(10);
+	}
+}
+.naegotiation_record {
+	margin-bottom: px2rem(68);
+}
+section {
+	background: #fff;
+	padding-left: px2rem(20);
+	padding-top: px2rem(30);
+	padding-bottom: px2rem(30);
+	border-bottom: 1px solid #cccccc;
+	margin-bottom: px2rem(20);
+}
+.person {
+	padding-bottom: px2rem(10);
+	.portrait {
+		width: px2rem(64);
+		height: px2rem(64);
+		img {
+			height: 100%
+		}
+	}
+	.person_main {
+		padding-left: px2rem(20);
+		h3 {
+			color: #333;
+			@include px2px(28);
+		}
+		p {
+			color: #999;
+			@include px2px(24);
+			padding-top: px2rem(0);
+		}
+	}
+}
+.record {
+	color: #333;
+	@include px2px(26);
+	padding-top: px2rem(15);
+	.pic_list {
+		padding-top: px2rem(15);
+		img {
+			width: px2rem(150);
+			height: px2rem(150);
+			margin-right: px2rem(10);
+		}
+	}
+}
+.record_pic {
+	h3 {
+		color: #333;
+		@include px2px(26);
+		padding-top: px2rem(15);
+		padding-bottom: px2rem(10);
+	}
+	.pic_list {
+		img {
+			width: px2rem(150);
+			height: px2rem(150);
+			margin-right: px2rem(10);
+		}
+	}
+	
+}

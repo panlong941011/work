@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>入驻申请</title>
+	
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet"   href="../../css/supplierMain.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="settled_apply">
+		<div class="ad_header">
+	        <a href="javascript:;" class="ad_back">
+	            <span class="icon">&#xe885;</span>
+	        </a>
+	        <h2>成为经销商</h2>
+	        <span class="ad_more icon">&#xe602;</span>
+	    </div>
+	    <div class="apply_content">
+			<form class="apply_form">
+				<div class="apply_input">
+					<input type="text" name="" placeholder="真实姓名" id="sName">
+				</div>
+				<div class="apply_input">
+					<input type="text" name="" placeholder="请输入手机号" id="sPhone">
+					<span class="code">获取短信验证码</span>
+				</div>
+				<div class="apply_input">
+					<input type="text" name="" placeholder="请输入短信验证码" id="sCode">
+				</div>
+			</form>
+			<div class="apply_type">
+				<input type="text" name="" readonly="readonly" placeholder="请选择经销商类型" id="sType">
+			</div>
+			<p class="apply_cost">入驻费用：¥ 0</p>
+	    </div>
+	</div>
+	<div class="apply_sure">
+		<div class="agreement flex">
+			<i class="apply_icon active"></i>
+			<p>我已阅读，并同意<a href="">《×××经销商协议》</a></p>
+		</div>
+		<button class="submit_btn">确认</button>
+	</div>
+	
+	<!-- 经销商类型 -->
+	<div class="distributor_wrap">
+		<div class="distributor">
+			<h2>经销商类型</h2>
+			<ul>
+				<li class="distributor_type">经销商类型1</li>
+				<li class="distributor_type">经销商类型2</li>
+				<li class="distributor_type">经销商类型3</li>
+
+			</ul>
+			<div class="distributor_cancel">关闭</div>
+		</div>
+	</div>
+	
+
+	<div class="nav_more_list">
+	    <div class="triangle-up"></div>
+	    <ul>
+	        <li class="flex" onclick="">
+	            <span class="icon">&#xe608;</span>
+	            <em>首页</em>
+	        </li>
+	        <li class="flex" onclick="">
+	            <span class="icon">&#xe60a;</span>
+	            <em>购物车</em>
+	        </li>
+	        <li class="flex" onclick="">
+	            <span class="icon">&#xe64a;</span>
+	            <em>我的</em>
+	        </li>
+	    </ul>
+	</div>
+</body>
+<!-- <?php $this->beginBlock('foot') ?> -->
+<script src="../js/zepto.min.js"></script>
+<script>
+    $(function() {
+    	//更多栏目
+        $('.ad_more').on('click', function () {
+            event.stopPropagation();
+            $(".nav_more_list").toggle();
+        })
+        $(window).on('click', function () {
+            $(".nav_more_list").hide();
+        })
+
+        $('.apply_icon').on('click',function() {
+        	$('.apply_icon').toggleClass('active');
+        })
+        //供应商类型
+        $('.apply_type').on('click',function() {
+        	$('.distributor_wrap').show();
+        })
+        $('.distributor_wrap,.distributor_cancel').on('click',function() {
+        	$('.distributor_wrap').hide();
+        })
+        $('.distributor_type').on('click',function(event) {
+            event.stopPropagation();
+        	var value = $(this).html();
+        	$(this).addClass('active').siblings().removeClass('active');
+        	$('#sType').val(value);
+        })
+
+        //提交
+        $('.submit_btn').on('click',function() {
+        	var pattern = /^1\d{10}$/; //验证手机
+        	var name = $.trim( $('#sName').val()),
+        		phone = $.trim( $('#sPhone').val()),
+        		code = $.trim( $('#sCode').val() ),
+        		type =$.trim( $('#sType').val() ) ,
+        		agreement = $('.apply_icon').hasClass('active');
+        		console.log(type);
+        	if( name == '' ) {
+        		alert("请输入姓名");
+        		return;
+        	}
+        	if( phone == '' ) {
+        		alert("手机号不得为空");
+        		return;
+        	}
+        	if( !pattern.test( phone ) ) {
+        		alert("请输入正确的手机号");
+        		return;
+        	}
+        	if( code == '') {
+        		alert("验证码不得为空");
+        		return;
+        	}
+        	if( type == '' ) {
+        		alert("请选择经销商类型");
+        		return;
+        	}
+        	if( !agreement ) {
+        		alert("请同意经销商协议");
+        		return;
+        	}
+
+        	//$.pos()
+        })
+    })
+</script>
+<!-- <?php $this->endBlock() ?> -->
+</html>

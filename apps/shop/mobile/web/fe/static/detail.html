@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>商品详情页</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+  
+    <link rel="stylesheet" href="../css/ydui.css">
+   <!--  <link rel="stylesheet" href="../css/demo.css"> -->
+    <!-- <script>     
+		!function(n) {
+			var e = n.document,
+				t = e.documentElement,
+				i = 750,
+				d = i / 100,
+				o = "orientationchange" in n ? "orientationchange" : "resize",
+				a = function() {
+					var n = t.clientWidth || 375;
+					n > 750 && (n = 750), t.style.fontSize = n / d + "px"
+				};
+			e.addEventListener && (n.addEventListener(o, a, !1), 
+			e.addEventListener("DOMContentLoaded", a, !1))
+		}(window);
+	
+	</script> -->
+ <link rel="stylesheet" href="../css/swiper.min.css">
+    <link rel="stylesheet" href="../css/detail.css">
+   
+   <script src="../js/hotcss.js"></script>
+    <link rel="stylesheet" href="../css/LArea.css" >
+    <style>
+        .noscroll{
+            height: 100%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="detail_wrap">
+        <header class="top_btn">
+            <a href="" class="go_back">
+                <span class="icon">&#xe885;</span>
+            </a>
+            <a href="" class="do_more">
+                <span class="icon">&#xe602;</span>
+            </a>
+        </header>
+        <!-- 轮播图结构 -->
+        <div class="banner_swiper">
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="../images/detail/side1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../images/detail/side1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../images/detail/side1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../images/detail/side1.png" alt="">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div class="describe">
+            <h1 class="multiEllipsis">正品kidstar童星 儿童安全座椅3-12周岁09个月-12岁婴儿汽车用 车载座椅</h1>
+            <p class="multiEllipsis">品牌座椅 领券立减 欧盟ECE国内3C认证，一体注塑成型可拆卸布套。支持7天无理由退货，赠送运费险。</p>
+            <em class="sole_price">¥790.00</em>
+            <del class="old_price">¥1490.00</del>
+            <div class="sales_volume flex">
+                <span class="stock">库存200</span>
+                <span clsas="sold">已售2000</span>
+            </div>
+        </div>
+        <div class="line"></div>
+
+        <div class="transport">
+            <div class="transto flex">
+                <span>送至</span>
+               <!--  <a href="#" class="btn btn-info btn-lg active" role="button" id="sel_city">点击选取省市区县</a> -->
+               <!-- <input id="demo1" type="text" readonly="" name="input_area" placeholder="城市选择特效"/> -->
+               <input type="text" readonly id="J_Address" placeholder="请选择收货地址" style="font-size: 50px">
+            </div>
+            <div class="freight flex">
+                <span>运费</span>
+                <p>免运费</p>
+            </div>
+        </div>
+        <div class="line"></div>
+        <div class="supplier">
+            <a href="" class="flex">
+                <div class="sup_pic">
+                    <img src="../images/detail/stroe.png" alt="">
+                </div>
+                <div class="sup_name">
+                    <span>供应商</span>
+                    <h2 class="singleEllipsis">kidstar专卖店</h2>
+                </div>
+            </a>
+        </div>
+        <div class="line"></div>
+        <div class="commodity_details">
+            <div class="details_title flex">
+                <i class="detail_btn active">商品详情</i>
+                <i class="service_btn">售后说明</i>
+                <div class="ewm">
+                    <img src="../images/detail/ewm.png" alt="">
+                </div>
+            </div>
+            <div class="details_content">
+                <img src="../images/detail/side2.png" alt="">
+                <img src="../images/detail/side3.png" alt="">
+            </div>
+            <div class="details_content" style="display: none;">
+                <div class="service_con">
+                    没有东西啊
+                </div>
+            </div>
+        </div>
+        <!-- 规格 -->
+        <section>
+            <div class="chose_item">
+                <div class="sample flex">
+                    <div class="s_img">
+                        <img src="../images/detail/sample.png" alt="">
+                    </div>
+                    <div class="s_cont">
+                        <h2 class="multiEllipsis">正品kidstar童星 儿童安全座椅3-12周岁 09个月-12岁婴儿汽车用 车载座椅</h2>
+                        <em>¥790.00</em>
+                        <span>请选择规格</span>
+                    </div>
+                    <div class="close_btn"></div>
+                </div>
+                <div class="spec">
+                    <li>
+                        <h3>规格</h3>
+                        <div class="spec_list flex">
+                            <span class="on">9-12个月</span>
+                            <span>3-12周岁</span>
+                            <span class="off">10-12周岁</span>
+                            <span>3-12周岁</span>
+                            <span class="off">10-12周岁</span>
+                            <span>3-12周岁</span>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>颜色</h3>
+                        <div class="spec_list flex">
+                            <span class="on">红色</span>
+                            <span>蓝色</span>
+                            <span class="off">绿色</span>
+                            <span>粉色</span>
+                            <span class="off">其他颜色</span>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>颜色</h3>
+                        <div class="spec_list flex">
+                            <span class="on">红色</span>
+                            <span>蓝色</span>
+                            <span class="off">绿色</span>
+                            <span>粉色</span>
+                            <span class="off">其他颜色</span>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>颜色</h3>
+                        <div class="spec_list flex">
+                            <span class="on">红色</span>
+                            <span>蓝色</span>
+                            <span class="off">绿色</span>
+                            <span>粉色</span>
+                            <span class="off">其他颜色</span>
+                        </div>
+                    </li>
+                    <li>
+                        <h3>颜色</h3>
+                        <div class="spec_list flex">
+                            <span class="on">红色</span>
+                            <span>蓝色</span>
+                            <span class="off">绿色</span>
+                            <span>粉色</span>
+                            <span class="off">其他颜色</span>
+                        </div>
+                    </li>
+                    <div class="number flex">
+                        <div class="number_wrap">
+                            <span class="amount">数量</span>
+                            <span class="stock">库存200</span>
+                        </div>
+                        <div class="number_btn flex">
+                            <span>-</span>
+                            <span class="chose_num">1</span>
+                            <span>+</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="sure_btn">确定</div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="fix_btn flex">
+                <div class="car">
+                    <a href="" class="flex">
+                        <img src="../images/detail/car.png" alt="">
+                        <span>购物车</span>
+                    </a>
+                </div>
+                <div class="service">
+                    <a href="" class="flex">
+                        <img src="../images/detail/kefu.png" alt="">
+                        <span>客服</span>
+                    </a>
+                </div>
+                <div class="add_car">
+                    加入购物车
+                </div>
+                <div class="buy_now">
+                    立即购买
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- 头部导航 -->
+    <div class="fix_title">
+        <div class="fix_title_wrap flex">
+            <a href="" class="fix_back">
+                <span class="icon">&#xe885;</span>
+            </a>
+            <div class="fix_label flex">
+                <span class="fix_one on">商品</span>
+                <span class="label_btn">详情</span>
+            </div>
+
+            <a href="" class="fix_more">
+                <span class="icon">&#xe602;</span>
+            </a>
+        </div>
+    </div>
+    <div class="swiper_mask">
+        <div class="imgShow">
+            <div class="swiper-container1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="../images/detail/side1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../images/detail/side1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../images/detail/side1.png" alt="">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="../images/detail/side1.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ewm_wrap">
+        <div class="ewm_pic">
+            <img src="../images/detail/ewm_big.png" alt="">
+        </div>
+        <p>扫描二维码，查看商品</p>
+    </div>
+    <div class="backTop"></div>
+    <div class="mask"></div>
+    <!-- 一阶遮罩 -->
+    <div class="g_mask"></div>
+    <!-- 二阶遮罩 -->
+</body>
+<script src='../js/jquery.min.js'></script>
+<script src="../js/swiper.min.js"></script>
+<!-- <script src="http://static.ydcss.com/uploads/ydui/ydui.citys.js"></script> -->
+<script src="../js/ydui.citys.js"></script>
+<script src="../js/ydui.js"></script>
+<!-- <script src="../js/picker.min.js"></script>
+<script src="../js/city.js"></script>
+<script src="../js/LAreaData1.js"></script>
+<script src="../js/LArea.js"></script> -->
+<script>
+   /* var area = new LArea();
+    area.init({
+        'trigger': '#demo1',//触发选择控件的文本框，同时选择完毕后name属性输出到该位置
+        'valueTo':'#value1',//选择完毕后id属性输出到该位置
+        'keys':{id:'id',name:'name'},//绑定数据源相关字段 id对应valueTo的value属性输出 name对应trigger的value属性输出
+        'type':1,//数据源类型
+        'data':LAreaData,//数据源
+        'getVal':function(selectedVal){
+            console.log(selectedVal)
+        }
+    });
+    area.value=[1,13,3];*/
+
+    var $target = $('#J_Address');
+
+        $target.citySelect();
+
+        $target.on('click', function (event) {
+            event.stopPropagation();
+            $target.citySelect('open');
+        });
+
+        $target.on('done.ydui.cityselect', function (ret) {
+            $(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
+        });
+
+</script>
+<script>
+    $(function() {
+
+         
+
+        //点击查看大图处理
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: 3000, //可选选项，自动滑动
+            pagination: '.swiper-pagination',
+        })
+
+        var mySwiper1 = new Swiper('.swiper-container1', {
+            //autoplay: 2000,//可选选项，自动滑动
+        })
+
+        mySwiper.params.control = mySwiper1; //需要在Swiper2初始化后，Swiper1控制Swiper2
+        mySwiper1.params.control = mySwiper; //需要在Swiper1初始化后，Swiper2控制Swiper1
+
+        $('.swiper_mask').on('click', function() {
+            $(this).hide();
+            mySwiper.startAutoplay();
+        });
+
+        $('.swiper-container').on('click', function() {
+            $('.swiper_mask').show();
+            mySwiper.stopAutoplay();
+        });
+
+        $('.swiper_mask').hide();
+
+        //滚动显示导航栏
+        $(window).on('scroll', function() {
+            var divisTop = $('.transport').offset().top,
+                top = $(window).scrollTop();
+            //console.log(divisTop+','+top);
+            if (top > 500) {
+                $('.fix_title').show();
+            } else {
+                $('.fix_title').hide();
+            }
+
+            if ((top + 200) > divisTop) {
+                $('.fix_one ').removeClass('on').siblings('span').addClass('on');
+            } else {
+                $('.fix_one ').addClass('on').siblings('span').removeClass('on');
+            }
+        });
+        //导航点击事件
+        $('.fix_one ').on('click', function() {
+            $(window).scrollTop(0);
+        })
+        $('.label_btn').on('click', function() {
+            var com_top = $('.commodity_details').offset().top - 120;
+            $(window).scrollTop(com_top);
+        })
+
+        //查看二维码
+        $('.ewm').on('click', function() {
+            $('.ewm_wrap').show();
+            $('.mask').show();
+        })
+        $('.mask').on('click', function() {
+            $('.ewm_wrap').hide();
+            $('.mask').hide();
+        })
+
+        //底部商品详情切换
+        $('.details_title i').on('click', function() {
+            var index = $(this).index();
+            $(this).addClass('active');
+            $(this).siblings('i').removeClass('active');
+            $('.details_content').eq(index).show();
+            $('.details_content').eq(index).siblings('.details_content').hide();
+        })
+
+        //加入购物车 购买 添加规格
+        $('.add_car').on('click', function() {
+            $('section').show();
+            $('section').addClass('spec-menu-show').removeClass('spec-menu-hide');
+            $('.g_mask').show();
+        })
+        $('.buy_now').on('click', function() {
+            $('section').show();
+            $('section').addClass('spec-menu-show').removeClass('spec-menu-hide');
+            $('.g_mask').show();
+        })
+
+        $('.sure_btn').on('click', function() { //规格确定按钮
+            $('section').hide();
+            $('.g_mask').hide();
+
+            //$('html,body').addClass('noScroll');
+            //$.post('')
+        })
+
+        $('.close_btn').on('click', function() {
+                $('section').removeClass('spec-menu-show').addClass('spec-menu-hide');
+                setTimeout(function() {
+                    $('section').hide();
+                }, 500);
+                $('.g_mask').hide();
+
+                //$.post('')
+            })
+            //点击遮罩关闭
+        $('.g_mask').on('click', function() {
+            $('section').removeClass('spec-menu-show').addClass('spec-menu-hide');
+            setTimeout(function() {
+                $('section').hide();
+            }, 500);
+            $(this).hide();
+        })
+
+        //规格选择
+        $('.spec_list span').on('click', function() {
+            $(this).addClass('on');
+            $(this).siblings().removeClass('on');
+            //$.post('')
+        })
+    })
+</script>
+<!-- <script>
+	//处理选择地区组件的方法
+	var nameEl = document.getElementById('sel_city');
+
+	var first = []; /* 省，直辖市 */
+	var second = []; /* 市 */
+	var third = []; /* 镇 */
+
+	var selectedIndex = [0, 0, 0]; /* 默认选中的地区 */
+
+	var checked = [0, 0, 0]; /* 已选选项 */
+
+	function creatList(obj, list){
+	  obj.forEach(function(item, index, arr){
+	  var temp = new Object();
+	  temp.text = item.name;
+	  temp.value = index;
+	  list.push(temp);
+	  })
+	}
+
+	creatList(city, first);
+
+	if (city[selectedIndex[0]].hasOwnProperty('sub')) {
+	  creatList(city[selectedIndex[0]].sub, second);
+	} else {
+	  second = [{text: '', value: 0}];
+	}
+
+	if (city[selectedIndex[0]].sub[selectedIndex[1]].hasOwnProperty('sub')) {
+	  creatList(city[selectedIndex[0]].sub[selectedIndex[1]].sub, third);
+	} else {
+	  third = [{text: '', value: 0}];
+	}
+
+	var picker = new Picker({
+	    data: [first, second, third],
+	  selectedIndex: selectedIndex,
+	    title: '地址选择'
+	});
+
+	picker.on('picker.select', function (selectedVal, selectedIndex) {
+	  var text1 = first[selectedIndex[0]].text;
+	  var text2 = second[selectedIndex[1]].text;
+	  var text3 = third[selectedIndex[2]] ? third[selectedIndex[2]].text : '';
+
+	    nameEl.innerText = text1 + ' ' + text2 + ' ' + text3;
+	});
+
+	picker.on('picker.change', function (index, selectedIndex) {
+	  if (index === 0){
+	    firstChange();
+	  } else if (index === 1) {
+	    secondChange();
+	  }
+
+	  function firstChange() {
+	    second = [];
+	    third = [];
+	    checked[0] = selectedIndex;
+	    var firstCity = city[selectedIndex];
+	    if (firstCity.hasOwnProperty('sub')) {
+	      creatList(firstCity.sub, second);
+
+	      var secondCity = city[selectedIndex].sub[0]
+	      if (secondCity.hasOwnProperty('sub')) {
+	        creatList(secondCity.sub, third);
+	      } else {
+	        third = [{text: '', value: 0}];
+	        checked[2] = 0;
+	      }
+	    } else {
+	      second = [{text: '', value: 0}];
+	      third = [{text: '', value: 0}];
+	      checked[1] = 0;
+	      checked[2] = 0;
+	    }
+
+	    picker.refillColumn(1, second);
+	    picker.refillColumn(2, third);
+	    picker.scrollColumn(1, 0)
+	    picker.scrollColumn(2, 0)
+	  }
+
+	  function secondChange() {
+	    third = [];
+	    checked[1] = selectedIndex;
+	    var first_index = checked[0];
+	    if (city[first_index].sub[selectedIndex].hasOwnProperty('sub')) {
+	      var secondCity = city[first_index].sub[selectedIndex];
+	      creatList(secondCity.sub, third);
+	      picker.refillColumn(2, third);
+	      picker.scrollColumn(2, 0)
+	    } else {
+	      third = [{text: '', value: 0}];
+	      checked[2] = 0;
+	      picker.refillColumn(2, third);
+	      picker.scrollColumn(2, 0)
+	    }
+	  }
+
+	});
+
+	picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
+	  console.log(selectedVal);
+	  console.log(selectedIndex);
+	});
+
+	nameEl.addEventListener('click', function () {
+	    picker.show();
+	});
+</script> -->
+<script>
+</script>
+
+</html>

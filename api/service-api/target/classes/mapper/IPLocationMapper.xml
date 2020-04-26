@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.IPLocationMapper">
+    <insert id="insertIPLocation" parameterType="group.dny.api.entity.IPLocation">
+        INSERT
+        INTO
+            IPLocation
+        (sIP,
+         sProvince,
+         sCity,
+         sRectangle)
+        VALUES
+        (#{sIP},
+         #{sProvince},
+         #{sCity},
+         #{sRectangle})
+    </insert>
+
+    <select id="getIPLocationByIP" parameterType="string" resultType="group.dny.api.entity.IPLocation">
+        SELECT sIP,
+               sProvince,
+               sCity,
+               sRectangle
+        FROM IPLocation
+        WHERE sIP = #{sRectangle}
+    </select>
+</mapper>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.ExpressCompanyMapper">
+    <select id="getExpressCompanyByID" parameterType="string" resultType="group.dny.api.entity.ExpressCompany">
+        SELECT ID,sName
+        FROM ExpressCompany
+        WHERE ID = #{id};
+    </select>
+
+    <select id="getIDByCode" parameterType="string" resultType="group.dny.api.entity.ExpressCompany">
+        SELECT ID,sName
+        FROM ExpressCompany
+        WHERE sKdBirdCode = #{code};
+    </select>
+</mapper>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>经销中心</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet"  href="../../css/supplierMain.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="distribution">
+		<div class="dis_shop flex">
+			<div class="shop_img">
+				<img src="../../images/supplier/shop_icon.png">
+			</div>
+			<div class="shop_title">
+				<h2>经销商类型</h2>
+				<p>亨氏辅食专营店</p>
+			</div>
+			<span class="shop_set icon">&#xe600;</span>
+		</div>
+		<div class="withdrawals">
+			<div class="amount_tip flex">
+				<i class="icon">&#xe61b;</i>
+				<p>可提现金额</p>
+			</div>
+			<div class="amount">
+				<span>¥</span>
+				<em>100.00</em>
+			</div>
+			<div class="to_withdrawals">提现</div>
+		</div>
+		<div class="frozen_amount flex">
+			<i class="icon">&#xe60f;</i>
+			<p>冻结金额：10.00</p>
+		</div>
+		<div class="income">
+			<div class="my_income flex">
+				<span>我的收入</span>
+				<i class="icon">&#xe670;</i>
+			</div>
+			<ul class="income_item flex">
+				<li>
+					<a href="">
+						<em>0.00</em>
+						<span>待结算</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<em>0.00</em>
+						<span>已结算</span>
+					</a>	
+				</li>
+				<li>
+					<a href="">
+						<em>0.00</em>
+						<span>已提现</span>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<em>0.00</em>
+						<span>累计收入</span>
+					</a>	
+				</li>
+			</ul>
+		</div>
+		<div class="person_item">
+			<ul class="flex">
+				<li>
+					<a href="">
+						<div class="order"></div>
+						<p>客户订单</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div class="customer"></div>
+						<p>客户管理</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div  class="team"></div>
+						<p>团队管理</p>
+					</a>
+				</li>
+				<li>
+					<a href="">
+						<div  class="invite"></div>
+						<p>邀请好友</p>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="my_card">
+			<a class="flex" href="">
+				<p>我的银行卡</p>
+				<span>未绑定</span>
+			</a>
+		</div>
+	</div>
+
+	<footer>
+        <div class="bottom_fixed flex">
+            <a href="" >
+                <span class="icon">&#xe617;</span>
+                <p>首页</p>
+            </a> 
+            <a href="">
+                <span class="icon">&#xe6b0;</span>
+                <p>分类</p>
+            </a> 
+            <a href="" class="on"> 
+            	<span class="icon center">&#xe655;</span>
+                <p>经销中心</p>
+            </a> 
+            <a href=""> 
+            	<span class="icon">&#xe60a;</span>
+                <p>购物车</p>
+            </a> 
+            <a href=""> 
+            	<span class="icon">&#xe64a;</span>
+                <p>我的</p>
+            </a>
+        </div>
+    </footer>
+	
+	<!-- 弹框提示 -->
+	<div class="message_wrap">
+		<div class="message_alert">
+	        <h2 class="alert_title">请先绑定银行卡</h2>
+	        <div class="btn_wrap flex">
+				<div class="alert_close">取消</div>
+	         	<a href="" class="alert_btn">去绑定</a>
+	        </div>
+	         
+	    </div>
+	</div>
+
+</body>
+<!-- <?php $this->beginBlock('foot') ?> -->
+	<script src="../js/zepto.min.js"></script>
+	<script>
+	    $(function() {
+	    	$('.to_withdrawals').on('click',function() {
+	    		$('.message_wrap').show();
+	    	})
+	    	$('.message_alert').on('click',function(event) {
+	    		event.stopPropagation();
+	    	})
+	    	$('.message_wrap,.alert_close').on('click',function() {
+	    		$('.message_wrap').hide();
+	    	})
+	      
+	    })
+	</script>
+<!-- <?php $this->endBlock() ?> -->
+</html>

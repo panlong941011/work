@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>退款/售后</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/afterSales.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="after_sale" id="app" v-cloak>
+		<div class="ad_header">
+	        <a href="javascript:;" class="ad_back">
+	            <span class="icon">&#xe885;</span>
+	        </a>
+	        <h2>退款/售后</h2>
+	        <span class="ad_more icon">&#xe602;</span>
+	    </div>
+	    <!-- 没有订单的情况 -->
+	    <div class="after_empty" style="display: none;">
+			<div class="pic_wrap">
+				<img src="../images/order/refund_empty.png">
+			</div>
+			<p>亲，您还没有退货信息哦~</p>
+	    </div>
+	    <div class="order_list" >
+			<section class="list_layer" v-for="item in dataList">
+ 				<h3 class="layer_title ">
+ 					<span class="title_word singleEllipsis" v-text='item.shopName'></span>
+ 					<span class="pay_status" v-text="item.status"></span>
+ 				</h3>
+	            <div class="list_content">
+	                <div class="list_item flex">
+	                    <div class="pic">
+	                    	<a href="">
+	                    		<img :src="item.images" alt="">
+	                    	</a>
+	                    </div>
+	                    <div class="info">
+	                    	<a href="">
+	                    		<h4 class="title multiEllipsis" v-text="item.title"></h4>
+	                    	</a>
+	                        <div class="prop">
+	                        	<p v-text="item.spec" class="multiEllipsis"></p>
+	                            <i class="num" v-text="'X'+item.num"></i>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="list_footer flex">
+		            <div class="pay">实付款: ¥<em v-text="item.pay"></em></div>
+	                <div class="reund">退款金额: ¥<em v-text="item.refund"></em></div>
+	            </div>
+	        </section>
+	   	</div>
+	</div>
+
+	<div class="nav_more_list">
+	    <div class="triangle-up"></div>
+	    <ul>
+	        <li class="flex">
+	            <span class="icon">&#xe608;</span>
+	            <em>首页</em>
+	        </li>
+	        <li class="flex">
+	            <span class="icon">&#xe60a;</span>
+	            <em>购物车</em>
+	        </li>
+	        <li class="flex">
+	            <span class="icon">&#xe64a;</span>
+	            <em>我的</em>
+	        </li>
+	    </ul>
+	</div>
+</body>
+<script src="../js/zepto.min.js"></script>
+<script src="../js/dropload.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script src="http://mockjs.com/dist/mock.js"></script>
+<script>
+	//这里是模拟的数据
+    Mock.mock('www.shoperm.dev', { 
+    	'status': true,
+        'data': [
+					{
+						'shopName': 'kidstar童星专卖店',
+						'status': '退款申请等待卖家确认',
+						'images':'../images/car/pic1.jpg',
+						'title':'正品kidstar童星儿童安全座椅3- 12周岁09个月-12岁婴儿汽车..',
+						'spec':'颜色：灰色；尺码：L 如果规格文字 特别长就进行换行',
+						'num':'1',
+						'pay':'10.00',
+						'refund': '10.00'
+					},
+					{
+						'shopName': 'kidstar童星专卖店',
+						'status': '卖家拒绝退款',
+						'images':'../images/car/pic1.jpg',
+						'title':'正品kidstar童星儿童安全座椅3- 12周岁09个月-12岁婴儿汽车..',
+						'spec':'颜色：灰色；尺码：L 如果规格文字 特别长就进行换行',
+						'num':'1',
+						'pay':'10.00',
+						'refund': '10.00'
+					}
+				]
+    });
+
+</script>
+<script>
+	var dataList = [
+					{
+						'shopName': 'kidstar童星专卖店',
+						'status': '退款申请等待卖家确认',
+						'images':'../images/car/pic1.jpg',
+						'title':'正品kidstar童星儿童安全座椅3- 12周岁09个月-12岁婴儿汽车..',
+						'spec':'颜色：灰色；尺码：L 如果规格文字 特别长就进行换行',
+						'num':'1',
+						'pay':'10.00',
+						'refund': '10.00'
+					},
+					{
+						'shopName': 'kidstar童星专卖店',
+						'status': '卖家拒绝退款',
+						'images':'../images/car/pic1.jpg',
+						'title':'正品kidstar童星儿童安全座椅3- 12周岁09个月-12岁婴儿汽车..',
+						'spec':'颜色：灰色；尺码：L 如果规格文字 特别长就进行换行',
+						'num':'1',
+						'pay':'10.00',
+						'refund': '10.00'
+					},
+					{
+						'shopName': 'kidstar童星专卖店',
+						'status': '卖家已同意，请退货',
+						'images':'../images/car/pic1.jpg',
+						'title':'正品kidstar童星儿童安全座椅3- 12周岁09个月-12岁婴儿汽车..',
+						'spec':'颜色：灰色；尺码：L 如果规格文字 特别长就进行换行',
+						'num':'1',
+						'pay':'10.00',
+						'refund': '10.00'
+					},
+					{
+						'shopName': 'kidstar童星专卖店',
+						'status': '已退货，等待卖家确认收货',
+						'images':'../images/car/pic1.jpg',
+						'title':'正品kidstar童星儿童安全座椅3- 12周岁09个月-12岁婴儿汽车..',
+						'spec':'颜色：灰色；尺码：L 如果规格文字 特别长就进行换行',
+						'num':'1',
+						'pay':'10.00',
+						'refund': '10.00'
+					},
+					{
+						'shopName': 'kidstar童星专卖店',
+						'status': '卖家拒绝确认收货',
+						'images':'../images/car/pic1.jpg',
+						'title':'正品kidstar童星儿童安全座椅3- 12周岁09个月-12岁婴儿汽车..',
+						'spec':'颜色：灰色；尺码：L 如果规格文字 特别长就进行换行',
+						'num':'1',
+						'pay':'10.00',
+						'refund': '10.00'
+					},
+					{
+						'shopName': 'kidstar童星专卖店',
+						'status': '退款关闭',
+						'images':'../images/car/pic1.jpg',
+						'title':'正品kidstar童星儿童安全座椅3- 12周岁09个月-12岁婴儿汽车..',
+						'spec':'颜色：灰色；尺码：L 如果规格文字 特别长就进行换行',
+						'num':'1',
+						'pay':'10.00',
+						'refund': '10.00'
+					},
+					{
+						'shopName': 'kidstar童星专卖店',
+						'status': '退款成功',
+						'images':'../images/car/pic1.jpg',
+						'title':'正品kidstar童星儿童安全座椅3- 12周岁09个月-12岁婴儿汽车..',
+						'spec':'颜色：灰色；尺码：L 如果规格文字 特别长就进行换行',
+						'num':'1',
+						'pay':'10.00',
+						'refund': '10.00'
+					}
+
+				]
+	new Vue({
+		el: "#app",
+		data: {
+			dataList: dataList,
+			page: 1,
+			isMore: true,
+		},
+		mounted: function() {
+			var _self = this;
+			 $('.after_sale').dropload({
+                    scrollArea: window,
+                	autoLoad: false,
+                    domDown: {
+                        domClass: 'dropload-down',
+                        domRefresh: '<div class="dropload-refresh"></div>',
+                        domLoad: '<div class="dropload-load">加载中...</div>',
+                        domNoData: '<div class="dropload-noData">没有更多商品了~</div>'
+                    },
+                    loadDownFn: function (me) {
+                        _self.page++;
+                        if (!_self.isMore) {
+                            return;
+                        }
+
+                        $.ajax({
+                            type: 'post',
+                            url: 'www.shoperm.dev',
+                            data: {
+                                index: _self.page
+                            },
+                            dataType: 'json',
+                            success: function (res) {
+                                if (res) {
+                                    console.log(res.data);
+                                    _self.dataList = _self.dataList.concat(res.data);
+                                    //_self.isMore = res.isMore;
+                                } else {
+                                    // 锁定
+                                    me.lock();
+                                    // 无数据
+                                    me.noData();
+                                }
+                                me.resetload();
+                            },
+                            error: function (xhr, type) {
+                                // 即使加载出错，也得重置
+                                me.resetload();
+                            }
+                        });
+                    }
+                });
+		},
+		methods: {
+
+		}
+	})
+</script>
+<script>
+	$(function() {
+
+		$('.ad_more').on('click',function() {
+            event.stopPropagation(); 
+            $(".nav_more_list").toggle();
+        })
+
+        $(window).on('scroll',function() {
+             $(".nav_more_list").hide();
+        })
+
+        $('body').on('click',function() {
+             $(".nav_more_list").hide();
+        })
+
+	})
+</script>
+</html>

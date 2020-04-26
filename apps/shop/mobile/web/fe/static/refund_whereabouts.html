@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>退款去向</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/whereaboutsAndconsult.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="whereabouts">
+		<div class="ad_header">
+	        <a href="javascript:;" class="ad_back">
+	            <span class="icon">&#xe885;</span>
+	        </a>
+	        <h2>退款去向</h2>
+	        <span class="ad_more icon">&#xe602;</span>
+	    </div>
+	    <div class="whereabouts_main">
+			<div class="where_top">
+				<h2>退款原路返还</h2>
+				<p>根据微信处理情况情况，最迟3个工作日到账</p>
+			</div>
+			<div class="refund_price">退款金额： ¥50.00</div>
+			<div class="refund_process">
+				<div class="process_item flex">
+					<div class="navigation flex">
+						<i class="dot"></i>
+						<span class="line"></span>
+
+						<i class="dot"></i>
+						<span class="line"></span>
+						
+						<i class="dot success"></i>
+					</div>
+					<div class="process_list">
+						<div class="process_item">
+							<h3 class="process_content">卖家退款</h3>
+							<p class="process_time">2017-9-20 12:00:00</p>
+						</div>
+						<div class="process_item">
+							<h3 class="process_content">微信受理</h3>
+							<p class="process_time">2017-9-20 12:00:00</p>
+						</div>
+						<div class="process_item">
+							<h3 class="process_content">确认到账</h3>
+							<p class="process_time">2017-9-20 12:00:00</p>
+						</div>
+					</div>
+				</div>
+			</div>
+	    </div>
+	</div>
+	<div class="nav_more_list">
+	    <div class="triangle-up"></div>
+	    <ul>
+	        <li class="flex">
+	            <span class="icon">&#xe608;</span>
+	            <em>首页</em>
+	        </li>
+	        <li class="flex">
+	            <span class="icon">&#xe60a;</span>
+	            <em>购物车</em>
+	        </li>
+	        <li class="flex">
+	            <span class="icon">&#xe64a;</span>
+	            <em>我的</em>
+	        </li>
+	    </ul>
+	</div>
+</body>
+<script src="../js/zepto.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$('.ad_more').on('click',function() {
+            event.stopPropagation(); 
+            $(".nav_more_list").toggle();
+        })
+
+        $(window).on('scroll',function() {
+             $(".nav_more_list").hide();
+        })
+
+        $('body').on('click',function() {
+             $(".nav_more_list").hide();
+        })
+        $('.connect_service').on('touchstart',function() {
+             $(".nav_more_list").hide();
+        })
+	})
+</script>
+</html>

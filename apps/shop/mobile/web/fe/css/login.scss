@@ -1,0 +1,156 @@
+@import 'px2rem'; 
+$designWidth : 750; 
+
+body {
+	width: 16rem;
+	margin: 0 auto;
+	background: #f2f3f4;
+}
+.ad_header {
+	height: px2rem(88);
+	padding: 0 px2rem(30);
+	border-bottom: 1px solid #d2d2d2;
+	position: relative;
+	background: #fff;
+	h2 {
+		color: #333;
+		@include px2px(34);
+		text-align: center;
+		width: 100%;
+		line-height: px2rem(88);
+	}
+	.ad_back {
+		display: block;
+		width:  px2rem(50);
+		height: 100%;
+		line-height: px2rem(88);
+		position: absolute;
+		left:  px2rem(30);
+		top:  px2rem(0);
+		overflow: hidden;
+	}
+	.back {
+		display: block;
+		@include px2px(35);
+	}
+}
+.register {
+	.form_wrap {
+		background: #fff;
+		margin: px2rem(48) px2rem(30) px2rem(50);
+		-webkit-border-radius: px2rem(10);
+		border-radius: px2rem(10);
+		overflow: hidden;
+	}
+	.input_wrap {
+		height: px2rem(97);
+		line-height: px2rem(97);
+		border-bottom: 1px solid #f2f3f4;
+		padding-left: px2rem(45);
+		 -webkit-align-items: center;
+    	align-items: center; 
+    	position: relative;
+    	input {
+    		@include px2px(28);
+    		color: #999;
+    		margin-left: px2rem(12);
+    		&::placeholder {
+    			color: #a7a7a7;
+    		}
+    	}
+
+	}
+	@each $bg in telphone, verification, password {
+		.#{$bg} {
+			display: block;
+			width: px2rem(30);
+			height: px2rem(32);
+			background: url('../images/member/#{$bg}.png') no-repeat;
+			background-size: contain;
+		}
+	}
+	.look {
+		position: absolute;
+		right: px2rem(24);
+		top: px2rem(45);
+		display: block;
+		width: px2rem(39);
+		height: px2rem(24);
+		background: url('../images/member/look.png') no-repeat;
+		background-size: contain;
+	}
+	.look_all {
+		background: url('../images/member/look_all.png') no-repeat;
+		background-size: contain;
+	}
+	.verify_code {
+		display: block;
+		width: px2rem(205);
+		height: px2rem(80);
+		-webkit-border-radius: px2rem(10);
+		border-radius: px2rem(10);
+		text-align: center;
+		line-height: px2rem(80);
+		color: #f42323;
+		@include px2px(28);
+		background: #ededed;
+		position: absolute;
+		top: px2rem(10);
+		right: px2rem(20);
+	}
+	.submit_btn {
+		button {
+			display: block;
+			width: px2rem(690);
+			height: px2rem(90);
+			-webkit-border-radius: px2rem(10);
+			border-radius: px2rem(10);
+			background: #f42323;
+			text-align: center;
+			line-height: px2rem(90);
+			@include px2px(30);
+			color: #fff;
+			margin: 0 auto;
+			margin-bottom: px2rem(30);
+		}
+	}
+	.agreement {
+		color: #999999;
+		@include px2px(24);
+		text-align: center;
+	}
+	.agree_link {
+		color: #2653b9;
+	}
+}
+.login {
+	@extend .register;
+	.form_wrap {
+		margin-bottom: 0;
+	}
+	.find_word {
+		background: #f2f3f4;
+		text-align: right;
+		padding: px2rem(18) 0 px2rem(40);
+		@include px2px(24);
+		a {
+			color: #2061de;
+		}
+	}
+	.register_btn {
+		border: 1px solid #f42323;
+		background: #fff;
+		color: #f42323;
+		display: block;
+		width: px2rem(690);
+		height: px2rem(90);
+		-webkit-border-radius: px2rem(10);
+		border-radius: px2rem(10);
+		text-align: center;
+		line-height: px2rem(90);
+		@include px2px(30);
+		margin: 0 auto;
+		margin-bottom: px2rem(30);
+	}
+	
+}

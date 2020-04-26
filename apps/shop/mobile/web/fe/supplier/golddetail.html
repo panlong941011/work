@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>金币明细</title>
+	
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet"   href="../../css/supplierMain.css">
+    <link rel="stylesheet" href="../../css/mescroll.min.css">
+    <script src="../js/hotcss.js"></script>
+    <style type="text/css">
+	     body,html {
+	         height: 100%;
+	    }
+		.mescroll-upwarp {
+	        display: none;
+	    }
+	</style>
+</head>
+<body>
+	<div class="gold_detail" id="app">
+		<div class="ad_header gold_header">
+	        <a href="javascript:;" class="ad_back">
+	            <span class="icon">&#xe885;</span>
+	        </a>
+	        <h2>金币明细</h2>
+	    </div>
+	    <ul class="top_list flex">
+			<li class="top_item" :class='{active: item.isMark}' v-for="(item,index) in choseList" 
+			v-text="item.name"
+			@click="choseItem(index)"
+			>全部</li>
+	    </ul>
+	    <div id="mescroll" class="mescroll gold_mescroll">
+        <div class="mescroll-bounce">
+		    <div class="detial_empty" v-if="isDetailShow">
+				<div class="detail_pic">
+					<img src="../../images/supplier/gold_empty.png">
+				</div>
+				<p class="d_e_tip">您还没有金币明细</p>
+		    </div>
+		    <div class="detailed_content" v-if="!isDetailShow">
+				<ul>
+					<li class="detailed_item" v-for="item in dataList">
+						<div class="detailed_top flex">
+							<h2 v-text="item.detailTitle"></h2>
+							<em v-text="'+'+item.commission" v-if="item.detailStatus == 'add'">+0.50</em>
+							<em v-text="'-'+item.commission"  v-if="item.detailStatus == 'reduce'">-0.50</em>
+						</div>
+						<div class="detailed_bottom flex">
+							<p v-text="item.detailTime">2017-02-21 17:13：15</p>
+						</div>
+					</li>
+				</ul>
+		    </div>
+		</div>
+		</div>
+	</div>
+</body>
+<!-- <?php $this->beginBlock('foot') ?> -->
+
+<script src="../../js/mescroll.min.js"></script>
+<script src="../js/zepto.min.js"></script>
+<script src="../js/vue.min.js"></script>
+<script>
+	var dataList = [
+		{
+			'detailTitle':'微信充值',
+			'commission': '0.50',
+			'detailTime': '2017-02-21 17:13：15',
+			'detailStatus': 'add'
+		},
+		{
+			'detailTitle':'后台充值',
+			'commission': '0.50',
+			'detailTime': '2017-02-21 17:13：15',
+			'detailStatus': 'reduce'
+		},
+		{
+			'detailTitle':'后台扣款',
+			'commission': '0.50',
+			'detailTime': '2017-02-21 17:13：15',
+			'detailStatus': 'add'
+		},
+		{
+			'detailTitle':'【201709142231018276743153】商品名称商品...退款成功',
+			'commission': '0.50',
+			'detailTime': '2017-02-21 17:13：15',
+			'detailStatus': 'reduce'
+		},
+		{
+			'detailTitle':'【201709142231018276743153】商品名称商品...退款成功',
+			'commission': '0.50',
+			'detailTime': '2017-02-21 17:13：15',
+			'detailStatus': 'add'
+		}
+	];
+
+	new Vue({
+		el: '#app',
+		data: {
+			choseList: [{name:'全部',isMark: true},{name:'收入',isMark: false},{name:'支出',isMark: false}],
+			dataList: dataList,
+			isDetailShow: false,
+			dataMore: true,
+			page: 1,
+			mescroll: null,
+		},
+		mounted: function() {
+			var _self = this;
+			_self.mescroll = new MeScroll("mescroll", {
+                up: {
+                    auto:false, //初始化不加载
+                    callback: _self.upCallback, //上拉回调
+                },
+                down: {
+                    use: false,
+                }
+            });
+        	document.getElementById("app").style.display="block";
+		},
+		methods: {
+			  //滚动回调
+            upCallback: function() {
+                var _this = this;
+               
+                if( !_this.dataMore){ //判断是否有更多
+                    _this.mescroll.endSuccess();
+                    return;
+                }
+                _this.page++;
+                
+                $.get('/seller/unsettlementitem',
+                    {
+                        'page': _this.page,
+                        'type': _this.commissionName
+                    },
+                    function(res) {
+                         console.log(res);
+                         if (res  && res.data && res.data.length !== 0) {
+                              
+                            _this.dataList = _this.dataList.concat(res.data);
+
+                        } else {
+                            _this.dataMore = false;
+
+                        }
+                         _this.mescroll.endSuccess();
+                },'json')
+            },
+            //点击切换
+			choseItem: function(index) {
+				var _this = this;
+				var length = _this.choseList.length;
+				for( var i = 0;i < length; i++ ) {
+					_this.choseList[i].isMark = false;
+				}
+				_this.choseList[index].isMark = true;
+
+				_this.page = 1;
+				_this.mescroll.scrollTo( 0, 0 );//切换栏目时回到顶部
+
+				 $.get('/seller/unsettlementitem',
+                    {
+                        'page': _this.page,
+                        'type': _this.commissionName
+                    },
+                    function(res) {
+                         console.log(res);
+                         if (res  && res.data && res.data.length !== 0) {
+ 							 _this.isDetailShow = true; //为空动画
+                            _this.dataList = _this.dataList.concat(res.data);
+
+                        } else {
+                            _this.dataMore = false;
+                            _this.isDetailShow = true;
+                        }
+                        _this.mescroll.endSuccess();
+                },'json')
+			}
+		}
+
+	})
+</script>
+
+<!-- <?php $this->endBlock() ?> -->
+</html>

@@ -1,0 +1,52 @@
+/*
+ * =========================================================================
+ * APIClud - AUI UI 框架    流浪男   http://www.auicss.com
+ * Verson 2.1
+ * =========================================================================
+ */
+ 
+/*底部切换栏*/
+.aui-bar-tab {
+	position: fixed;
+	top: auto;
+	bottom: 0;
+	table-layout: fixed;
+	background-color: #ffffff;
+	color: #757575;
+}
+.aui-bar-tab .aui-bar-tab-item {
+	display: table-cell;
+	position: relative;
+    width: 1%;
+    height: 2.5rem;
+    text-align: center;
+    vertical-align: middle;
+}
+.aui-bar-tab .aui-active {
+	color: #039be5;
+}
+.aui-bar-tab .aui-bar-tab-item .aui-iconfont {
+	position: relative;
+    z-index: 20;
+    top: 0.1rem;
+    height: 1.2rem;
+    font-size: 1rem;
+    line-height: 1rem;
+}
+.aui-bar-tab .aui-bar-tab-label {
+	display: block;
+    font-size: 0.6rem;
+    position: relative;
+}
+.aui-bar-tab .aui-badge {
+    position: absolute;
+    top: 0.1rem;
+    left: 55%;
+    z-index: 99;
+}
+.aui-bar-tab .aui-dot {
+    position: absolute;
+    top: 0.1rem;
+    right: 30%;
+    z-index: 99;
+}

@@ -1,0 +1,4 @@
+<div class="input-group">
+    <input type="text" class="form-control" ondblclick="showDetailRef(this, '<?=$field->sObjectName?>', '<?=$field->sRefKey?>', '<?=$field->sFieldAs?>')" placeholder="<?=Yii::t('app', '双击进行选择')?>" sDataType="<?=$field->sDataType?>" ignore="true" onchange="$('input[name=\'data[<?=$field->sObjectName?>][<?=$field->sFieldAs?>]\']').val('');;$(this).val('')" value="<?=$data['sName']?>" name="arrObjectData[<?=$field->sObjectName?>][<?=$field->sFieldAs?>Name][]" <? if ($field->bReadOnly) { ?>readonly="readonly"<? } elseif ($field->bDisabled) { ?>disabled="disabled"<? } ?>>
+    <input type="hidden" name="arrObjectData[<?=$field->sObjectName?>][<?=$field->sFieldAs?>][]" value="<?=$data['ID']?>" sFieldAs="<?=$field->sFieldAs?>"/>
+</div>

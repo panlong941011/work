@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport"
+          content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>收货地址管理</title>
+    <link rel="stylesheet" href="../css/common.css">
+	<link rel="stylesheet" href="../css/address.css">
+	<link rel="stylesheet" type="text/css" href="../css/ydui.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="address_wrap">
+		<div class="ad_header">
+			<a href="javascript:;" class="ad_back">
+				<span class="icon">&#xe885; </span>
+			</a>
+			<h2>收货地址管理</h2>
+		</div>
+		<div class="ad_list">
+			<ul>
+				<li>
+					<div class="address_item">
+						<div class="address_info flex">
+							<span>收货人：刘晓林</span>
+							<span>15280217510</span>
+						</div>
+						<div class="address_detail">收货地址：福建省厦门市湖里区软件园二期观日路28号之二202</div>
+					</div>
+					<div class="address_ops flex">
+						<div class="address_set">
+							<span class="address_set_btn default">已设为默认</span>
+						</div>	
+						<div class="address_other flex">
+							<div class="address_edit">
+								<span>编辑</span>
+							</div>
+							<div class="address_del">
+								<span>删除</span>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="address_item">
+						<div class="address_info flex">
+							<span>收货人：刘晓林</span>
+							<span>15280217510</span>
+						</div>
+						<div class="address_detail">收货地址：福建省厦门市湖里区软件园二期观日路28号之二202</div>
+					</div>
+					<div class="address_ops flex">
+						<div class="address_set">
+							<span class="address_set_btn">设为默认地址</span>
+						</div>	
+						<div class="address_other flex">
+							<div class="address_edit">
+								<span>编辑</span>
+							</div>
+							<div class="address_del">
+								<span>删除</span>
+							</div>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="address_item">
+						<div class="address_info flex">
+							<span>收货人：刘晓林</span>
+							<span>15280217510</span>
+						</div>
+						<div class="address_detail">收货地址：福建省厦门市湖里区软件园二期观日路28号之二202</div>
+					</div>
+					<div class="address_ops flex">
+						<div class="address_set">
+							<span class="address_set_btn">设为默认地址</span>
+						</div>	
+						<div class="address_other flex">
+							<div class="address_edit">
+								<span>编辑</span>
+							</div>
+							<div class="address_del">
+								<span>删除</span>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="add_new">添加新地址</div>
+	</div>
+	<!-- <div class="add_new">添加新地址</div> -->
+
+	<div class="add_mask" style="display: none;">
+		<div class="addr_main">
+	        <div class="addr_title">添加新收货地址</div>
+	        <div class="address_receiver">
+	            <input class="addr_name" id="name" placeholder="名字" type="text">
+	            <input class="addr_mobile" id="mobile" placeholder="电话" type="tel">
+	        </div>
+	        <div class="addr_region">
+	            <input type="text" readonly id="J_Address" class="c_area flexOne" name="input_area" placeholder="请选择地区">   
+	        </div>
+	        <div class="addr_address">
+	            <textarea id="address_text" placeholder="详细地址（可填写街道、小区、大厦）" class="detail_position"></textarea>
+	        </div>
+	        <div class="addr_save">保存</div>
+	        <div class="addr_close"></div>
+	    </div>
+	</div>
+	
+	<div class="selection_bar">
+	    <div class="select_name"></div>
+	    <div class="select_chose flex">
+	        <span class="select_cancel flexOne">取消</span>
+	        <span class="select_sure flexOne">确认</span>
+	    </div>
+	</div>
+	<div id="tip"></div>
+
+	<div class="weui-loading_toast" style="display: none;">
+	    <div class="weui-mask_transparent"></div> 
+	    <div class="weui-toast">
+	        <i class="weui-loading weui-icon_toast"></i> 
+	    </div>
+	</div>
+
+	<div class="mask"></div>
+
+</body>
+<script src="../js/common.js"></script>
+<script src='../js/jquery.min.js'></script>
+<script src="../js/ydui.citys.js"></script>
+<script src="../js/ydui.js"></script>
+</script>
+<script>
+	$(function() {
+
+		var areaType = '' //地址处理类型
+        //设置默认地址
+        $('.address_set').on('click', function () {
+            var id = $(this).parents('li').data('id');
+            $('.address_set_btn').removeClass('default');
+            $(this).children('.address_set_btn').addClass('default');
+            $('.weui-loading-toast').show();
+            $.get('/address/setdef', //post 看效果 实际用get,具体看接口需要特别注意
+                {
+                    id: id
+                },
+                function (res) {
+                    console.log(res);
+                    $('.weui-loading-toast').hide();
+                }, 'json');
+        })
+        //新建地址
+        $('.add_new').on('click', function () {
+            areaType = 'new';
+            $('.addr_title').html('添加新收货地址');
+            //清空所有赋值
+            $('#name').val('');
+            $('#mobile').val('');
+            $('#J_Address').val('');
+            $('#address_text').val('');
+
+            $('.add_mask').show();
+            $('body,html').css('overflow', 'hidden');
+            $('.add_mask').height($(window).height());
+
+            $('body').on('touchmove', function (event) {
+                event.preventDefault()
+            })
+        })
+        $('.addr_close').on('click', function (event) {
+            event.stopPropagation();
+            $('.add_mask').hide();
+
+            $('body,html').css('overflow', '');
+            $("body").unbind("touchmove");
+        })
+
+        //编辑地址
+        var editId = '';
+        $('.address_edit').on('click', function () {
+            areaType = 'edit'
+            editId = $(this).parents('li').data('id');
+            $('.addr_title').html('编辑地址');
+            $('.weui-loading-toast').show();
+            $.ajax({
+                url: '/address/edit',
+                dataType: 'json',
+                data: {addressid: editId},
+                type: 'get',
+                success: function (data, status, xhr) {
+                    console.log(data);
+
+                    $('.weui-loading-toast').hide();
+
+                    if (!data.status) {
+                        shoperm.showTip(data.message);
+                        return false;
+                    }
+
+                    $('#name').val(data.name);
+                    $('#mobile').val(data.mobile);
+                    $('#J_Address').val(data.area);
+                    $('#address_text').val(data.address);
+                    $('.add_mask').show();
+                    listenerVal();
+                }
+            });
+
+        })
+
+        var delId = '';
+        //删除地址
+        $('.address_del').on('click', function () {
+            delId = $(this).parents('li').data('id');
+            $('.mask').show();
+            shoperm.selection('确定要删除该地址么', delAddress, cancelDel);
+        })
+        //先确定 再取消
+        function delAddress() {
+            $('.mask').hide();
+            $('.weui-loading-toast').show();
+            $.post('/address/del',
+                {
+                    id: delId
+                }, function (res) {
+
+                    location.reload();
+
+                }, 'json')
+        }
+
+        function cancelDel() {
+            $('.mask').hide();
+        }
+
+        //保存地址
+        $('.addr_save').on('click', function () {
+            var sName = $('.addr_name').val(),
+                sPhone = $('.addr_mobile').val();
+            sArea = $('.c_area').val().split(' ').join(','); //分割成后端的数据格式
+            sPosition = $('.detail_position').val();
+            validate = /^1\d{10}$/,
+                areaData = {
+                    name: sName,
+                    mobile: sPhone,
+                    area: sArea,
+                    address: sPosition
+                };
+            if (sName == '') {
+                shoperm.showTip("收货人名字不能为空");
+                return;
+            }
+            if (sName.length > 8) {
+                shoperm.showTip("名字不能超过8个字");
+                $('.addr_name').addClass('input_error');
+                return;
+            }
+            if (sPhone == '') {
+                shoperm.showTip("收货人电话不能为空");
+                return;
+            }
+            if (!validate.test(sPhone)) {
+                $('.addr_mobile').addClass('input_error');
+                shoperm.showTip("请输入正确的手机号");
+                return;
+            }
+            if (sArea == '') {
+                shoperm.showTip("请选择地区");
+                return;
+            }
+            if (sPosition == '') {
+                shoperm.showTip("详细地址不能为空");
+                return;
+            }
+            if (sPosition.length > 60) {
+                $('.detail_position').addClass('input_error');
+                shoperm.showTip("地址不能超过60个字");
+                return;
+            }
+
+            $('.weui-loading-toast').show();
+            //判断新建还是编辑
+            if (areaType == 'new') {
+
+                $.post('/address/new', areaData,
+                    function (res) {
+                        console.log(res);
+
+                        $('.weui-loading-toast').hide();
+                        $('.add_mask').hide();
+
+                        if (res.status) {
+                            //location.href = "<?= \yii\helpers\Url::toRoute(["/cart/checkout"],true) ?>?addressid=" + res.addressid;
+
+                        } else {
+                            shoperm.showTip(res.message);
+                        }
+
+                    }, 'json')
+
+            }
+            if (areaType == 'edit') {
+                areaData.addressid = editId;
+                $.post('/address/edit', areaData,
+                    function (res) {
+                        console.log(res);
+
+                        $('.weui-loading-toast').hide();
+                        $('.add_mask').hide();
+
+                        if (res.status) {
+                            //location.href = "<?= \yii\helpers\Url::toRoute(["/cart/checkout"],true) ?>?addressid=" + editId;
+
+                        } else {
+                            shoperm.showTip(res.message);
+                        }
+                    }, 'json')
+
+            }
+
+        })
+
+        //信息填写完全时显示保存按钮颜色
+        $('.addr_name,.addr_mobile,.detail_position').on('input', function () {
+            listenerVal();
+        });
+        $('.addr_name,.addr_mobile,.detail_position').on('click', function () {
+            $(this).removeClass('input_error');
+        });
+
+	})
+
+	function listenerVal() {
+		var name = $('.addr_name').val(),
+			phone = $('.addr_mobile').val(),
+			area = $('.c_area').val(),
+			position = $('.detail_position').val();
+		if( name !== ''&& phone !== ''&& area !== ''&& position !== '' ) {
+			$('.addr_save').addClass('active');
+		} else {
+			$('.addr_save').removeClass('active');
+		}
+	}
+</script>
+<script>
+	var $target = $('#J_Address');
+    $target.citySelect();
+    $target.on('click', function (event) {
+        event.stopPropagation();
+        $target.citySelect('open');
+
+    });
+    $target.on('done.ydui.cityselect', function (ret) {
+
+        $(this).val(ret.provance + ' ' + ret.city + ' ' + ret.area);
+        listenerVal();
+    });
+
+</script>
+</html>

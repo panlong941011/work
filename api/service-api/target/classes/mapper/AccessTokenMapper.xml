@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="group.dny.api.mapper.AccessTokenMapper">
+    <insert id="insertToken" parameterType="group.dny.api.entity.AccessToken">
+        INSERT
+        INTO
+            AccessToken
+        (sToken,
+         BuyerID,
+         dNewDate,
+         dExpireDate)
+        VALUES
+        (#{sToken},
+         #{BuyerID},
+         #{dNewDate},
+         #{dExpireDate})
+    </insert>
+
+    <select id="getAccessTokenByToken" parameterType="group.dny.api.entity.AccessToken"
+            resultType="group.dny.api.entity.AccessToken">
+        SELECT sToken,BuyerID,dNewDate,dExpireDate
+        FROM AccessToken
+        WHERE sToken = #{sToken}
+        ORDER BY dNewDate DESC
+    </select>
+
+    <select id="getAccessTokenByBuerID" parameterType="group.dny.api.entity.AccessToken"
+            resultType="group.dny.api.entity.AccessToken">
+        SELECT sToken,BuyerID,dNewDate,dExpireDate
+        FROM AccessToken
+        WHERE BuyerID = #{BuyerID}
+        ORDER BY dNewDate DESC limit 1
+    </select>
+
+    <delete id="delAccessTokenEachWeek">
+        DELETE FROM
+        AccessToken
+        <where>
+            ${ew.sqlSegment}
+        </where>
+    </delete>
+
+    <update id="updateAccessDateByToken" parameterType="group.dny.api.entity.AccessToken">
+        UPDATE AccessToken
+        SET dExpireDate= #{dExpireDate}
+        WHERE sToken = #{sToken}
+    </update>
+</mapper>

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: service-api
+#app:
+#  id: DnyCloudService
+#apollo:
+#  meta: http://192.168.0.206:14001
+#  bootstrap:
+#    enabled: true

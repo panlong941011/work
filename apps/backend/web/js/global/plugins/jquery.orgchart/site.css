@@ -1,0 +1,58 @@
+body {
+    padding-top        : 60px;
+}
+
+div.orgChart {
+    display            : inline-block;
+	font-size          : 1em;
+	background-color   : whitesmoke;
+	margin             : 0;
+	border-radius      : 4px;
+	width              : 100%;  
+}
+
+div.orgChart h1,
+div.orgChart h2,
+div.orgChart h3,
+div.orgChart h4,
+div.orgChart h5 {
+	margin             : 0;
+	padding            : 0;
+	line-height        : inherit;
+}
+
+div.orgChart div.node {
+	padding            : 3px;
+	border-radius      : 5px;
+	border-width       : 1px;
+	background-color   : linen;
+	width              : 76px;
+}
+
+div.orgChart ul.stack {
+	display            : inline-block;
+	border             : 1px dotted black;
+	background-color   : antiquewhite;
+	margin-top         : 20px;
+	padding            : 4px;
+	min-width          : 150px;
+	font-size          : 13px;
+    box-shadow         : 2px 2px 3px #888888;	
+}
+
+div.orgChart div.node.drama-title + div.stack-container > ul.stack > li {
+    margin-bottom      : 10px;
+}
+
+div.orgChart div.node.drama-title + div.stack-container > ul.stack > li:last-child {
+    border-top         : 1px dotted black;
+    margin-bottom      : 0;
+}
+
+div.orgChart div.node.level1.drama-title {
+    cursor             : pointer; 
+}
+
+div#org-chart-container {
+    margin-bottom      : 20px;
+}

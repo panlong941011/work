@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1,minimum-scale=1,user-scalable=no,width=device-width,initial-scale=1.0" />
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <meta name="wap-font-scale" content="no">
+    <meta name="imagemode" content="force">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>收银台</title>
+	
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet"   href="../../css/supplierMain.css">
+    <script src="../js/hotcss.js"></script>
+</head>
+<body>
+	<div class="cashier">
+		<div class="ad_header">
+	        <a href="javascript:;" class="ad_back">
+	            <span class="icon">&#xe885;</span>
+	        </a>
+	        <h2>收银台</h2>
+	    </div>
+	    <div class="cashier_top">
+			<div class="order_number flex">
+				<span class="">订单编号</span>
+				<em>201511131520793</em>
+		    </div>
+		    <div class="order_amount flex">
+				<span>订单金额</span>
+				<em class="amount">¥ 156.00</em>
+		    </div>
+	    </div>
+	    <div class="pay">
+			<a href="javascript:;" class="wxPay flex">
+				<div class="wx_pic">
+					<img src="../../images/supplier/wxpay.png">
+				</div>
+				<div class="pay_info">
+					<h3>微信支付</h3>
+					<p>微信安全支付</p>
+				</div>
+		    </a>
+		    <a href="javascript:;" class="goldPay flex">
+				<div class="gold_pic">
+					<img src="../../images/supplier/goldpay.png">
+				</div>
+				<div class="pay_info">
+					<h3>金币支付</h3>
+					<p>当前余额：<em>¥100.00</em></p>
+				</div>
+		    </a>
+	    </div>
+	</div>
+	<!-- 弹框提示 -->
+	<div class="message_wrap">
+	    <div class="message_alert">
+	        <h2 class="alert_title">确认要用金币支付么？</h2>
+	        <div class="btn_wrap flex">
+	            <div class="alert_close">取消</div>
+	            <a href="/seller/bindbank" class="alert_btn">确认</a>
+	        </div>
+
+	    </div>
+	</div>
+</body>
+<!-- <?php $this->beginBlock('foot') ?> -->
+<script src="../../js/zepto.min.js"></script>
+<script>
+    $(function () {
+    	//显示弹框
+    	$('.goldPay').on('click',function() {
+    		$('.message_wrap').show();
+    	});
+    	$('.alert_close').on('click',function() {
+    		$('.message_wrap').hide();
+    	})
+
+    	//使用金币
+    	$('.alert_btn').on('click',function() {
+    		
+    	})
+
+    })
+</script>
+<!-- <?php $this->endBlock() ?> -->
+</html>
